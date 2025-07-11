@@ -36,7 +36,13 @@ export default function SmartTools() {
         {tools.map((tool, idx) => (
           <div
             key={idx}
-            className="bg-[#242a30] border border-gray-700 rounded-xl p-6 text-left hover:shadow-md transition"
+            className="
+              bg-[#242a30] border border-gray-700 rounded-xl p-6 text-left 
+              hover:shadow-md 
+              hover:-translate-y-2 
+              hover:bg-gradient-to-r hover:from-[#10295c] hover:to-[#101828]
+              transition-transform transition-colors duration-500 ease-in-out
+            "
           >
             <div className="w-14 h-14 rounded-full bg-[#34383b] flex items-center justify-center mb-4">
               <Image
