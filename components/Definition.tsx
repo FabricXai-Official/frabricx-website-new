@@ -29,7 +29,6 @@ export default function Definition() {
               }`}
             style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
           >
-            {/* Tick Box - absolutely positioned to left */}
             <span
               className={`absolute left-4 w-5 h-5 flex items-center justify-center rounded-sm border-2
                 ${
@@ -53,7 +52,6 @@ export default function Definition() {
               )}
             </span>
 
-            {/* Text centered with padding left to avoid overlapping tick box */}
             <span className="w-full text-center pl-6">
               Buying House
             </span>
@@ -70,7 +68,6 @@ export default function Definition() {
               }`}
             style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
           >
-            {/* Tick Box - absolutely positioned to left */}
             <span
               className={`absolute left-4 w-5 h-5 flex items-center justify-center rounded-sm border-2
                 ${
@@ -93,8 +90,6 @@ export default function Definition() {
                 </svg>
               )}
             </span>
-
-            {/* Text centered with padding left */}
             <span className="w-full text-center pl-6">
               Garments Manufacturers
             </span>
