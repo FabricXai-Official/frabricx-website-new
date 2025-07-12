@@ -69,22 +69,23 @@ export default function SolutionsAndChallenges() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-12">
         {/* Solutions + Buttons */}
         <div className="flex flex-col md:max-w-[500px] w-full">
-            <div className="bg-[#34383b] hover:bg-[#2a2d30] rounded-xl p-8 w-full hover:scale-105 transform transition-all duration-300">
-            <h3 className="text-2xl font-bold text-[#f2f827] mb-6">Solutions</h3>
-            <ul className="space-y-5">
-                {solutions.map((item, index) => (
-                <li key={index} className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#1a2025] flex items-center justify-center rounded-full overflow-hidden">
-                    <Image src={item.icon} alt="" width={20} height={20} />
-                    </div>
-                    <div>
-                    <p className="font-semibold text-white">{item.title}</p>
-                    <p className="text-sm text-gray-400">{item.description}</p>
-                    </div>
-                </li>
-                ))}
-            </ul>
-            </div>
+<div className="bg-[#34383b] hover:bg-[#2a2d30] rounded-xl p-8 w-full hover:scale-105 transform transition-all duration-300">
+  <h3 className="text-2xl font-bold text-[#f2f827] mb-6">Solutions</h3>
+  <ul className="space-y-5">
+    {solutions.map((item, index) => (
+      <li key={index} className="flex items-start gap-4">
+        <div className="w-10 h-10 bg-[#1a2025] rounded-full flex items-center justify-center flex-shrink-0">
+          <Image src={item.icon} alt="" width={20} height={20} />
+        </div>
+        <div>
+          <p className="font-semibold text-white">{item.title}</p>
+          <p className="text-sm text-gray-400">{item.description}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row self-center gap-4 mt-6">
@@ -99,22 +100,22 @@ export default function SolutionsAndChallenges() {
 
         {/* Challenges */}
         <div className="rounded-xl border border-white hover:bg-[#0f141a] hover:scale-105 transform transition-all duration-300 p-10 flex-1 flex flex-col justify-between md:max-w-[550px] w-full">
-        <div>
+          <div>
             <h3 className="text-2xl font-bold text-[#f2f827] mb-6">Challenges</h3>
             <ul className="space-y-5">
-            {challenges.map((item, index) => (
+              {challenges.map((item, index) => (
                 <li key={index} className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-[#2c313a] flex items-center justify-center rounded-full">
+                  <div className="w-10 h-10 bg-[#2c313a] flex items-center justify-center rounded-full">
                     <Image src={item.icon} alt="" width={20} height={20} />
-                </div>
-                <div>
+                  </div>
+                  <div>
                     <p className="font-semibold text-[#f2f827]">{item.title}</p>
                     <p className="text-sm text-gray-400">{item.description}</p>
-                </div>
+                  </div>
                 </li>
-            ))}
+              ))}
             </ul>
-        </div>
+          </div>
         </div>
       </div>
     </section>
