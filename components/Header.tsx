@@ -71,8 +71,8 @@ export default function Header() {
           </div>
         </NavbarBrand>
         <div className="flex md:order-2 gap-2">
-          <Button color="alternative">Get a Demo</Button>
-          <CTA>Get started</CTA>
+          <Button color="alternative" className="hidden md:block">Get a Demo</Button>
+          <CTA className="hidden md:block">Get started</CTA>
           <NavbarToggle />
         </div>
         <NavbarCollapse>
