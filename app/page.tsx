@@ -1,3 +1,4 @@
+import Defination from "@/components/Definition";
 import Hero from "@/components/Hero";
 import SmartTools from "@/components/SmartTools";
 import SolutionsAndChallenges from "@/components/SolutionsAndChallenges";
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <SmartTools />
       <SolutionsAndChallenges />
+      <Defination />
     </main>
   );
 }
