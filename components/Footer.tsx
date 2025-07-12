@@ -69,11 +69,11 @@ export default function Footer() {
         </div>
         <div className="rounded-lg border-2 border-[#101725]">
           <GoogleMapsEmbed
-            apiKey="XYZ"
+            apiKey="AIzaSyBKB5MZJITnpOS_Z5e0NR_uT0JTWnIGa9c"
             height={200}
             width={360}
             mode="place"
-            q="Brooklyn+Bridge,New+York,NY"
+            q="21+Jigatola+Dhaka"
           />
         </div>
       </div>
