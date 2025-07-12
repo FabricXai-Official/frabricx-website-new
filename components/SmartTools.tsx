@@ -26,7 +26,7 @@ export default function SmartTools() {
 
   return (
     <section className="bg-gradient-to-t from-[#363a3d] to-[#a5adb4] rounded-3xl p-8 md:p-16 text-white shadow-lg">
-      <h2 className="text-3xl md:text-4xl font-medium text-center mb-4 text-[#13191d] font-chillax">
+      <h2 className="text-3xl md:text-4xl font-medium text-center mb-4 text-[#13191d] font-mono">
         Smart Tools for Smarter Operations
       </h2>
       <p className="text-[#13191d] text-center mb-12 max-w-3xl mx-auto">

@@ -12,7 +12,7 @@ import { GoogleMapsEmbed } from "@next/third-parties/google";
 export default function Footer() {
   return (
     <footer className="bg-[#34383B] m-0 p-0 text-[#A8B0B7]">
-      <div className="m-0 py-4 px-24 flex items-center justify-between text-center">
+      <div className="m-0 py-4 px-8 lg:px-24 flex flex-col lg:flex-row items-start lg:items-center justify-between text-center">
         <div>
           <div className="pt-6">
             <FabricXAi />
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="h-full">
-          <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-row lg:flex-col items-center justify-center gap-6 py-4">
             <a href="#">
               <LinkedIn />
             </a>
@@ -69,15 +69,15 @@ export default function Footer() {
         </div>
         <div className="rounded-lg border-2 border-[#101725]">
           <GoogleMapsEmbed
-            apiKey="XYZ"
+            apiKey="AIzaSyBKB5MZJITnpOS_Z5e0NR_uT0JTWnIGa9c"
             height={200}
             width={360}
             mode="place"
-            q="Brooklyn+Bridge,New+York,NY"
+            q="21+Jigatola+Dhaka"
           />
         </div>
       </div>
-      <div className="m-0 py-4 px-24 flex items-center justify-between text-center border-t border-[#DFE1F433]">
+      <div className="m-0 py-4 px-8 md:px-24 flex flex-col md:flex-row items-center justify-between text-center border-t border-[#DFE1F433]">
         <p>© 2025 fabricXai. All rights reserved.</p>
         <div className="flex gap-4">
           <Link href="/privacy-policy">Privacy Policy</Link>
