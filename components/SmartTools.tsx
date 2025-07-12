@@ -37,11 +37,10 @@ export default function SmartTools() {
           <div
             key={idx}
             className="
-              bg-[#242a30] border border-gray-700 rounded-xl p-6 text-left 
-              hover:shadow-md 
-              hover:-translate-y-2 
+              group relative bg-[#242a30] border border-gray-700 rounded-xl 
+              p-6 text-left h-[220px] overflow-hidden
+              transition-transform duration-300 ease-in-out hover:scale-105
               hover:bg-gradient-to-r hover:from-[#10295c] hover:to-[#101828]
-              transition-transform transition-colors duration-500 ease-in-out
             "
           >
             <div className="w-14 h-14 rounded-full bg-[#34383b] flex items-center justify-center mb-4">
@@ -52,10 +51,21 @@ export default function SmartTools() {
                 height={24}
               />
             </div>
-            <h3 className="text-lg font-semibold text-[#f2f827] mb-2">
+            <h3 className="text-xl md:text-2xl font-semibold text-[#f2f827] mb-2">
               {tool.title}
             </h3>
-            <p className="text-sm text-[#d1d5db]">{tool.description}</p>
+
+            {/* Description hidden by default, appears smoothly */}
+            <p
+              className="
+                absolute bottom-6 left-6 right-6 text-sm text-[#d1d5db] 
+                opacity-0 translate-y-4 
+                group-hover:opacity-100 group-hover:translate-y-0
+                transition-all duration-300 ease-in-out
+              "
+            >
+              {tool.description}
+            </p>
           </div>
         ))}
       </div>
