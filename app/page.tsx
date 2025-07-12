@@ -1,3 +1,4 @@
+import AiPowered from "@/components/AiPowered";
 import Defination from "@/components/Definition";
 import Hero from "@/components/Hero";
 import SmartTools from "@/components/SmartTools";
@@ -10,6 +11,7 @@ export default function Home() {
       <SmartTools />
       <SolutionsAndChallenges />
       <Defination />
+      <AiPowered />
     </main>
   );
 }
