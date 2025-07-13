@@ -8,29 +8,42 @@ interface FeatureItem {
   description: string;
 }
 
-// FeatureCard component
+// FeatureCard component - Individual card with hover effects
 const FeatureCard = ({ title, description }: FeatureItem) => (
   <div
-    className="
+    className={`
       group relative bg-gray-800/50 backdrop-blur-sm border border-yellow-400/50 
-      rounded-2xl p-8 text-center h-[260px] overflow-hidden 
-      transition-transform duration-300 ease-in-out hover:scale-105
-    "
+      rounded-2xl text-center overflow-hidden 
+      transition-all duration-300 ease-in-out transform hover:scale-105
+      h-[180px] hover:h-[320px] w-full max-w-xs mx-auto
+      hover:bg-[linear-gradient(to_bottom_right,_rgba(242,248,39,0.22),_rgba(242,248,39,0))]
+    `}
   >
-    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors duration-300">
-      {title}
-    </h3>
-    <p
-      className="
-        absolute bottom-6 left-6 right-6 text-sm text-gray-300 
-        opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0
-        transition-all duration-300 ease-in-out
-      "
-    >
-      {description}
-    </p>
+    <div className="w-full h-full px-6 py-4 relative">
+      {/* Title */}
+      <h3
+        className="text-xl md:text-2xl font-bold text-[#F2F827] whitespace-pre-line
+          transition-all duration-300 
+          absolute inset-0 flex items-center justify-center text-center 
+          group-hover:static group-hover:mb-4"
+      >
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p
+        className="text-base md:text-lg text-white opacity-0 translate-y-4 
+          group-hover:opacity-100 group-hover:translate-y-0
+          transition-all duration-300 ease-in-out whitespace-pre-line"
+      >
+        {description}
+      </p>
+    </div>
   </div>
 );
+
+
+
 
 // Main Component
 export default function AiPowered() {
@@ -39,104 +52,134 @@ export default function AiPowered() {
 
   const brmFeatures: FeatureItem[] = [
     {
-      title: "AI-Driven Personalized Buyer Communication",
+      title: "AI-Driven \nPersonalized Buyer \nCommunication",
       description:
         "Enables hyper-personalized, emotion-aware, and language-adapted communication with each buyer, improving trust and conversion rates.",
     },
     {
-      title: "Production Management System",
+      title: "Production \nManagement \nSystem",
       description:
         "Streamlines lead acquisition and automates nurturing workflows to boost sample-to-order conversion, reducing manual follow-ups and errors.",
     },
     {
-      title: "Automated Lead Qualification & Nurturing",
+      title: "Automated Lead \nQualification & \nNurturing",
       description:
         "Analyzes buyer sentiment and engagement data to predict risks and opportunities, empowering proactive decision-making and higher buyer satisfaction.",
     },
   ];
 
-  const stychxFeatures: FeatureItem[] = [
+  const piFeatures: FeatureItem[] = [
     {
-      title: "Get a free website in less than 15 minutes",
+      title: "Order Management System",
       description:
-        "",
+        "Centralizes all orders from Tech Pack to PP sample approval status with real-time tracking, predictive delay alerts, and automated workflow updates — empowering faster, error-free fulfillment.",
     },
     {
-      title: "Website Maintenance",
+      title: "Inventory Management System (Coming Soon)",
+      description:
+        "Optimizes raw material and finished goods inventory with real-time visibility, \nAI-powered demand forecasting, and automated stock alerts to reduce waste and avoid shortages.",
+    },
+    {
+      title: "Production Management System (Coming Soon)",
+      description:
+        "Streamlines production from line planning to shipment with real-time floor visibility, \nAI-driven bottleneck alerts, and data-backed efficiency optimization.",
+    },
+  ];
+
+  const stychxFeatures: FeatureItem[] = [
+    {
+      title: "Get a free website in \nless than 15 minutes",
+      description: "StychX guides you step-by-step to create a beautiful, conversion-ready website instantly. Just add your factory or buying house details, and you're live!",
+    },
+    {
+      title: "Website \nMaintenance",
       description:
         "StychX handles all technical maintenance behind the scenes, ensuring your site stays fast, secure, & always on-line without extra cost.",
     },
     {
-      title: "AI based SEO Optimization Assistance",
-      description:
-        "",
+      title: "AI based SEO \nOptimization \nAssistance",
+      description: "Our AI engine recommends keywords, optimizes product pages, and ensures your website ranks higher to attract international buyers effortlessly.",
     },
   ];
 
+  const featuresToDisplay = activeTab === "brm" ? brmFeatures : piFeatures;
+
+  const renderFeatureCards = (features: FeatureItem[]) => (
+    <div className="w-full mb-12 px-16">
+      <div className="flex flex-col md:flex-row justify-center items-start gap-2">
+        {features.map((feature, idx) => (
+          <div 
+            key={idx} 
+            className="flex-1"
+          >
+            <FeatureCard
+              title={feature.title}
+              description={feature.description}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div
-      className="relative bg-no-repeat bg-cover bg-center py-16 sm:py-24"
+      className="relative w-full bg-no-repeat bg-cover bg-center py-16 sm:py-24"
       style={{ backgroundImage: "url('/bg/bg2.png')" }}
     >
-      {/* <div className="absolute inset-0 bg-black/30"></div> */}
-
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
             fabricXai's AI-Powered Solutions
           </h1>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-[#a8b0b7]">
             Comprehensive tools designed specifically for the RGM manufacturing industry.
           </p>
         </div>
 
         {/* Toggle Buttons */}
-        <div className="flex justify-center items-center gap-2 sm:gap-4 bg-gray-900/70 backdrop-blur-sm p-2 rounded-full max-w-md mx-auto mb-12">
+        <div className="flex justify-center items-center flex-wrap gap-2 sm:gap-4 p-2 rounded-full max-w-fit mx-auto mb-12">
           <button
             onClick={() => setActiveTab("brm")}
-            className={`w-full px-4 py-2 text-sm sm:text-base font-semibold rounded-full transition-colors duration-300 ${
+            className={`px-4 py-2 text-sm sm:text-base font-semibold rounded-full border border-white whitespace-nowrap transition-colors duration-300 ${
               activeTab === "brm"
                 ? "bg-white text-gray-900"
-                : "bg-transparent text-white hover:bg-gray-700"
+                : "bg-transparent text-white hover:bg-white/30"
             }`}
           >
             Buyer Relationship Management (BRM)
           </button>
           <button
             onClick={() => setActiveTab("pi")}
-            className={`w-full px-4 py-2 text-sm sm:text-base font-semibold rounded-full transition-colors duration-300 ${
+            className={`px-4 py-2 text-sm sm:text-base font-semibold rounded-full border border-white whitespace-nowrap transition-colors duration-300 ${
               activeTab === "pi"
                 ? "bg-white text-gray-900"
-                : "bg-transparent text-white hover:bg-gray-700"
+                : "bg-transparent text-white hover:bg-white/30"
             }`}
           >
             Production Intelligence
           </button>
         </div>
 
-        {/* Features Grid - BRM */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {brmFeatures.map((feature, idx) => (
-            <FeatureCard
-              key={idx}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
-        </div>
+        {/* Features Section */}
+        {renderFeatureCards(featuresToDisplay)}
 
         {/* Call to Action */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <p className="text-sm text-gray-300 mr-4">
-            Exclusive Offer! Free Production Intelligence for You
-          </p>
-          <button className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition-transform duration-300 transform hover:scale-105 w-full sm:w-auto">
-            Learn More
-          </button>
-          <button className="bg-transparent border-2 border-gray-500 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 hover:border-gray-400 transition-colors duration-300 w-full sm:w-auto">
-            Be an early bird
-          </button>
+        <div className="flex flex-col justify-center items-center gap-4 text-center mb-12">
+          <div className="text-sm text-gray-300 leading-snug font-medium">
+            Exclusive Offer! <span className="text-[#F2F827]">Free</span>
+            <br />
+            Production Intelligence for You
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-xs sm:max-w-none">
+            <button className="bg-[#F2F827] text-black font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-yellow-300 transition duration-300">
+              Learn More
+            </button>
+            <button className="bg-transparent border-2 border-gray-500 text-white font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-gray-700 hover:border-gray-400 transition duration-300">
+              Be an early bird
+            </button>
+          </div>
         </div>
 
         {/* --- Bottom Section: stychX --- */}
@@ -147,7 +190,7 @@ export default function AiPowered() {
               onClick={() => setActiveBottomTab("rmg")}
               className={`w-full px-4 py-2 text-sm sm:text-base font-semibold rounded-full transition-colors duration-300 ${
                 activeBottomTab === "rmg"
-                  ? "bg-white text-gray-900"
+                  ? "bg-[#a8b0b7] text-gray-900"
                   : "bg-transparent text-white hover:bg-gray-700"
               }`}
             >
@@ -156,26 +199,22 @@ export default function AiPowered() {
           </div>
 
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-white tracking-wider">stychX</h2>
+            <img
+              src="/icons/stychx.svg"
+              alt="stychX Logo"
+              className="mx-auto w-40 h-auto"
+            />
           </div>
 
-          {/* stychX Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {stychxFeatures.map((feature, idx) => (
-              <FeatureCard
-                key={idx}
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
-          </div>
+          {/* stychX Cards Section */}
+          {renderFeatureCards(stychxFeatures)}
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition-transform duration-300 transform hover:scale-105 w-full sm:w-auto">
+            <button className="bg-[#F2F827] text-black font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-yellow-300 transition duration-300">
               Learn More
             </button>
-            <button className="bg-transparent border-2 border-gray-500 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 hover:border-gray-400 transition-colors duration-300 w-full sm:w-auto">
+            <button className="bg-transparent border-2 border-gray-500 text-white font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-gray-700 hover:border-gray-400 transition duration-300">
               Be an early bird
             </button>
           </div>
