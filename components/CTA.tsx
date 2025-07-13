@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { Button, createTheme, ThemeProvider } from "flowbite-react";
 import React from "react";
 
