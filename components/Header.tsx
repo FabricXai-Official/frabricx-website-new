@@ -14,7 +14,7 @@ import CTA from "./CTA";
 const theme = createTheme({
   navbar: {
     root: {
-      base: "bg-transparent px-2 py-2.5 sm:px-4",
+      base: "bg-[#13191D] px-2 py-2.5 sm:px-4",
       rounded: {
         on: "rounded",
         off: "",
@@ -64,7 +64,7 @@ const theme = createTheme({
 export default function Header() {
   return (
     <ThemeProvider theme={theme} applyTheme="replace">
-      <Navbar fluid rounded>
+      <Navbar fluid>
         <NavbarBrand href="#">
           <div className="flex items-center justify-center h-6 sm:h-9 ">
             <FabricXAi />
