@@ -10,6 +10,14 @@ import {
 } from "flowbite-react";
 import FabricXAi from "@/public/icons/fabricxai.svg";
 import CTA from "./CTA";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import RequestDemoForm from "./RequestDemoForm";
 
 const theme = createTheme({
   navbar: {
@@ -71,7 +79,18 @@ export default function Header() {
           </div>
         </NavbarBrand>
         <div className="flex md:order-2 gap-2">
-          <Button color="alternative" className="hidden md:block">Get a Demo</Button>
+          <Dialog>
+            <DialogTrigger asChild><Button color="alternative" className="hidden md:block">Get a Demo</Button></DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Enter Your Details</DialogTitle>
+              </DialogHeader>
+              <div>
+                <RequestDemoForm />
+              </div>
+            </DialogContent>
+          </Dialog>
+
           <CTA className="hidden md:block">Get started</CTA>
           <NavbarToggle />
         </div>
