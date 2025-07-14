@@ -39,7 +39,7 @@ export default function SeeInAction() {
   ];
 
   return (
-    <div className="w-full px-24 py-16">
+    <div className="w-full px-12 md:px-24 py-16">
       <div className="max-w-4xl mx-auto text-center mb-12 px-2 sm:px-0">
         <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
           See fabricXai in Action
@@ -49,9 +49,9 @@ export default function SeeInAction() {
           relationships & scale confidently all in one platform.
         </p>
       </div>
-      <div className="flex w-full justify-between">
-        <div className="flex flex-col justify-between gap-8 w-1/2">
-          <div className="flex gap-4 w-full">
+      <div className="flex flex-col md:flex-row w-full justify-between">
+        <div className="flex flex-col justify-between gap-8 w-full lg:w-1/2">
+          <div className="flex flex-col lg:flex-row gap-4">
             <Image
               className="w-24 h-24"
               alt="Feature icon"
@@ -67,10 +67,10 @@ export default function SeeInAction() {
                 {featureCards[0].description}
               </div>
             </div>
-            <div className="w-24 h-24"></div>
+            <div className="hidden lg:block w-24 h-24"></div>
           </div>
-          <div className="flex gap-4">
-            <div className="w-24 h-24"></div>
+          <div className="flex flex-col lg:flex-row gap-4">
+            <div className="hidden lg:block w-24 h-24"></div>
             <Image
               className="w-24 h-24"
               alt="Feature icon"
@@ -88,8 +88,8 @@ export default function SeeInAction() {
               </div>
             </div>
           </div>
-          <div className="flex gap-4">
-            <div className="w-24 h-24"></div>
+          <div className="flex flex-col lg:flex-row gap-4">
+            <div className="hidden lg:block w-24 h-24"></div>
 
             <div className="flex flex-col items-center justify-center rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-8 py-4">
               <div className="font-semibold text-[#f2f827] text-2xl">
@@ -107,7 +107,7 @@ export default function SeeInAction() {
               height={96}
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col lg:flex-row gap-4">
             <div className="flex flex-col items-center justify-center rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-8 py-4">
               <div className="font-semibold text-[#f2f827] text-2xl">
                 {featureCards[3].title}
@@ -123,11 +123,11 @@ export default function SeeInAction() {
               width={96}
               height={96}
             />
-            <div className="w-24 h-24"></div>
+            <div className="hidden lg:block w-24 h-24"></div>
           </div>
         </div>
 
-        <div className="flex flex-col w-1/2 gap-4">
+        <div className="flex flex-col w-full lg:w-1/2 gap-4">
           {/* Demo video section */}
           <div className="w-full h-96">
             {/* <video width="320" height="240" controls preload="none">
