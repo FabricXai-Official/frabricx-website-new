@@ -107,10 +107,9 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-      {/* Gradient Border Box Below FAQ */}
         {/* CTA Section with Gradient Border */}
         <div className="mt-10 flex justify-center">
-        <div className="w-full max-w-4xl p-[1px] rounded-xl bg-gradient-to-b from-gray-400 to-white">
+        <div className="w-full max-w-4xl p-[1px] rounded-xl bg-gradient-to-b from-[#242a30] to-white">
             <div className="bg-[#242a30] rounded-xl px-6 py-6 sm:px-10 sm:py-8 text-white">
             <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
                 {/* Left Column */}
