@@ -4,6 +4,7 @@ import FAQ from "@/components/FAQ";
 import Hero from "@/components/Hero";
 import InsightAndStory from "@/components/InsightAndStory";
 import Partners from "@/components/Partners";
+import SeeInAction from "@/components/SeeInAction";
 import SmartTools from "@/components/SmartTools";
 import SolutionsAndChallenges from "@/components/SolutionsAndChallenges";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <SolutionsAndChallenges />
       <Defination />
       <AiPowered />
+      <SeeInAction />
       <InsightAndStory />
       <FAQ />
     </main>
