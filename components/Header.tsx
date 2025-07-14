@@ -10,11 +10,19 @@ import {
 } from "flowbite-react";
 import FabricXAi from "@/public/icons/fabricxai.svg";
 import CTA from "./CTA";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import RequestDemoForm from "./RequestDemoForm";
 
 const theme = createTheme({
   navbar: {
     root: {
-      base: "bg-transparent px-2 py-2.5 sm:px-4",
+      base: "bg-[#13191D] px-2 py-2.5 sm:px-4",
       rounded: {
         on: "rounded",
         off: "",
@@ -64,14 +72,25 @@ const theme = createTheme({
 export default function Header() {
   return (
     <ThemeProvider theme={theme} applyTheme="replace">
-      <Navbar fluid rounded>
+      <Navbar fluid>
         <NavbarBrand href="#">
           <div className="flex items-center justify-center h-6 sm:h-9 ">
             <FabricXAi />
           </div>
         </NavbarBrand>
         <div className="flex md:order-2 gap-2">
-          <Button color="alternative" className="hidden md:block">Get a Demo</Button>
+          <Dialog>
+            <DialogTrigger asChild><Button color="alternative" className="hidden md:block">Get a Demo</Button></DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Enter Your Details</DialogTitle>
+              </DialogHeader>
+              <div>
+                <RequestDemoForm />
+              </div>
+            </DialogContent>
+          </Dialog>
+
           <CTA className="hidden md:block">Get started</CTA>
           <NavbarToggle />
         </div>
