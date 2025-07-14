@@ -10,7 +10,6 @@ import {
     FormControl,
     FormField,
     FormItem,
-    FormLabel,
     FormMessage,
 } from "@/components/ui/form"
 import {
@@ -149,7 +148,7 @@ const RequestDemoForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    <Textarea placeholder="How can we help you?" {...field} />
+                                    <Textarea className="h-36" placeholder="How can we help you?" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

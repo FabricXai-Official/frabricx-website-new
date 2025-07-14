@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${chillax.variable} antialiased`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${chillax.variable} antialiased relative`}>
       <body className="font-sans">
         <Header />
         {children}
