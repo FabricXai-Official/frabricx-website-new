@@ -42,9 +42,6 @@ const FeatureCard = ({ title, description }: FeatureItem) => (
   </div>
 );
 
-
-
-
 // Main Component
 export default function AiPowered() {
   const [activeTab, setActiveTab] = useState("brm");
@@ -89,7 +86,8 @@ export default function AiPowered() {
   const stychxFeatures: FeatureItem[] = [
     {
       title: "Get a free website in \nless than 15 minutes",
-      description: "StychX guides you step-by-step to create a beautiful, conversion-ready website instantly. Just add your factory or buying house details, and you're live!",
+      description:
+        "StychX guides you step-by-step to create a beautiful, conversion-ready website instantly. Just add your factory or buying house details, and you're live!",
     },
     {
       title: "Website \nMaintenance",
@@ -98,24 +96,19 @@ export default function AiPowered() {
     },
     {
       title: "AI based SEO \nOptimization \nAssistance",
-      description: "Our AI engine recommends keywords, optimizes product pages, and ensures your website ranks higher to attract international buyers effortlessly.",
+      description:
+        "Our AI engine recommends keywords, optimizes product pages, and ensures your website ranks higher to attract international buyers effortlessly.",
     },
   ];
 
   const featuresToDisplay = activeTab === "brm" ? brmFeatures : piFeatures;
 
   const renderFeatureCards = (features: FeatureItem[]) => (
-    <div className="w-full mb-12 px-16">
-      <div className="flex flex-col md:flex-row justify-center items-start gap-2">
+    <div className="w-full mb-12 px-4 sm:px-8 md:px-16">
+      <div className="flex flex-col md:flex-row justify-center items-start gap-4 md:gap-6">
         {features.map((feature, idx) => (
-          <div 
-            key={idx} 
-            className="flex-1"
-          >
-            <FeatureCard
-              title={feature.title}
-              description={feature.description}
-            />
+          <div key={idx} className="flex-1 max-w-xs mx-auto">
+            <FeatureCard title={feature.title} description={feature.description} />
           </div>
         ))}
       </div>
@@ -124,12 +117,15 @@ export default function AiPowered() {
 
   return (
     <div
-      className="relative w-full bg-no-repeat bg-cover bg-center py-16 sm:py-24"
-      style={{ backgroundImage: "url('/bg/bg2.png')" }}
+      className="relative w-full min-h-screen bg-no-repeat bg-cover bg-center py-16 sm:py-24"
+      style={{
+        backgroundImage: "url('/bg/bg2.png')",
+        backgroundColor: "#13191d", // fallback color in case image doesn't load
+      }}
     >
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px]">
         {/* Top Section */}
-        <div className="max-w-4xl mx-auto text-center mb-12">
+        <div className="max-w-4xl mx-auto text-center mb-12 px-2 sm:px-0">
           <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
             fabricXai's AI-Powered Solutions
           </h1>
@@ -166,7 +162,7 @@ export default function AiPowered() {
         {renderFeatureCards(featuresToDisplay)}
 
         {/* Call to Action */}
-        <div className="flex flex-col justify-center items-center gap-4 text-center mb-12">
+        <div className="flex flex-col justify-center items-center gap-4 text-center mb-12 px-4 sm:px-0">
           <div className="text-sm text-gray-300 leading-snug font-medium">
             Exclusive Offer! <span className="text-[#F2F827]">Free</span>
             <br />
@@ -183,7 +179,7 @@ export default function AiPowered() {
         </div>
 
         {/* --- Bottom Section: stychX --- */}
-        <div className="mt-24 pt-16 border-t border-gray-700">
+        <div className="mt-24 pt-16 border-t border-gray-700 px-4 sm:px-0">
           {/* Toggle for bottom tab */}
           <div className="flex justify-center items-center gap-4 bg-gray-900/70 backdrop-blur-sm p-2 rounded-full max-w-xs mx-auto mb-12">
             <button
