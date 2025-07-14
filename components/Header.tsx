@@ -1,5 +1,6 @@
+"use client";
+
 import {
-  Button,
   createTheme,
   Navbar,
   NavbarBrand,
@@ -18,11 +19,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import RequestDemoForm from "./RequestDemoForm";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const theme = createTheme({
   navbar: {
     root: {
-      base: "bg-[#13191D] px-2 py-2.5 sm:px-4",
+      base: "bg-transparent px-2 py-2.5 sm:px-4 fixed top-0 z-50 w-full",
       rounded: {
         on: "rounded",
         off: "",
@@ -70,9 +73,25 @@ const theme = createTheme({
 });
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    setIsScrolled(scrollY > 50); // Change 50 to the desired scroll threshold
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <ThemeProvider theme={theme} applyTheme="replace">
-      <Navbar fluid>
+      <Navbar fluid className={cn("transition-all duration-300", {
+        "bg-[#13191D]": isScrolled
+      })}>
         <NavbarBrand href="#">
           <div className="flex items-center justify-center h-6 sm:h-9 ">
             <FabricXAi />
@@ -80,7 +99,13 @@ export default function Header() {
         </NavbarBrand>
         <div className="flex md:order-2 gap-2">
           <Dialog>
-            <DialogTrigger asChild><Button color="alternative" className="hidden md:block">Get a Demo</Button></DialogTrigger>
+            <DialogTrigger asChild>
+              <div>
+                <CTA color="alternative" className="hidden md:block">
+                  Get a Demo
+                </CTA>
+              </div>
+            </DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Enter Your Details</DialogTitle>
