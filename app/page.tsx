@@ -1,5 +1,6 @@
 import AiPowered from "@/components/AiPowered";
 import Defination from "@/components/Definition";
+import FAQ from "@/components/FAQ";
 import Hero from "@/components/Hero";
 import InsightAndStory from "@/components/InsightAndStory";
 import SmartTools from "@/components/SmartTools";
@@ -14,6 +15,7 @@ export default function Home() {
       <Defination />
       <AiPowered />
       <InsightAndStory />
+      <FAQ />
     </main>
   );
 }
