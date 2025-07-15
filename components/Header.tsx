@@ -22,9 +22,7 @@ import MailAlt from "@/public/icons/mail-alt.svg";
 import Phone from "@/public/icons/phone.svg";
 import LocationPin from "@/public/icons/pin.svg";
 import LinkedIn from "@/public/icons/linkedin.svg";
-import TwitterX from "@/public/icons/twitter-x.svg";
 import Facebook from "@/public/icons/facebook.svg";
-import Youtube from "@/public/icons/youtube.svg";
 import RequestDemoForm from "./RequestDemoForm";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -97,7 +95,9 @@ export default function Header() {
   }, []);
   return (
     <>
-      <div className="fixed hidden md:flex left-0 top-0 z-50 h-12 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24">
+      <div className={cn("fixed hidden left-0 top-0 z-50 h-12 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500", {
+        "md:flex": !isScrolled,
+      })}>
         <div className="flex gap-4">
           <div className="flex items-center gap-2">
             {" "}
@@ -116,17 +116,11 @@ export default function Header() {
         <div className="flex items-center gap-8">
           <Link href="/contact">Contact</Link>
         <div className="flex flex-row items-center justify-center gap-6 py-4">
-            <a href="#">
+            <a href="https://www.linkedin.com/company/fabricx-ai" target="_blank" rel="noopener noreferrer">
               <LinkedIn />
             </a>
-            <a href="#">
-              <TwitterX />
-            </a>
-            <a href="#">
+            <a href="https://www.facebook.com/FabricXAI" target="_blank" rel="noopener noreferrer">
               <Facebook />
-            </a>
-            <a href="#">
-              <Youtube />
             </a>
           </div>
         </div>
@@ -134,8 +128,9 @@ export default function Header() {
       <ThemeProvider theme={theme} applyTheme="replace">
         <Navbar
           fluid
-          className={cn("transition-all duration-300 fixed top-0 md:top-12 z-50", {
+          className={cn("transition-all duration-500 fixed top-0 z-50", {
             "bg-[#13191D]": isScrolled,
+            "md:top-12": !isScrolled,
           })}
         >
           <NavbarBrand href="#" className="m-0 p-0">

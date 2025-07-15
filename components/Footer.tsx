@@ -4,9 +4,7 @@ import MailAlt from "@/public/icons/mail-alt.svg";
 import Phone from "@/public/icons/phone.svg";
 import LocationPin from "@/public/icons/pin.svg";
 import LinkedIn from "@/public/icons/linkedin.svg";
-import TwitterX from "@/public/icons/twitter-x.svg";
 import Facebook from "@/public/icons/facebook.svg";
-import Youtube from "@/public/icons/youtube.svg";
 import { GoogleMapsEmbed } from "@next/third-parties/google";
 
 export default function Footer() {
@@ -53,17 +51,11 @@ export default function Footer() {
         </div>
         <div className="h-full">
           <div className="flex flex-row lg:flex-col items-center justify-center gap-6 py-4">
-            <a href="#">
+            <a href="https://www.linkedin.com/company/fabricx-ai" target="_blank" rel="noopener noreferrer">
               <LinkedIn />
             </a>
-            <a href="#">
-              <TwitterX />
-            </a>
-            <a href="#">
+            <a href="https://www.facebook.com/FabricXAI" target="_blank" rel="noopener noreferrer">
               <Facebook />
-            </a>
-            <a href="#">
-              <Youtube />
             </a>
           </div>
         </div>
