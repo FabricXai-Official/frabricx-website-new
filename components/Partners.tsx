@@ -25,7 +25,6 @@ export default function Partners() {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
         const nextIndex = prev + 1;
-        // Reset to start when we've gone through all original images
         if (nextIndex >= totalImages) {
           return 0;
         }
@@ -46,11 +45,29 @@ export default function Partners() {
         <h5 className="text-xl sm:text-2xl font-medium text-[#e0e626]">
           Partnered with —
         </h5>
-            <p className="text-3xl sm:text-4xl font-mono font-bold mt-2">
-            30+ Leading Garment Manufacturers
+
+        <p className="text-3xl sm:text-4xl font-mono font-bold mt-2 flex items-center justify-center">
+          {/* Circle with “30+” inside */}
+          <span className="relative inline-block w-12 h-12 sm:w-14 sm:h-14">
+            <Image
+              src="/icons/30-round.svg"
+              alt="30+"
+              fill
+              className="object-contain"
+              sizes="(max-width: 640px) 3rem, 3.5rem"
+            />
+            <span className="absolute inset-0 flex items-center justify-center text-white text-xl sm:text-2xl font-bold">
+              30+
+            </span>
+          </span>
+          {/* Accompanying text */}
+          <span className="ml-4 text-left leading-tight">
+            Leading Garment Manufacturers
             <br />
             & Buying Houses
-            </p>
+          </span>
+        </p>
+
         <div className="mt-12 overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
