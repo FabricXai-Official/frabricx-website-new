@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function InsightAndStory() {
   return (
@@ -20,84 +21,114 @@ export default function InsightAndStory() {
 
       {/* Blog Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
-        {/* Left - Main Blog */}
+        {/* Main Blog */}
         <div className="flex flex-col h-full">
           <div className="flex flex-col h-full">
-            <div className="aspect-[3/2] w-full relative rounded-lg overflow-hidden group">
-            <Image
+            <Link
+              href="/blogs"
+              className="aspect-[3/2] w-full relative rounded-lg overflow-hidden group"
+            >
+              <Image
                 src="/bg/blog-cover1.png"
                 alt="Main Blog Cover"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-4">
-              The Impact of AI on the Fashion Industry
-            </h3>
+              />
+            </Link>
+            <Link href="/blogs">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-4">
+                The Impact of AI on the Fashion Industry
+              </h3>
+            </Link>
             <p className="text-sm sm:text-base text-gray-700 mt-2">
               How artificial intelligence is transforming fashion design and production........
             </p>
-            <button className="mt-3 text-sm font-semibold text-black flex items-center gap-1 group w-fit">
-              Read More <span className="transform group-hover:translate-x-1 transition">→</span>
-            </button>
+            <Link href="/blogs">
+              <button className="mt-3 text-sm font-semibold text-black flex items-center gap-1 group w-fit">
+                Read More{" "}
+                <span className="transform group-hover:translate-x-1 transition">→</span>
+              </button>
+            </Link>
           </div>
         </div>
 
-        {/* Right - Two Blogs and CTA */}
+        {/* Sidebar Blogs */}
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col gap-6 flex-grow">
             {/* Blog 2 */}
             <div className="flex gap-4 items-start">
-                <div className="aspect-[4/3] w-[40%] relative rounded-lg overflow-hidden group">
+              <Link
+                href="/blogs"
+                className="aspect-[4/3] w-[40%] relative rounded-lg overflow-hidden group"
+              >
                 <Image
-                    src="/bg/blog-cover2.png"
-                    alt="Blog 2"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  src="/bg/blog-cover2.png"
+                  alt="Blog 2"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                </div>
+              </Link>
               <div className="flex flex-col justify-between w-[60%]">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 leading-tight">
-                  Innovative Technologies in Apparel Production
-                </h4>
+                <Link href="/blogs">
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900 leading-tight">
+                    Innovative Technologies in Apparel Production
+                  </h4>
+                </Link>
                 <p className="text-sm text-gray-700 mt-1 leading-tight">
                   Exploring the latest advancements in garment manufacturing.
                 </p>
-                <button className="mt-1 text-sm font-semibold text-black flex items-center gap-1 group w-fit">
-                  Read More <span className="transform group-hover:translate-x-1 transition">→</span>
-                </button>
+                <Link href="/blogs">
+                  <button className="mt-1 text-sm font-semibold text-black flex items-center gap-1 group w-fit">
+                    Read More{" "}
+                    <span className="transform group-hover:translate-x-1 transition">
+                      →
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
 
             {/* Blog 3 */}
             <div className="flex gap-4 items-start">
-                <div className="aspect-[4/3] w-[40%] relative rounded-lg overflow-hidden group">
+              <Link
+                href="/blogs"
+                className="aspect-[4/3] w-[40%] relative rounded-lg overflow-hidden group"
+              >
                 <Image
-                    src="/bg/blog-cover3.png"
-                    alt="Blog 3"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  src="/bg/blog-cover3.png"
+                  alt="Blog 3"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                </div>
+              </Link>
               <div className="flex flex-col justify-between w-[60%]">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 leading-tight">
-                  Data-Driven Decision Making in Manufacturing
-                </h4>
+                <Link href="/blogs">
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900 leading-tight">
+                    Data-Driven Decision Making in Manufacturing
+                  </h4>
+                </Link>
                 <p className="text-sm text-gray-700 mt-1 leading-tight">
                   Leveraging data to optimize processes and drive efficiency.
                 </p>
-                <button className="mt-1 text-sm font-semibold text-black flex items-center gap-1 group w-fit">
-                  Read More <span className="transform group-hover:translate-x-1 transition">→</span>
-                </button>
+                <Link href="/blogs">
+                  <button className="mt-1 text-sm font-semibold text-black flex items-center gap-1 group w-fit">
+                    Read More{" "}
+                    <span className="transform group-hover:translate-x-1 transition">
+                      →
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Explore All Button */}
+          {/* Explore All */}
           <div className="mt-6">
-            <button className="w-full px-6 py-3 border border-gray-400 rounded-md text-black bg-white font-semibold hover:bg-gray-200 transition">
-              Explore All Blogs
-            </button>
+            <Link href="/blogs">
+              <button className="w-full px-6 py-3 border border-gray-400 rounded-md text-black bg-white font-semibold hover:bg-gray-200 transition">
+                Explore All Blogs
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -124,7 +155,6 @@ export default function InsightAndStory() {
             Get exclusive trends and tips straight to your inbox — no spam
           </p>
 
-          {/* Footer Note inside the box */}
           <div className="text-center text-xs text-[#ffffff] mt-5">
             "Read by 500+ garment industry leaders across Bangladesh."
           </div>
