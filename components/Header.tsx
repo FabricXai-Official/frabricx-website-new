@@ -24,7 +24,8 @@ import Facebook from "@/public/icons/facebook.svg";
 import RequestDemoForm from "./RequestDemoForm";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import SendMessageForm from "./SendMessageForm";
+import { VisuallyHidden } from "radix-ui";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,9 +44,14 @@ export default function Header() {
   }, []);
   return (
     <>
-      <div className={cn("fixed hidden left-0 top-0 z-50 h-12 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500", {
-        "md:flex": !isScrolled,
-      })}>
+      <div
+        className={cn(
+          "fixed hidden left-0 top-0 z-50 h-12 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500",
+          {
+            "md:flex": !isScrolled,
+          }
+        )}
+      >
         <div className="flex gap-4">
           <div className="flex items-center gap-2 hover:text-[#f2f827]">
             {" "}
@@ -62,61 +68,81 @@ export default function Header() {
           </div>
         </div>
         <div className="flex items-center gap-8">
-          <div className="hover:text-[#f2f827]">Contact</div>
-        <div className="flex flex-row items-center justify-center gap-6 py-4">
-            <a href="https://www.linkedin.com/company/fabricx-ai" target="_blank" rel="noopener noreferrer">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="hover:text-[#f2f827]">Contact</button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <VisuallyHidden.Root asChild><DialogTitle>Enter Your Details</DialogTitle></VisuallyHidden.Root>
+              </DialogHeader>
+              <div>
+                <SendMessageForm />
+              </div>
+            </DialogContent>
+          </Dialog>
+          <div className="flex flex-row items-center justify-center gap-6 py-4">
+            <a
+              href="https://www.linkedin.com/company/fabricx-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <LinkedIn />
             </a>
-            <a href="https://www.facebook.com/FabricXAI" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.facebook.com/FabricXAI"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Facebook />
             </a>
           </div>
         </div>
       </div>
-        <Navbar
-          fluid
-          className={cn("transition-all duration-500 fixed top-0 z-50", {
-            "bg-[#13191D]": isScrolled,
-            "md:top-12": !isScrolled,
-          })}
-        >
-          <NavbarBrand href="#" className="m-0 p-0">
-            <div className="flex items-center justify-center h-6 sm:h-9 ">
-              <FabricXAi />
-            </div>
-          </NavbarBrand>
-          <div className="flex md:order-2 gap-2">
-            <Dialog>
-              <DialogTrigger asChild>
-                <div>
-                  <Button outline className="hidden md:block">
-                    Get a Demo
-                  </Button>
-                </div>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Enter Your Details</DialogTitle>
-                </DialogHeader>
-                <div>
-                  <RequestDemoForm />
-                </div>
-              </DialogContent>
-            </Dialog>
-
-            <Button className="hidden md:block">Get started</Button>
-            <NavbarToggle />
+      <Navbar
+        fluid
+        className={cn("transition-all duration-500 fixed top-0 z-50", {
+          "bg-[#13191D]": isScrolled,
+          "md:top-12": !isScrolled,
+        })}
+      >
+        <NavbarBrand href="#" className="m-0 p-0">
+          <div className="flex items-center justify-center h-6 sm:h-9 ">
+            <FabricXAi />
           </div>
-          <NavbarCollapse>
-            <NavbarLink href="#" active>
-              Home
-            </NavbarLink>
-            <NavbarLink href="#features">Features</NavbarLink>
-            <NavbarLink href="#solutions">Solutions</NavbarLink>
-            <NavbarLink href="#pricing">Pricing</NavbarLink>
-            <NavbarLink href="#about">About</NavbarLink>
-          </NavbarCollapse>
-        </Navbar>
+        </NavbarBrand>
+        <div className="flex md:order-2 gap-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <div>
+                <Button outline className="hidden md:block">
+                  Get a Demo
+                </Button>
+              </div>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Enter Your Details</DialogTitle>
+              </DialogHeader>
+              <div>
+                <RequestDemoForm />
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          <Button className="hidden md:block">Get started</Button>
+          <NavbarToggle />
+        </div>
+        <NavbarCollapse>
+          <NavbarLink href="#" active>
+            Home
+          </NavbarLink>
+          <NavbarLink href="#features">Features</NavbarLink>
+          <NavbarLink href="#solutions">Solutions</NavbarLink>
+          <NavbarLink href="#pricing">Pricing</NavbarLink>
+          <NavbarLink href="#about">About</NavbarLink>
+        </NavbarCollapse>
+      </Navbar>
     </>
   );
 }

@@ -34,46 +34,75 @@ export default function Footer() {
         <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Quick Links</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
-            <Link className="hover:text-[#f2f827]" href="#about">About</Link>
-            <Link className="hover:text-[#f2f827]" href="#features">Features</Link>
-            <Link className="hover:text-[#f2f827]" href="#solutions">Solutions</Link>
-            <Link className="hover:text-[#f2f827]" href="/blog">Blog</Link>
+            <Link className="hover:text-[#f2f827]" href="#about">
+              About
+            </Link>
+            <Link className="hover:text-[#f2f827]" href="#features">
+              Features
+            </Link>
+            <Link className="hover:text-[#f2f827]" href="#solutions">
+              Solutions
+            </Link>
+            <Link className="hover:text-[#f2f827]" href="/blog">
+              Blog
+            </Link>
           </div>
         </div>
         <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Account</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
-            <Link className="hover:text-[#f2f827]" href="/login">Login</Link>
-            <Link className="hover:text-[#f2f827]" href="/register">Register</Link>
-            <Link className="hover:text-[#f2f827]" href="/demo">Demo</Link>
-            <Link className="hover:text-[#f2f827]" href="/join-beta">Beta Program</Link>
+            <Link className="hover:text-[#f2f827]" href="/login">
+              Login
+            </Link>
+            <Link className="hover:text-[#f2f827]" href="/register">
+              Register
+            </Link>
+            <Link className="hover:text-[#f2f827]" href="/demo">
+              Demo
+            </Link>
+            <Link className="hover:text-[#f2f827]" href="/join-beta">
+              Beta Program
+            </Link>
           </div>
         </div>
         <div className="h-full">
           <div className="flex flex-row lg:flex-col items-center justify-center gap-6 py-4">
-            <a href="https://www.linkedin.com/company/fabricx-ai" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/company/fabricx-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <LinkedIn />
             </a>
-            <a href="https://www.facebook.com/FabricXAI" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.facebook.com/FabricXAI"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Facebook />
             </a>
           </div>
         </div>
-        <div className="rounded-lg border-2 border-[#101725]">
-          <GoogleMapsEmbed
-            apiKey="AIzaSyBKB5MZJITnpOS_Z5e0NR_uT0JTWnIGa9c"
-            height={200}
-            width={360}
-            mode="place"
-            q="21+Jigatola+Dhaka"
-          />
-        </div>
+        <iframe
+          className="rounded-lg border-2 border-[#101725]"
+          style={{ border: 0 }}
+          src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7304.372330416168!2d90.3671795917661!3d23.740739864707628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s21%2BJigatola%2BDhaka!5e0!3m2!1sen!2sbd!4v1752602363827!5m2!1sen!2sbd"
+          width="360"
+          height="200"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
       <div className="m-0 py-4 px-8 md:px-24 flex flex-col md:flex-row items-center justify-between text-center border-t border-[#DFE1F433]">
         <p>© 2025 fabricXai. All rights reserved.</p>
         <div className="flex gap-4">
-          <Link className="hover:text-[#f2f827]" href="/privacy-policy">Privacy Policy</Link>
-          <Link className="hover:text-[#f2f827]" href="/terms-of-service">Terms of Service</Link>
+          <Link className="hover:text-[#f2f827]" href="/privacy-policy">
+            Privacy Policy
+          </Link>
+          <Link className="hover:text-[#f2f827]" href="/terms-of-service">
+            Terms of Service
+          </Link>
         </div>
       </div>
     </footer>
