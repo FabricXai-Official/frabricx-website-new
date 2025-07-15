@@ -40,61 +40,63 @@ export default function Partners() {
   const translateX = -((currentIndex + totalImages) * slideWidth);
 
   return (
-    <section className="bg-[#13191d] py-16 px-4 sm:px-8 lg:px-16 rounded-2xl">
-      <div className="max-w-5xl mx-auto text-center text-white">
-        <h5 className="text-xl sm:text-2xl font-medium text-[#e0e626]">
-          Partnered with —
-        </h5>
+    <div className="w-full max-w-full overflow-hidden">
+      <section className="bg-[#13191d] py-8 sm:py-16 px-4 sm:px-8 lg:px-16 rounded-2xl w-full max-w-full">
+        <div className="max-w-5xl mx-auto text-center text-white w-full">
+          <h5 className="text-lg sm:text-xl lg:text-2xl font-medium text-[#e0e626]">
+            Partnered with —
+          </h5>
 
-        <p className="text-3xl sm:text-4xl font-mono font-bold mt-2 flex items-center justify-center">
-          {/* Circle with “30+” inside */}
-          <span className="relative inline-block w-12 h-12 sm:w-14 sm:h-14">
-            <Image
-              src="/icons/30-round.svg"
-              alt="30+"
-              fill
-              className="object-contain"
-              sizes="(max-width: 640px) 3rem, 3.5rem"
-            />
-            <span className="absolute inset-0 flex items-center justify-center text-white text-xl sm:text-2xl font-bold">
-              30+
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-mono font-bold mt-2 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+            {/* Circle with "30+" inside */}
+            <div className="relative inline-block w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex-shrink-0">
+              <Image
+                src="/icons/30-round.svg"
+                alt="30+"
+                fill
+                className="object-contain"
+                sizes="(max-width: 640px) 2.5rem, (max-width: 1024px) 3rem, 3.5rem"
+              />
+              <span className="absolute inset-0 flex items-center justify-center text-white text-lg sm:text-xl lg:text-2xl font-bold">
+                30+
+              </span>
+            </div>
+            {/* Accompanying text */}
+            <span className="text-center sm:text-left leading-tight">
+              Leading Garment Manufacturers
+              <br />
+              & Buying Houses
             </span>
-          </span>
-          {/* Accompanying text */}
-          <span className="ml-4 text-left leading-tight">
-            Leading Garment Manufacturers
-            <br />
-            & Buying Houses
-          </span>
-        </p>
+          </div>
 
-        <div className="mt-12 overflow-hidden">
-          <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{
-              transform: `translateX(${translateX}%)`,
-            }}
-          >
-            {extendedImages.map((src, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0"
-                style={{ width: `${100 / visibleCount}%` }}
-              >
-                <div className="relative w-24 h-16 mx-auto sm:w-28 sm:h-20">
-                  <Image
-                    src={src}
-                    alt={`Partner ${(index % totalImages) + 1}`}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 6rem, 7rem"
-                  />
+          <div className="mt-8 sm:mt-12 w-full overflow-hidden">
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `translateX(${translateX}%)`,
+              }}
+            >
+              {extendedImages.map((src, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 flex items-center justify-center px-2 sm:px-4"
+                  style={{ width: `${100 / visibleCount}%` }}
+                >
+                  <div className="relative w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16">
+                    <Image
+                      src={src}
+                      alt={`Partner ${(index % totalImages) + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) 4rem, (max-width: 1024px) 5rem, 6rem"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
