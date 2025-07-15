@@ -1,3 +1,4 @@
+import { Button } from "flowbite-react";
 import Image from "next/image";
 
 export default function SolutionsAndChallenges() {
@@ -93,12 +94,12 @@ export default function SolutionsAndChallenges() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row self-center gap-4 mt-6">
-              <button className="bg-[#f2f827] text-black font-semibold px-6 py-3 rounded-2xl hover:brightness-110 transition">
+              <Button>
                 Request a Demo
-              </button>
-              <button className="border border-[#f2f827] text-[#f2f827] font-semibold px-6 py-3 rounded-2xl hover:bg-[#f2f827]/10 transition">
+              </Button>
+              <Button outline>
                 Be an Early Bird
-              </button>
+              </Button>
             </div>
           </div>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +16,8 @@ export default function InsightAndStory() {
           Latest Insights & Stories
         </h2>
         <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
-          Discover how AI, innovation, and data are shaping the future of garment manufacturing.
+          Discover how AI, innovation, and data are shaping the future of
+          garment manufacturing.
         </p>
       </div>
 
@@ -41,12 +43,15 @@ export default function InsightAndStory() {
               </h3>
             </Link>
             <p className="text-sm sm:text-base text-gray-700 mt-2">
-              How artificial intelligence is transforming fashion design and production........
+              How artificial intelligence is transforming fashion design and
+              production........
             </p>
             <Link href="/blogs">
               <button className="mt-3 text-sm font-semibold text-black flex items-center gap-1 group w-fit">
                 Read More{" "}
-                <span className="transform group-hover:translate-x-1 transition">→</span>
+                <span className="transform group-hover:translate-x-1 transition">
+                  →
+                </span>
               </button>
             </Link>
           </div>
@@ -137,7 +142,8 @@ export default function InsightAndStory() {
       <div className="mt-16 flex justify-center">
         <div className="bg-[#1c1e22] text-white rounded-2xl px-6 py-8 w-[90%] sm:w-[80%] lg:w-[70%] text-center flex flex-col items-center gap-4">
           <h3 className="text-xl sm:text-2xl font-bold">
-            Subscribe to Our <span className="text-[#f2f827]">Monthly Insights</span>
+            Subscribe to Our{" "}
+            <span className="text-[#f2f827]">Monthly Insights</span>
           </h3>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-2 w-full">
@@ -146,9 +152,7 @@ export default function InsightAndStory() {
               placeholder="Enter your email address"
               className="px-4 py-2 rounded-md text-black bg-[#d9d9d9] w-full sm:w-80"
             />
-            <button className="bg-[#f2f827] text-black font-bold px-6 py-2 rounded-md w-full sm:w-40">
-              Subscribe
-            </button>
+            <Button className="w-full sm:w-40">Subscribe</Button>
           </div>
 
           <p className="text-sm text-[#a8b0b7]">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Check } from "lucide-react";
 import Image from "next/image";
-import CTA from "./CTA";
+import { Button } from "flowbite-react";
 
 export default function SeeInAction() {
   const featureCards = [
@@ -143,7 +143,7 @@ export default function SeeInAction() {
             <iframe className="w-full h-full" src="https://www.youtube.com/embed/19g66ezsKAg" allowFullScreen />
           </div>
 
-          <CTA className="w-full">Book Your Free Demo</CTA>
+          <Button className="w-full">Book Your Free Demo</Button>
 
           <div className="font-medium text-[#a8b0b7] text-sm leading-6">
             {bulletPoints.map((point, index) => (

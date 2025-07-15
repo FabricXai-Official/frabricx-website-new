@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "flowbite-react";
 import { useState, useEffect } from "react";
 
 interface FeatureItem {
@@ -107,7 +108,10 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
       <div className="flex flex-col md:flex-row justify-center items-start gap-4 md:gap-6">
         {features.map((feature, idx) => (
           <div key={idx} className="flex-1 max-w-xs mx-auto">
-            <FeatureCard title={feature.title} description={feature.description} />
+            <FeatureCard
+              title={feature.title}
+              description={feature.description}
+            />
           </div>
         ))}
       </div>
@@ -128,7 +132,8 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
             fabricXai's AI-Powered Solutions
           </h1>
           <p className="text-lg text-[#a8b0b7]">
-            Comprehensive tools designed specifically for the RGM manufacturing industry.
+            Comprehensive tools designed specifically for the RGM manufacturing
+            industry.
           </p>
         </div>
 
@@ -167,12 +172,8 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
             Production Intelligence for You
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-xs sm:max-w-none">
-            <button className="bg-[#F2F827] text-black font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-yellow-300 transition duration-300">
-              Learn More
-            </button>
-            <button className="bg-transparent border-2 border-gray-500 text-white font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-gray-700 hover:border-gray-400 transition duration-300">
-              Be an early bird
-            </button>
+            <Button className="w-full sm:w-48">Learn More</Button>
+            <Button outline className="w-full sm:w-48">Be an early bird</Button>
           </div>
         </div>
 
@@ -202,12 +203,10 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           {renderFeatureCards(stychxFeatures)}
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="bg-[#F2F827] text-black font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-yellow-300 transition duration-300">
-              Learn More
-            </button>
-            <button className="bg-transparent border-2 border-gray-500 text-white font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-gray-700 hover:border-gray-400 transition duration-300">
+            <Button className="w-full sm:w-48">Learn More</Button>
+            <Button outline className="w-full sm:w-48">
               Be an early bird
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "flowbite-react";
 import { useState } from "react";
 
 const faqs = [
@@ -34,7 +35,8 @@ const faqs = [
       "Absolutely. We use enterprise-grade encryption for data in transit and at rest. We also follow GDPR and other industry regulations. Your sensitive buyer data, financial information, and production metrics are fully protected.",
   },
   {
-    question: "Can I integrate FabricxAi with existing ERP or accounting software?",
+    question:
+      "Can I integrate FabricxAi with existing ERP or accounting software?",
     answer:
       "Yes. FabricxAi offers API-based integrations with popular ERPs, CRMs, and accounting tools. Our integration team can help you seamlessly connect FabricxAi to your existing systems for a unified workflow.",
   },
@@ -107,31 +109,29 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-        {/* CTA Section with Gradient Border */}
-        <div className="mt-10 flex justify-center">
+      {/* CTA Section with Gradient Border */}
+      <div className="mt-10 flex justify-center">
         <div className="w-full max-w-4xl p-[1px] rounded-xl bg-gradient-to-b from-[#242a30] to-white">
-            <div className="bg-[#242a30] rounded-xl px-6 py-6 sm:px-10 sm:py-8 text-white">
+          <div className="bg-[#242a30] rounded-xl px-6 py-6 sm:px-10 sm:py-8 text-white">
             <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
-                {/* Left Column */}
-                <div className="flex-[2] text-left">
+              {/* Left Column */}
+              <div className="flex-[2] text-left">
                 <h3 className="text-xl sm:text-2xl font-bold text-[#f2f827]">
-                    Ready to Transform Your Operations?
+                  Ready to Transform Your Operations?
                 </h3>
                 <p className="text-sm sm:text-base text-[#d1d5db] mt-2">
-                    Get a personalized demo of FabricXAI for your factory.
+                  Get a personalized demo of FabricXAI for your factory.
                 </p>
-                </div>
+              </div>
 
-                {/* Right Column */}
-                <div className="flex-[1] w-full sm:w-auto flex justify-start sm:justify-end">
-                <button className="bg-[#f2f827] text-black font-semibold px-6 py-2 rounded-md hover:bg-[#e5e620] transition">
-                    Schedule a Demo
-                </button>
-                </div>
+              {/* Right Column */}
+              <div className="flex-[1] w-full sm:w-auto flex justify-start sm:justify-end">
+                <Button>Schedule a Demo</Button>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </section>
   );
 }
