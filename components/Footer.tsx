@@ -16,16 +16,16 @@ export default function Footer() {
             <FabricXAi />
           </div>
           <div className="flex flex-col gap-2 mt-8">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
               <MailAlt />{" "}
               <a href="mailto:hello@fabricxai.com">hello@fabricxai.com</a>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
               <Phone /> <a href="tel:+880 1234 567890">+880 1234 567890</a>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
               <LocationPin /> <a href="#">Dhaka, Bangladesh</a>
             </div>
@@ -34,19 +34,19 @@ export default function Footer() {
         <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Quick Links</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
-            <Link href="#about">About</Link>
-            <Link href="#features">Features</Link>
-            <Link href="#solutions">Solutions</Link>
-            <Link href="/blog">Blog</Link>
+            <Link className="hover:text-[#f2f827]" href="#about">About</Link>
+            <Link className="hover:text-[#f2f827]" href="#features">Features</Link>
+            <Link className="hover:text-[#f2f827]" href="#solutions">Solutions</Link>
+            <Link className="hover:text-[#f2f827]" href="/blog">Blog</Link>
           </div>
         </div>
         <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Account</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
-            <Link href="/login">Login</Link>
-            <Link href="/register">Register</Link>
-            <Link href="/demo">Demo</Link>
-            <Link href="/join-beta">Beta Program</Link>
+            <Link className="hover:text-[#f2f827]" href="/login">Login</Link>
+            <Link className="hover:text-[#f2f827]" href="/register">Register</Link>
+            <Link className="hover:text-[#f2f827]" href="/demo">Demo</Link>
+            <Link className="hover:text-[#f2f827]" href="/join-beta">Beta Program</Link>
           </div>
         </div>
         <div className="h-full">
@@ -72,8 +72,8 @@ export default function Footer() {
       <div className="m-0 py-4 px-8 md:px-24 flex flex-col md:flex-row items-center justify-between text-center border-t border-[#DFE1F433]">
         <p>© 2025 fabricXai. All rights reserved.</p>
         <div className="flex gap-4">
-          <Link href="/privacy-policy">Privacy Policy</Link>
-          <Link href="/terms-of-service">Terms of Service</Link>
+          <Link className="hover:text-[#f2f827]" href="/privacy-policy">Privacy Policy</Link>
+          <Link className="hover:text-[#f2f827]" href="/terms-of-service">Terms of Service</Link>
         </div>
       </div>
     </footer>
