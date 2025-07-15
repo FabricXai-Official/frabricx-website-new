@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+interface DefinitionProps {
+  selected: "buying" | "garments";
+  setSelected: React.Dispatch<React.SetStateAction<"buying" | "garments">>;
+}
 
-export default function Definition() {
-  const [selected, setSelected] = useState("buying");
-
+export default function Definition({ selected, setSelected }: DefinitionProps) {
   return (
     <section
       className="w-screen bg-cover bg-center bg-no-repeat flex items-center justify-center py-20 px-4 rounded-3xl"

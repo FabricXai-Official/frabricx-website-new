@@ -1,14 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
-// Type definition for feature items
 interface FeatureItem {
   title: string;
   description: string;
 }
 
-// FeatureCard component - Individual card with hover effects
+interface AiPoweredProps {
+  activeTab: "brm" | "pi";
+  setActiveTab: (tab: "brm" | "pi") => void;
+}
+
 const FeatureCard = ({ title, description }: FeatureItem) => (
   <div
     className={`
@@ -16,36 +19,32 @@ const FeatureCard = ({ title, description }: FeatureItem) => (
       rounded-2xl text-center overflow-hidden 
       transition-all duration-300 ease-in-out transform hover:scale-105
       h-[180px] hover:h-[320px] w-full max-w-xs mx-auto
-      hover:bg-[linear-gradient(to_bottom_right,_rgba(242,248,39,0.22),_rgba(242,248,39,0))]
-    `}
+      hover:bg-[linear-gradient(to_bottom_right,_rgba(242,248,39,0.22),_rgba(242,248,39,0))]`}
   >
     <div className="w-full h-full px-6 py-4 relative">
-      {/* Title */}
-      <h3
-        className="text-xl md:text-2xl font-bold text-[#F2F827] whitespace-pre-line
-          transition-all duration-300 
-          absolute inset-0 flex items-center justify-center text-center 
-          group-hover:static group-hover:mb-4"
-      >
+      <h3 className="text-xl md:text-2xl font-bold text-[#F2F827] whitespace-pre-line absolute inset-0 flex items-center justify-center text-center group-hover:static group-hover:mb-4 transition-all duration-300">
         {title}
       </h3>
-
-      {/* Description */}
-      <p
-        className="text-base md:text-lg text-white opacity-0 translate-y-4 
-          group-hover:opacity-100 group-hover:translate-y-0
-          transition-all duration-300 ease-in-out whitespace-pre-line"
-      >
+      <p className="text-base md:text-lg text-white opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out whitespace-pre-line">
         {description}
       </p>
     </div>
   </div>
 );
 
-// Main Component
-export default function AiPowered() {
-  const [activeTab, setActiveTab] = useState("brm");
+export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
+  const [internalTab, setInternalTab] = useState<"brm" | "pi">(activeTab);
   const [activeBottomTab, setActiveBottomTab] = useState("rmg");
+
+  // sync internal tab with prop change (from Definition)
+  useEffect(() => {
+    setInternalTab(activeTab);
+  }, [activeTab]);
+
+  const handleToggleClick = (tab: "brm" | "pi") => {
+    setInternalTab(tab);
+    setActiveTab(tab); // sync back to parent
+  };
 
   const brmFeatures: FeatureItem[] = [
     {
@@ -101,7 +100,7 @@ export default function AiPowered() {
     },
   ];
 
-  const featuresToDisplay = activeTab === "brm" ? brmFeatures : piFeatures;
+  const featuresToDisplay = internalTab === "brm" ? brmFeatures : piFeatures;
 
   const renderFeatureCards = (features: FeatureItem[]) => (
     <div className="w-full mb-12 px-4 sm:px-8 md:px-16">
@@ -120,11 +119,10 @@ export default function AiPowered() {
       className="relative w-full min-h-screen bg-no-repeat bg-cover bg-center py-16 sm:py-24"
       style={{
         backgroundImage: "url('/bg/bg2.png')",
-        backgroundColor: "#13191d", // fallback color in case image doesn't load
+        backgroundColor: "#13191d",
       }}
     >
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px]">
-        {/* Top Section */}
         <div className="max-w-4xl mx-auto text-center mb-12 px-2 sm:px-0">
           <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
             fabricXai's AI-Powered Solutions
@@ -134,12 +132,12 @@ export default function AiPowered() {
           </p>
         </div>
 
-        {/* Toggle Buttons */}
+        {/* Toggle Buttons (Preserved) */}
         <div className="flex justify-center items-center flex-wrap gap-2 sm:gap-4 p-2 rounded-full max-w-fit mx-auto mb-12">
           <button
-            onClick={() => setActiveTab("brm")}
+            onClick={() => handleToggleClick("brm")}
             className={`px-4 py-2 text-sm sm:text-base font-semibold rounded-full border border-white whitespace-nowrap transition-colors duration-300 ${
-              activeTab === "brm"
+              internalTab === "brm"
                 ? "bg-white text-gray-900"
                 : "bg-transparent text-white hover:bg-white/30"
             }`}
@@ -147,9 +145,9 @@ export default function AiPowered() {
             Buyer Relationship Management (BRM)
           </button>
           <button
-            onClick={() => setActiveTab("pi")}
+            onClick={() => handleToggleClick("pi")}
             className={`px-4 py-2 text-sm sm:text-base font-semibold rounded-full border border-white whitespace-nowrap transition-colors duration-300 ${
-              activeTab === "pi"
+              internalTab === "pi"
                 ? "bg-white text-gray-900"
                 : "bg-transparent text-white hover:bg-white/30"
             }`}
@@ -158,10 +156,10 @@ export default function AiPowered() {
           </button>
         </div>
 
-        {/* Features Section */}
+        {/* Cards */}
         {renderFeatureCards(featuresToDisplay)}
 
-        {/* Call to Action */}
+        {/* CTA */}
         <div className="flex flex-col justify-center items-center gap-4 text-center mb-12 px-4 sm:px-0">
           <div className="text-sm text-gray-300 leading-snug font-medium">
             Exclusive Offer! <span className="text-[#F2F827]">Free</span>
@@ -178,9 +176,8 @@ export default function AiPowered() {
           </div>
         </div>
 
-        {/* --- Bottom Section: stychX --- */}
+        {/* Bottom Section: stychX */}
         <div className="mt-24 pt-16 border-t border-gray-700 px-4 sm:px-0">
-          {/* Toggle for bottom tab */}
           <div className="flex justify-center items-center gap-4 bg-gray-900/70 backdrop-blur-sm p-2 rounded-full max-w-xs mx-auto mb-12">
             <button
               onClick={() => setActiveBottomTab("rmg")}
@@ -202,10 +199,8 @@ export default function AiPowered() {
             />
           </div>
 
-          {/* stychX Cards Section */}
           {renderFeatureCards(stychxFeatures)}
 
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <button className="bg-[#F2F827] text-black font-bold py-3 px-6 w-full sm:w-48 rounded-md hover:bg-yellow-300 transition duration-300">
               Learn More
