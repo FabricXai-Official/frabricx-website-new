@@ -46,7 +46,7 @@ export default function Header() {
     <>
       <div
         className={cn(
-          "fixed hidden left-0 top-0 z-50 h-12 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500",
+          "fixed hidden left-0 top-0 z-50 h-8 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500 text-xs",
           {
             "md:flex": !isScrolled,
           }
@@ -86,15 +86,17 @@ export default function Header() {
               href="https://www.linkedin.com/company/fabricx-ai"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <LinkedIn />
+              <LinkedIn className="h-4 w-4" />
             </a>
             <a
               href="https://www.facebook.com/FabricXAI"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Facebook />
+              <Facebook className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -103,7 +105,7 @@ export default function Header() {
         fluid
         className={cn("transition-all duration-500 fixed top-0 z-50", {
           "bg-[#13191D]": isScrolled,
-          "md:top-12": !isScrolled,
+          "md:top-8": !isScrolled,
         })}
       >
         <NavbarBrand href="#" className="m-0 p-0">

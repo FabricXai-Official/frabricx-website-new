@@ -2,6 +2,8 @@
 
 import { Button } from "flowbite-react";
 import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import RequestDemoForm from "./RequestDemoForm";
 
 const faqs = [
   {
@@ -86,18 +88,16 @@ export default function FAQ() {
                       {faq.question}
                     </span>
                     <span
-                      className={`text-xl transform transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
+                      className={`text-xl transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                     >
                       ^
                     </span>
                   </button>
 
                   <div
-                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                      isOpen ? "max-h-96 pb-4" : "max-h-0"
-                    }`}
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-96 pb-4" : "max-h-0"
+                      }`}
                   >
                     <p className="text-sm sm:text-base text-gray-300 pr-2">
                       {faq.answer}
@@ -126,7 +126,23 @@ export default function FAQ() {
 
               {/* Right Column */}
               <div className="flex-[1] w-full sm:w-auto flex justify-start sm:justify-end">
-                <Button>Schedule a Demo</Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div>
+                      <Button>
+                        Schedule a Demo
+                      </Button>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Enter Your Details</DialogTitle>
+                    </DialogHeader>
+                    <div>
+                      <RequestDemoForm />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>

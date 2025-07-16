@@ -2,6 +2,8 @@ import React from "react";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import { Button } from "flowbite-react";
+import RequestDemoForm from "./RequestDemoForm";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 
 export default function SeeInAction() {
   const featureCards = [
@@ -142,8 +144,23 @@ export default function SeeInAction() {
             </video> */}
             <iframe className="w-full h-full" src="https://www.youtube.com/embed/19g66ezsKAg" allowFullScreen />
           </div>
-
-          <Button className="w-full">Book Your Free Demo</Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <div>
+                <Button className="w-full">
+                  Book Your Free Demo
+                </Button>
+              </div>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Enter Your Details</DialogTitle>
+              </DialogHeader>
+              <div>
+                <RequestDemoForm />
+              </div>
+            </DialogContent>
+          </Dialog>
 
           <div className="font-medium text-[#a8b0b7] text-sm leading-6">
             {bulletPoints.map((point, index) => (

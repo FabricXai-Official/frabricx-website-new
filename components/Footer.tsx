@@ -5,7 +5,6 @@ import Phone from "@/public/icons/phone.svg";
 import LocationPin from "@/public/icons/pin.svg";
 import LinkedIn from "@/public/icons/linkedin.svg";
 import Facebook from "@/public/icons/facebook.svg";
-import { GoogleMapsEmbed } from "@next/third-parties/google";
 
 export default function Footer() {
   return (
@@ -71,15 +70,17 @@ export default function Footer() {
               href="https://www.linkedin.com/company/fabricx-ai"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <LinkedIn />
+              <LinkedIn className="h-4 w-4" />
             </a>
             <a
               href="https://www.facebook.com/FabricXAI"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Facebook />
+              <Facebook className="h-4 w-4" />
             </a>
           </div>
         </div>

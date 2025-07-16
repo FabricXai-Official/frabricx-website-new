@@ -13,11 +13,11 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 
@@ -25,6 +25,7 @@ import { cn } from "@/lib/utils";
 import { Textarea } from "./ui/textarea";
 import { PhoneInput } from "./ui/phone-input";
 import { useEffect, useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 
 const requestDemoSchema = z.object({
     name: z.string().min(3).max(50),
@@ -156,7 +157,23 @@ const RequestDemoForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
                     />
                 </div>
                 <div className="flex items-center justify-center mt-4">
-                    <Button type="submit">Get a Demo</Button>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <div>
+                                <Button type="submit" className="hidden md:block">
+                                    Get a Demo
+                                </Button>
+                            </div>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Enter Your Details</DialogTitle>
+                            </DialogHeader>
+                            <div>
+                                <RequestDemoForm />
+                            </div>
+                        </DialogContent>
+                    </Dialog>
                 </div>
             </form>
         </Form>
