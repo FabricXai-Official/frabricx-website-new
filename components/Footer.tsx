@@ -19,15 +19,15 @@ export default function Footer() {
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
               <MailAlt />{" "}
-              <a href="mailto:hello@fabricxai.com">hello@fabricxai.com</a>
+              <a href="mailto:info@fabricxai.com">info@fabricxai.com</a>
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <Phone /> <a href="tel:+880 1234 567890">+880 1234 567890</a>
+              <Phone /> <a href="tel:+880 1711 253751">+880 1711 253751</a>
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <LocationPin /> <a href="#">Dhaka, Bangladesh</a>
+              <LocationPin /> <a href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
             </div>
           </div>
         </div>

@@ -26,7 +26,7 @@ export default function SmartTools() {
 
   return (
     <section className="w-full bg-gradient-to-t from-[#363a3d] to-[#a5adb4] rounded-3xl px-4 sm:px-8 md:px-16 py-16 text-white shadow-lg">
-      <h2 className="text-3xl md:text-4xl font-medium text-center mb-4 text-[#13191d] font-mono">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#13191d] font-mono">
         Smart Tools for Smarter Operations
       </h2>
       <p className="text-[#13191d] text-center mb-12 max-w-3xl mx-auto">
@@ -41,11 +41,11 @@ export default function SmartTools() {
           return (
             <div
               key={idx}
-              className={`w-full max-w-[300px] h-[260px] ${extraMargin}
-                group bg-[#242a30] border border-gray-700 rounded-xl 
+              className={`w-full max-w-[300px] h-[260px] ${extraMargin} 
+                group bg-[#242a30] border border-yellow-400/50 rounded-xl 
                 p-6 flex flex-col justify-start relative overflow-hidden
                 transition-transform duration-300 ease-in-out hover:scale-105
-                hover:bg-gradient-to-r hover:from-[#10295c] hover:to-[#101828]
+                hover:bg-[linear-gradient(to_bottom_right,_rgba(242,248,39,0.22),_rgba(242,248,39,0))]
               `}
             >
               <div className="w-14 h-14 rounded-full bg-[#34383b] flex items-center justify-center mb-4">
