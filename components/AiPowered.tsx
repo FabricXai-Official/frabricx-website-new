@@ -147,7 +147,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
                 : "bg-transparent text-white hover:bg-white/30"
             }`}
           >
-            Buyer Relationship Management (BRM)
+            Brm Intelligence
           </button>
           <button
             onClick={() => handleToggleClick("pi")}

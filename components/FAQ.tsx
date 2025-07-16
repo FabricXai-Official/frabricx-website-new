@@ -5,14 +5,14 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What is FabricxAi?",
+    question: "What is fabricXai?",
     answer:
-      "FabricxAi is an end-to-end AI-powered platform designed for garment exporters, buying houses, and apparel brands. It automates buyer lead generation, provides CRM & LinkedIn monitoring, manages production and supply chain, and offers a multilingual chatbot to streamline communication and close deals faster.",
+      "fabricXai is an end-to-end AI-powered platform designed for garment exporters, buying houses, and apparel brands. It automates buyer lead generation, provides CRM & LinkedIn monitoring, manages production and supply chain, and offers a multilingual chatbot to streamline communication and close deals faster.",
   },
   {
     question: "How does your CRM & LinkedIn monitoring work?",
     answer:
-      "FabricxAi's CRM integrates with social platforms like LinkedIn, automatically fetching potential buyers based on your garment exporter profile. AI algorithms then score each lead's relevancy, allowing you to prioritize outreach. You can see real-time updates in the dashboard and set automated nurturing sequences.",
+      "fabricXai's CRM integrates with social platforms like LinkedIn, automatically fetching potential buyers based on your garment exporter profile. AI algorithms then score each lead's relevancy, allowing you to prioritize outreach. You can see real-time updates in the dashboard and set automated nurturing sequences.",
   },
   {
     question: "What languages does the chatbot support?",
@@ -30,23 +30,23 @@ const faqs = [
       "As a beta participant, you receive: 60% off your subscription for the first 6 months, free employee training to get started quickly, a tailored solution for your specific garment/fashion industry niche, and early access to new features and direct feedback loops with our development team.",
   },
   {
-    question: "Is my data secure with FabricxAi?",
+    question: "Is my data secure with fabricXai?",
     answer:
       "Absolutely. We use enterprise-grade encryption for data in transit and at rest. We also follow GDPR and other industry regulations. Your sensitive buyer data, financial information, and production metrics are fully protected.",
   },
   {
     question:
-      "Can I integrate FabricxAi with existing ERP or accounting software?",
+      "Can I integrate fabricXai with existing ERP or accounting software?",
     answer:
-      "Yes. FabricxAi offers API-based integrations with popular ERPs, CRMs, and accounting tools. Our integration team can help you seamlessly connect FabricxAi to your existing systems for a unified workflow.",
+      "Yes. fabricXai offers API-based integrations with popular ERPs, CRMs, and accounting tools. Our integration team can help you seamlessly connect FabricxAi to your existing systems for a unified workflow.",
   },
   {
-    question: "Do I need technical expertise to use FabricxAi?",
+    question: "Do I need technical expertise to use fabricXai?",
     answer:
-      "No. FabricxAi is designed for user-friendliness. From lead creation to monitoring production schedules, everything is accessible via our intuitive web dashboard or chatbot. Plus, during the beta, we provide comprehensive training to ensure your team is comfortable with the platform.",
+      "No. fabricXai is designed for user-friendliness. From lead creation to monitoring production schedules, everything is accessible via our intuitive web dashboard or chatbot. Plus, during the beta, we provide comprehensive training to ensure your team is comfortable with the platform.",
   },
   {
-    question: "How does FabricxAi handle buyer sentiment and retention alerts?",
+    question: "How does fabricXai handle buyer sentiment and retention alerts?",
     answer:
       "Our AI engine analyzes communications, emails, chat transcripts, and more to detect changes in sentiment. If it senses a risk of losing a buyer or sees negative feedback, it automatically sends an alert and suggests action items (e.g., follow-up call, special discounts) to keep that buyer engaged.",
   },
@@ -120,7 +120,7 @@ export default function FAQ() {
                   Ready to Transform Your Operations?
                 </h3>
                 <p className="text-sm sm:text-base text-[#d1d5db] mt-2">
-                  Get a personalized demo of FabricXAI for your factory.
+                  Get a personalized demo of fabricXai for your factory.
                 </p>
               </div>
 

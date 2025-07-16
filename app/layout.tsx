@@ -20,7 +20,7 @@ const chillax = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "FabricXai",
+  title: "fabricXai",
   description: "AI-Powered Garment Export Platform",
 };
 

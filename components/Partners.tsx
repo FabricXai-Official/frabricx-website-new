@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
-  "/icons/partner1.svg",
-  "/icons/partner2.svg",
-  "/icons/partner3.svg",
-  "/icons/partner4.svg",
-  "/icons/partner5.svg",
-  "/icons/partner6.svg",
+  "/icons/microsoft.svg",
+  "/icons/open-ai.svg",
+  "/icons/nvidia.svg",
+  "/icons/langchain.svg",
+  "/icons/google.svg",
+  "/icons/sociofi.svg",
 ];
 
 export default function Partners() {
@@ -44,31 +44,18 @@ export default function Partners() {
       <section className="bg-[#13191d] py-8 sm:py-16 px-4 sm:px-8 lg:px-16 rounded-2xl w-full max-w-full">
         <div className="max-w-5xl mx-auto text-center text-white w-full">
           <h5 className="text-lg sm:text-xl lg:text-2xl font-medium text-[#e0e626]">
-            Partnered with —
+            Technology Stack
           </h5>
 
           <div className="text-2xl sm:text-3xl lg:text-4xl font-mono font-bold mt-2 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-            {/* Circle with "30+" inside */}
-            <div className="relative inline-block w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex-shrink-0">
-              <Image
-                src="/icons/30-round.svg"
-                alt="30+"
-                fill
-                className="object-contain"
-                sizes="(max-width: 640px) 2.5rem, (max-width: 1024px) 3rem, 3.5rem"
-              />
-              <span className="absolute inset-0 flex items-center justify-center text-white text-lg sm:text-xl lg:text-2xl font-bold">
-                30+
-              </span>
-            </div>
             {/* Accompanying text */}
             <span className="text-center sm:text-left leading-tight">
-              Leading Garment Manufacturers
-              <br />
-              & Buying Houses
+              Powered by Industry Leaders
             </span>
           </div>
-
+          <p className="text-sm sm:text-base text-center sm:text-left mt-2 text-[#a8b0b7] max-w-3xl mx-auto">
+            We partner with the world's leading technology companies to deliver cutting-edge AI solutions
+          </p>
           <div className="mt-8 sm:mt-12 w-full overflow-hidden">
             <div
               className="flex transition-transform duration-700 ease-in-out"
@@ -82,7 +69,7 @@ export default function Partners() {
                   className="flex-shrink-0 flex items-center justify-center px-2 sm:px-4"
                   style={{ width: `${100 / visibleCount}%` }}
                 >
-                  <div className="relative w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16">
+                  <div className="relative w-32 h-24 sm:w-40 sm:h-28 lg:w-48 lg:h-32">
                     <Image
                       src={src}
                       alt={`Partner ${(index % totalImages) + 1}`}
