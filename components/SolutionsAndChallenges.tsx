@@ -1,5 +1,8 @@
 import { Button } from "flowbite-react";
 import Image from "next/image";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import RequestDemoForm from "./RequestDemoForm";
+import EarlyBirdForm from "./EarlyBirdForm";
 
 export default function SolutionsAndChallenges() {
   const solutions = [
@@ -94,12 +97,41 @@ export default function SolutionsAndChallenges() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row self-center gap-4 mt-6">
-              <Button>
-                Request a Demo
-              </Button>
-              <Button outline>
-                Be an Early Bird
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div>
+                    <Button>
+                      Request a Demo
+                    </Button>
+                  </div>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Enter Your Details</DialogTitle>
+                  </DialogHeader>
+                  <div>
+                    <RequestDemoForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div>
+                    <Button outline>
+                      Be an Early Bird
+                    </Button>
+                  </div>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Enter Your Details</DialogTitle>
+                  </DialogHeader>
+                  <div>
+                    <EarlyBirdForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 

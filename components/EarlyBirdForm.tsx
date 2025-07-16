@@ -26,7 +26,7 @@ import { PhoneInput } from "./ui/phone-input";
 import { useEffect, useState } from "react";
 import { Button } from "flowbite-react";
 
-const requestDemoSchema = z.object({
+const earlyBirdSchema = z.object({
     name: z.string().min(3).max(50),
     email: z.email("Please enter a valid email address"),
     company: z.string().min(1).max(50),
@@ -38,11 +38,11 @@ const requestDemoSchema = z.object({
     message: z.string().min(3).max(500),
 })
 
-type RequestDemoSchemaType = z.infer<typeof requestDemoSchema>
+type EarlyBirdSchemaType = z.infer<typeof earlyBirdSchema>
 
-const RequestDemoForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({ className }) => {
-    const form = useForm<RequestDemoSchemaType>({
-        resolver: zodResolver(requestDemoSchema),
+const EarlyBirdForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({ className }) => {
+    const form = useForm<EarlyBirdSchemaType>({
+        resolver: zodResolver(earlyBirdSchema),
         defaultValues: {
             name: "",
             email: "",
@@ -64,7 +64,7 @@ const RequestDemoForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
             .catch(err => console.error('Failed to get country code', err));
     }, []);
 
-    function onSubmit(payload: RequestDemoSchemaType) {
+    function onSubmit(payload: EarlyBirdSchemaType) {
         console.log(payload)
     }
     return (
@@ -158,8 +158,8 @@ const RequestDemoForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
                 <div className="flex items-center justify-center mt-4">
 
                     <div>
-                        <Button type="submit" className="">
-                            Get a Demo
+                        <Button type="submit">
+                            Be an Early Bird
                         </Button>
                     </div>
 
@@ -169,4 +169,4 @@ const RequestDemoForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
     )
 }
 
-export default RequestDemoForm;
+export default EarlyBirdForm;

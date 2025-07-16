@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { createTheme, ThemeProvider } from "flowbite-react";
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
 
 const theme = createTheme({
   button: {
-    base: "relative flex items-center justify-center rounded-lg text-center font-medium focus:outline-none focus:ring-4",
+    base: "relative flex items-center justify-center rounded-lg text-center font-medium",
     disabled: "pointer-events-none opacity-50",
     fullSized: "w-full",
     grouped:
