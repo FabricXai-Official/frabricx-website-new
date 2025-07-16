@@ -10,8 +10,15 @@ import Partners from "@/components/Partners";
 import SeeInAction from "@/components/SeeInAction";
 import SmartTools from "@/components/SmartTools";
 import SolutionsAndChallenges from "@/components/SolutionsAndChallenges";
+import { Button } from "flowbite-react";
+import { MessageSquare } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import LiveChat from "@/components/LiveChat";
 
 export default function Home() {
+  const [showChat, setShowChat] = useState(false);
+  const toggleChat = () => setShowChat(!showChat);
+
   const [selectedDefinition, setSelectedDefinition] = useState<"buying" | "garments">("buying");
 
   // Sync Definition and AiPowered tabs both ways
@@ -24,7 +31,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-[#13191D]">
+    <main className="relative flex min-h-screen flex-col items-center justify-between bg-[#13191D]">
       <Hero />
       <SmartTools />
       <Partners />
@@ -37,6 +44,13 @@ export default function Home() {
       <SeeInAction />
       <InsightAndStory />
       <FAQ />
+
+      <Popover>
+        <PopoverTrigger asChild><Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110" onClick={toggleChat}><MessageSquare /></Button></PopoverTrigger>
+        <PopoverContent>
+          <LiveChat />
+        </PopoverContent>
+      </Popover>
     </main>
   );
 }
