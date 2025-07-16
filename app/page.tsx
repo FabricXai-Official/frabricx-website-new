@@ -46,9 +46,9 @@ export default function Home() {
       <FAQ />
 
       <Popover>
-        <PopoverTrigger asChild><Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110" onClick={toggleChat}><MessageSquare /></Button></PopoverTrigger>
-        <PopoverContent>
-          <LiveChat />
+        <PopoverTrigger asChild><Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110"><MessageSquare /></Button></PopoverTrigger>
+        <PopoverContent className="w-96 p-0 bg-[#13191D]">
+          <LiveChat className="w-full h-96 p-2" />
         </PopoverContent>
       </Popover>
     </main>
