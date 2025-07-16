@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import RequestDemoForm from "./RequestDemoForm";
 import { Button } from "flowbite-react";
+import EarlyBirdForm from "./EarlyBirdForm";
 
 export default function Hero() {
   return (
@@ -42,7 +43,21 @@ export default function Hero() {
                 </DialogContent>
               </Dialog>
 
-              <Button outline>Be an Early Bird</Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div>
+                    <Button outline>Be an Early Bird</Button>
+                  </div>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Enter Your Details</DialogTitle>
+                  </DialogHeader>
+                  <div>
+                    <EarlyBirdForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
