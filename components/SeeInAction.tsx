@@ -152,7 +152,7 @@ export default function SeeInAction() {
                 </Button>
               </div>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent showCloseButton={false}>
               <DialogHeader>
                 <DialogTitle>Enter Your Details</DialogTitle>
               </DialogHeader>

@@ -33,7 +33,7 @@ export default function Hero() {
                     <Button>Get a Demo</Button>
                   </div>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent showCloseButton={false}>
                   <DialogHeader>
                     <DialogTitle>Enter Your Details</DialogTitle>
                   </DialogHeader>
@@ -49,7 +49,7 @@ export default function Hero() {
                     <Button outline>Be an Early Bird</Button>
                   </div>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent showCloseButton={false}>
                   <DialogHeader>
                     <DialogTitle>Enter Your Details</DialogTitle>
                   </DialogHeader>

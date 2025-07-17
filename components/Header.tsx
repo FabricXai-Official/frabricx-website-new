@@ -73,12 +73,42 @@ export default function Header() {
             <DialogTrigger asChild>
               <button className="hover:text-[#f2f827]">Contact</button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent showCloseButton={false} className="w-full md:max-w-5xl">
               <DialogHeader>
                 <VisuallyHidden.Root asChild><DialogTitle>Enter Your Details</DialogTitle></VisuallyHidden.Root>
               </DialogHeader>
-              <div>
-                <SendMessageForm />
+              <div className="flex flex-col md:flex-row gap-4">
+                <SendMessageForm className="w-2/3" />
+                <div className="flex flex-col gap-4 w-1/3">
+                  <div className="flex flex-col items-start justify-between h-48 w-full border border-yellow-400/50 rounded-lg px-6 py-4">
+                    <div className="w-full">
+                      <div></div>
+                      <div>
+                        <h2 className="text-lg font-semibold">Live Chat</h2>
+                        <p>Chat with our AI assistant</p>
+                      </div>
+                    </div>
+                    <p>Instant Response</p>
+                    <Button className="w-full">Start Chat</Button>
+                  </div>
+                  <div className="flex flex-col items-start justify-between h-48 w-full border border-yellow-400/50 rounded-lg px-6 py-4">
+                    <h2>Business Hours</h2>
+                    <div>
+                      <div>
+                        <p>Monday - Friday</p>
+                        <p>9:00 AM - 6:00 PM</p>
+                      </div>
+                      <div>
+                        <p>Saturday</p>
+                        <p>10:00 AM - 4:00 PM</p>
+                      </div>
+                      <div>
+                        <p>Sunday</p>
+                        <p>Closed</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </DialogContent>
           </Dialog>
@@ -129,7 +159,7 @@ export default function Header() {
                 <Button>Get a Demo</Button>
               </div>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent showCloseButton={false}>
               <DialogHeader>
                 <DialogTitle>Enter Your Details</DialogTitle>
               </DialogHeader>
