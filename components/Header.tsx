@@ -21,6 +21,7 @@ import Phone from "@/public/icons/phone.svg";
 import LocationPin from "@/public/icons/pin.svg";
 import LinkedIn from "@/public/icons/linkedin.svg";
 import Facebook from "@/public/icons/facebook.svg";
+import Youtube from "@/public/icons/youtube.svg";
 import RequestDemoForm from "./RequestDemoForm";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -98,6 +99,14 @@ export default function Header() {
             >
               <Facebook className="h-4 w-4" />
             </a>
+            <a
+              href="https://www.youtube.com/@fabricXai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#A8B0B7] hover:text-[#f2f827]"
+            >
+              <Youtube className="h-4 w-5" />
+            </a>
           </div>
         </div>
       </div>
@@ -114,22 +123,22 @@ export default function Header() {
           </div>
         </NavbarBrand>
         <div className="flex md:order-2 gap-2">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div>
-                    <Button>Get a Demo</Button>
-                  </div>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Enter Your Details</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <RequestDemoForm />
-                  </div>
-                </DialogContent>
-              </Dialog>
-{/* 
+          <Dialog>
+            <DialogTrigger asChild>
+              <div>
+                <Button>Get a Demo</Button>
+              </div>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Enter Your Details</DialogTitle>
+              </DialogHeader>
+              <div>
+                <RequestDemoForm />
+              </div>
+            </DialogContent>
+          </Dialog>
+          {/* 
           <Button
             className="hidden md:block"
             onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
