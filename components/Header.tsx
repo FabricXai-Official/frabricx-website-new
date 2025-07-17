@@ -114,23 +114,21 @@ export default function Header() {
           </div>
         </NavbarBrand>
         <div className="flex md:order-2 gap-2">
-          <Dialog>
-            <DialogTrigger asChild>
-              <div>
-                <Button outline className="hidden md:block" font-bold>
-                  Get a Demo
-                </Button>
-              </div>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Enter Your Details</DialogTitle>
-              </DialogHeader>
-              <div>
-                <RequestDemoForm />
-              </div>
-            </DialogContent>
-          </Dialog>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div>
+                    <Button>Get a Demo</Button>
+                  </div>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Enter Your Details</DialogTitle>
+                  </DialogHeader>
+                  <div>
+                    <RequestDemoForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
 {/* 
           <Button
             className="hidden md:block"
@@ -144,9 +142,9 @@ export default function Header() {
             Home
           </NavbarLink>
           <NavbarLink href="#features">Features</NavbarLink>
+          <NavbarLink href="#partners">Partners</NavbarLink>
           <NavbarLink href="#solutions">Solutions</NavbarLink>
-          <NavbarLink href="#pricing">Pricing</NavbarLink>
-          <NavbarLink href="#about">About</NavbarLink>
+          <NavbarLink href="#faqs">FAQs</NavbarLink>
         </NavbarCollapse>
       </Navbar>
     </>
