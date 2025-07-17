@@ -27,7 +27,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <LocationPin /> <a href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
+              <LocationPin /> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
             </div>
           </div>
         </div>
