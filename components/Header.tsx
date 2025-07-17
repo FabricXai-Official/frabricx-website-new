@@ -27,6 +27,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import SendMessageForm from "./SendMessageForm";
 import { VisuallyHidden } from "radix-ui";
+import { Clock, MessageSquare } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,7 +66,14 @@ export default function Header() {
           </div>
           <div className="flex items-center gap-2 hover:text-[#f2f827]">
             {" "}
-            <LocationPin /> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
+            <LocationPin />{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D"
+            >
+              21 Jigatola, Dhaka, Bangladesh
+            </a>
           </div>
         </div>
         <div className="flex items-center gap-8">
@@ -73,37 +81,49 @@ export default function Header() {
             <DialogTrigger asChild>
               <button className="hover:text-[#f2f827]">Contact</button>
             </DialogTrigger>
-            <DialogContent showCloseButton={false} className="w-full md:max-w-5xl">
+            <DialogContent
+              showCloseButton={false}
+              className="w-full md:max-w-5xl"
+            >
               <DialogHeader>
-                <VisuallyHidden.Root asChild><DialogTitle>Enter Your Details</DialogTitle></VisuallyHidden.Root>
+                <VisuallyHidden.Root asChild>
+                  <DialogTitle>Enter Your Details</DialogTitle>
+                </VisuallyHidden.Root>
               </DialogHeader>
               <div className="flex flex-col md:flex-row gap-4">
                 <SendMessageForm className="w-2/3" />
                 <div className="flex flex-col gap-4 w-1/3">
-                  <div className="flex flex-col items-start justify-between h-48 w-full border border-yellow-400/50 rounded-lg px-6 py-4">
-                    <div className="w-full">
-                      <div></div>
+                  <div className="flex flex-col items-start justify-between w-full h-full border border-yellow-400/50 rounded-lg px-6 py-4 gap-6">
+                    <div className="flex items-center justify-start w-full gap-4">
+                      <div className="flex items-center justify-center p-4 bg-[#f2f827]/20 text-[#f2f827] hover:bg-[#f2f827]/40 rounded-lg">
+                        <MessageSquare className="h-6 w-6" />
+                      </div>
                       <div>
                         <h2 className="text-lg font-semibold">Live Chat</h2>
-                        <p>Chat with our AI assistant</p>
+                        <p className="text-sm">Chat with our AI assistant</p>
                       </div>
                     </div>
-                    <p>Instant Response</p>
-                    <Button className="w-full">Start Chat</Button>
+                    <div className="flex flex-col w-full gap-1">
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-4 w-4 inline-block" />
+                        <p className="text-sm font-light">Instant Response</p>
+                      </div>
+                      <Button className="w-full">Start Chat</Button>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-start justify-between h-48 w-full border border-yellow-400/50 rounded-lg px-6 py-4">
-                    <h2>Business Hours</h2>
-                    <div>
-                      <div>
-                        <p>Monday - Friday</p>
+                  <div className="flex flex-col items-start justify-between w-full h-full border border-yellow-400/50 rounded-lg px-6 py-4 gap-6">
+                    <h2 className="font-semibold text-lg">Business Hours</h2>
+                    <div className="w-full text-sm">
+                      <div className="flex items-center justify-between">
+                        <p className="font-semibold">Monday - Friday</p>
                         <p>9:00 AM - 6:00 PM</p>
                       </div>
-                      <div>
-                        <p>Saturday</p>
+                      <div className="flex w-full items-center justify-between">
+                        <p className="font-semibold">Saturday</p>
                         <p>10:00 AM - 4:00 PM</p>
                       </div>
-                      <div>
-                        <p>Sunday</p>
+                      <div className="flex items-center justify-between text-yellow-400/50">
+                        <p className="font-semibold">Sunday</p>
                         <p>Closed</p>
                       </div>
                     </div>

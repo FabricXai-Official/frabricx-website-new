@@ -42,7 +42,7 @@ const SendMessageForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
     }
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className={cn("flex flex-col justify-between", className)}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className={cn("flex flex-col justify-between gap-4", className)}>
                 <FormField
                     control={form.control}
                     name="name"
