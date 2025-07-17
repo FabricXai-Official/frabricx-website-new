@@ -65,10 +65,10 @@ export default function SolutionsAndChallenges() {
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#f2f827]">
-            Solving RGM Industry's Biggest Challenges
+            Solving RMG Industry's Biggest Challenges
           </h2>
           <p className="text-gray-400 mt-2 text-base sm:text-lg">
-            Transform your RGM operations with AI-powered solutions.
+            Transform your RMG operations with AI-powered solutions.
           </p>
         </div>
 
