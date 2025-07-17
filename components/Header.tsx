@@ -117,7 +117,7 @@ export default function Header() {
           <Dialog>
             <DialogTrigger asChild>
               <div>
-                <Button outline className="hidden md:block">
+                <Button outline className="hidden md:block" font-bold>
                   Get a Demo
                 </Button>
               </div>
@@ -131,12 +131,12 @@ export default function Header() {
               </div>
             </DialogContent>
           </Dialog>
-
+{/* 
           <Button
             className="hidden md:block"
             onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
             Get started
-          </Button>
+          </Button> */}
           <NavbarToggle />
         </div>
         <NavbarCollapse>

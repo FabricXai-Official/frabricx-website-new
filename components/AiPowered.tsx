@@ -2,6 +2,8 @@
 
 import { Button } from "flowbite-react";
 import { useState, useEffect } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import EarlyBirdForm from "./EarlyBirdForm";
 
 interface FeatureItem {
   title: string;
@@ -172,8 +174,28 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
             Production Intelligence for You
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-xs sm:max-w-none">
-            <Button className="w-full sm:w-48">Learn More</Button>
-            <Button outline className="w-full sm:w-48">Be an early bird</Button>
+          <Button
+            className="hidden md:block"
+            onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
+            Learn More
+          </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div>
+                    <Button outline>
+                      Be an Early Bird
+                    </Button>
+                  </div>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Enter Your Details</DialogTitle>
+                  </DialogHeader>
+                  <div>
+                    <EarlyBirdForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
           </div>
         </div>
 
@@ -203,10 +225,28 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           {renderFeatureCards(stychxFeatures)}
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button className="w-full sm:w-48">Learn More</Button>
-            <Button outline className="w-full sm:w-48">
-              Be an early bird
-            </Button>
+          <Button
+            className="hidden md:block"
+            onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
+            Learn More
+          </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div>
+                    <Button outline>
+                      Be an Early Bird
+                    </Button>
+                  </div>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Enter Your Details</DialogTitle>
+                  </DialogHeader>
+                  <div>
+                    <EarlyBirdForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
           </div>
         </div>
       </div>
