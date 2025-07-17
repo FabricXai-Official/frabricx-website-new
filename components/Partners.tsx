@@ -41,7 +41,7 @@ export default function Partners() {
 
   return (
     <div className="w-full max-w-full overflow-hidden">
-      <section className="bg-[#13191d] py-8 sm:py-16 px-4 sm:px-8 lg:px-16 rounded-2xl w-full max-w-full">
+      <section className="bg-[#13191d] py-8 sm:py-16 px-4 sm:px-8 lg:px-16 rounded-2xl w-full max-w-full" id="partners">
         <div className="max-w-5xl mx-auto text-center text-white w-full">
           <h5 className="text-lg sm:text-xl lg:text-2xl font-medium text-[#e0e626]">
             Technology Stack

@@ -128,6 +128,8 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
         backgroundColor: "#13191d",
       }}
     >
+      
+      <section className="bg-[#13191d] py-8 sm:py-16 px-4 sm:px-8 lg:px-16 rounded-2xl w-full max-w-full" id="solutions">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px]">
         <div className="max-w-4xl mx-auto text-center mb-12 px-2 sm:px-0">
           <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
@@ -250,6 +252,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           </div>
         </div>
       </div>
+      </section>
     </div>
   );
 }
