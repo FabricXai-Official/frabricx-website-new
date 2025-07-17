@@ -14,7 +14,11 @@ interface ChatMessage {
   sentTime: string;
   sender: string;
   direction: "incoming" | "outgoing";
+  avatar?: string;
 }
+
+const botAvatar = "/icons/bot.svg";
+const userAvatar = "/icons/circle-user-round.svg";
 
 const LiveChat = ({ className }: { className?: string }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -23,6 +27,7 @@ const LiveChat = ({ className }: { className?: string }) => {
       sentTime: "just now",
       sender: "FabricX Bot",
       direction: "incoming",
+      avatar: botAvatar,
     },
   ]);
 
@@ -32,6 +37,7 @@ const LiveChat = ({ className }: { className?: string }) => {
       sentTime: "just now",
       sender: "You",
       direction: "outgoing",
+      avatar: userAvatar, 
     };
 
     setMessages((prev) => [...prev, newMessage]);
@@ -42,8 +48,9 @@ const LiveChat = ({ className }: { className?: string }) => {
         message:
           "Thanks for your message! Our AI is processing your request. How else can I assist you with FabricX solutions?",
         sentTime: "just now",
-        sender: "FabricX Bot",
+        sender: "fabricXai",
         direction: "incoming",
+        avatar: botAvatar,
       };
       setMessages((prev) => [...prev, botResponse]);
     }, 1000);
@@ -66,7 +73,7 @@ const LiveChat = ({ className }: { className?: string }) => {
                   position: msg.direction === "incoming" ? 0 : 1,
                 }}
                 avatarPosition="center-left"
-              ><Avatar src="/public/icons/bot.svg" name="fabricXai" /></Message>
+              ><Avatar active status="available" size="sm" src={msg.avatar} name={msg.sender} /></Message>
             ))}
           </MessageList>
           <MessageInput
