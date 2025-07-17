@@ -134,7 +134,7 @@ export default function FAQ() {
                       </Button>
                     </div>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent showCloseButton={false}>
                     <DialogHeader>
                       <DialogTitle>Enter Your Details</DialogTitle>
                     </DialogHeader>

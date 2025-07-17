@@ -105,7 +105,7 @@ export default function SolutionsAndChallenges() {
                     </Button>
                   </div>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent showCloseButton={false}>
                   <DialogHeader>
                     <DialogTitle>Enter Your Details</DialogTitle>
                   </DialogHeader>
@@ -123,7 +123,7 @@ export default function SolutionsAndChallenges() {
                     </Button>
                   </div>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent showCloseButton={false}>
                   <DialogHeader>
                     <DialogTitle>Enter Your Details</DialogTitle>
                   </DialogHeader>

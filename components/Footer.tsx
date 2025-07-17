@@ -5,6 +5,7 @@ import Phone from "@/public/icons/phone.svg";
 import LocationPin from "@/public/icons/pin.svg";
 import LinkedIn from "@/public/icons/linkedin.svg";
 import Facebook from "@/public/icons/facebook.svg";
+import Youtube from "@/public/icons/youtube.svg";
 
 export default function Footer() {
   return (
@@ -26,7 +27,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <LocationPin /> <a href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
+              <LocationPin /> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
             </div>
           </div>
         </div>
@@ -81,6 +82,14 @@ export default function Footer() {
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
               <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.youtube.com/@fabricXai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#A8B0B7] hover:text-[#f2f827]"
+            >
+              <Youtube className="h-4 w-5" />
             </a>
           </div>
         </div>

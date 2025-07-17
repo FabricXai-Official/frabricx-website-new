@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
@@ -16,6 +15,7 @@ import { Input } from "@/components/ui/input"
 
 import { cn } from "@/lib/utils";
 import { Textarea } from "./ui/textarea";
+import { Button } from "flowbite-react";
 
 const messageSchema = z.object({
     name: z.string().min(3).max(20),
@@ -42,7 +42,7 @@ const SendMessageForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
     }
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className={cn("", className)}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className={cn("flex flex-col justify-between gap-4", className)}>
                 <FormField
                     control={form.control}
                     name="name"
@@ -89,7 +89,7 @@ const SendMessageForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
                         <FormItem>
                             <FormLabel>Message</FormLabel>
                             <FormControl>
-                                <Textarea placeholder="Enter your message" {...field} />
+                                <Textarea className="min-h-32" placeholder="Enter your message" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
