@@ -151,7 +151,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
                 : "bg-transparent text-white hover:bg-white/30"
             }`}
           >
-            Brm Intelligence
+            BRM Intelligence
           </button>
           <button
             onClick={() => handleToggleClick("pi")}
@@ -179,7 +179,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           <Button
             className="hidden md:block"
             onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
-            Learn More
+            Get Started
           </Button>
               <Dialog>
                 <DialogTrigger asChild>
@@ -230,7 +230,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           <Button
             className="hidden md:block"
             onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
-            Learn More
+            Get Started
           </Button>
               <Dialog>
                 <DialogTrigger asChild>
