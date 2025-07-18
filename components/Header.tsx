@@ -28,9 +28,12 @@ import { cn } from "@/lib/utils";
 import SendMessageForm from "./SendMessageForm";
 import { VisuallyHidden } from "radix-ui";
 import { Clock, MessageSquare } from "lucide-react";
+import { useChat } from "@/lib/chat-context";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { setShowChat } = useChat();
+  const [showContactDialog, setShowContactDialog] = useState(false);
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -77,7 +80,7 @@ export default function Header() {
           </div>
         </div>
         <div className="flex items-center gap-8">
-          <Dialog>
+          <Dialog open={showContactDialog} onOpenChange={setShowContactDialog}>
             <DialogTrigger asChild>
               <button className="hover:text-[#f2f827]">Contact</button>
             </DialogTrigger>
@@ -108,7 +111,15 @@ export default function Header() {
                         <Clock className="h-4 w-4 inline-block" />
                         <p className="text-sm font-light">Instant Response</p>
                       </div>
-                      <Button className="w-full">Start Chat</Button>
+                      <Button className="w-full" onClick={() => {
+                        // e.preventDefault();
+                        // e.stopPropagation();
+                        setShowContactDialog(false);
+                        setTimeout(() => {
+                          setShowChat(true);
+                        }, 100); // Delay to ensure dialog closes before opening chat
+                        
+                      }}>Start Chat</Button>
                     </div>
                   </div>
                   <div className="flex flex-col items-start justify-between w-full h-full border border-yellow-400/50 rounded-lg px-6 py-4 gap-6">

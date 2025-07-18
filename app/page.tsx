@@ -14,10 +14,10 @@ import { Button } from "flowbite-react";
 import { MessageSquare } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import LiveChat from "@/components/LiveChat";
+import { useChat } from "@/lib/chat-context";
 
 export default function Home() {
-  const [showChat, setShowChat] = useState(false);
-  const toggleChat = () => setShowChat(!showChat);
+  const {showChat, setShowChat} = useChat();
 
   const [selectedDefinition, setSelectedDefinition] = useState<"buying" | "garments">("buying");
 
@@ -31,7 +31,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-between bg-[#13191D]">
+    <main className="relative flex w-full flex-col items-center justify-between bg-[#13191D]">
       <Hero />
       <SmartTools />
       <Partners />
@@ -45,8 +45,12 @@ export default function Home() {
       <InsightAndStory />
       <FAQ />
 
-      <Popover>
-        <PopoverTrigger asChild><Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110"><MessageSquare /></Button></PopoverTrigger>
+      
+
+      <Popover modal open={showChat} onOpenChange={setShowChat}>
+        <PopoverTrigger asChild>
+          <Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110"><MessageSquare /></Button>
+        </PopoverTrigger>
         <PopoverContent className="w-96 p-0 bg-[#13191D]">
           <LiveChat className="w-full h-96 p-2" />
         </PopoverContent>
