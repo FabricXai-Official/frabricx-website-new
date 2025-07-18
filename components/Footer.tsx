@@ -34,21 +34,21 @@ export default function Footer() {
         <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Quick Links</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
-            <Link className="hover:text-[#f2f827]" href="#about">
-              About
+            <Link className="hover:text-[#f2f827]" href="#">
+              Home
             </Link>
             <Link className="hover:text-[#f2f827]" href="#features">
               Features
             </Link>
+            <Link className="hover:text-[#f2f827]" href="#partners">
+              Partners
+            </Link>
             <Link className="hover:text-[#f2f827]" href="#solutions">
               Solutions
             </Link>
-            <Link className="hover:text-[#f2f827]" href="/blog">
-              Blog
-            </Link>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-start">
+        {/* <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Account</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
             <Link className="hover:text-[#f2f827]" href="/login">
@@ -64,7 +64,7 @@ export default function Footer() {
               Beta Program
             </Link>
           </div>
-        </div>
+        </div> */}
         <div className="h-full">
           <div className="flex flex-row lg:flex-col items-center justify-center gap-6 py-4">
             <a

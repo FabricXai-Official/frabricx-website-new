@@ -1,10 +1,26 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Button } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function InsightAndStory() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleSubscribe = () => {
+    setShowPopup(true);
+  };
+
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
+
   return (
     <section
       className="w-full bg-cover bg-center bg-no-repeat py-16 px-4 sm:px-8 lg:px-16 rounded-2xl"
@@ -152,7 +168,9 @@ export default function InsightAndStory() {
               placeholder="Enter your email address"
               className="px-4 py-2 rounded-md text-black bg-[#d9d9d9] w-full sm:w-80"
             />
-            <Button className="w-full sm:w-40">Subscribe</Button>
+            <Button className="w-full sm:w-40" onClick={handleSubscribe}>
+              Subscribe
+            </Button>
           </div>
 
           <p className="text-sm text-[#a8b0b7]">
@@ -162,6 +180,12 @@ export default function InsightAndStory() {
           <div className="text-center text-xs text-[#ffffff] mt-5">
             "Read by 500+ garment industry leaders across Bangladesh."
           </div>
+
+          {showPopup && (
+            <div className="mt-4 bg-green-600 text-white px-4 py-2 rounded-md shadow-md animate-fadeIn">
+              Thank you for subscribing!
+            </div>
+          )}
         </div>
       </div>
     </section>
