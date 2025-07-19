@@ -3,10 +3,11 @@ import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  experimental: {
-    esmExternals: 'loose'
-  },
+  // experimental: {
+  //   esmExternals: 'loose'
+  // },
   output: 'export',
+  images: { unoptimized: true },
   trailingSlash: true,
   transpilePackages: ['@chatscope/chat-ui-kit-react']
 };
