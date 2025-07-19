@@ -178,7 +178,7 @@ export default function InsightAndStory() {
           </p>
 
           <div className="text-center text-xs text-[#ffffff] mt-5">
-            "Read by 500+ garment industry leaders across Bangladesh."
+            &ldquo;Read by 500+ garment industry leaders across Bangladesh.&rdquo;
           </div>
 
           {showPopup && (

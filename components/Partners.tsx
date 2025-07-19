@@ -54,7 +54,7 @@ export default function Partners() {
             </span>
           </div>
           <p className="text-sm sm:text-base text-center sm:text-left mt-2 text-[#a8b0b7] max-w-3xl mx-auto">
-            We partner with the world's leading technology companies to deliver cutting-edge AI solutions
+            We partner with the world&apos;s leading technology companies to deliver cutting-edge AI solutions
           </p>
           <div className="mt-8 sm:mt-12 w-full overflow-hidden">
             <div

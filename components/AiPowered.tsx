@@ -2,6 +2,7 @@
 
 import { Button } from "flowbite-react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import EarlyBirdForm from "./EarlyBirdForm";
 
@@ -133,7 +134,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px]">
         <div className="max-w-4xl mx-auto text-center mb-12 px-2 sm:px-0">
           <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
-            fabricXai's AI-Powered Solutions
+            fabricXai&apos;s AI-Powered Solutions
           </h1>
           <p className="text-lg text-[#a8b0b7]">
             Comprehensive tools designed specifically for the RGM manufacturing
@@ -217,10 +218,12 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           </div>
 
           <div className="text-center mb-12">
-            <img
+            <Image
               src="/icons/stychx.svg"
               alt="stychX Logo"
-              className="mx-auto w-40 h-auto"
+              width={160}
+              height={40}
+              className="mx-auto"
             />
           </div>
 

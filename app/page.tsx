@@ -10,22 +10,18 @@ import Partners from "@/components/Partners";
 import SeeInAction from "@/components/SeeInAction";
 import SmartTools from "@/components/SmartTools";
 import SolutionsAndChallenges from "@/components/SolutionsAndChallenges";
-import { Button } from "flowbite-react";
-import { MessageSquare } from "lucide-react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import LiveChat from "@/components/LiveChat";
-import { useChat } from "@/lib/chat-context";
+// import { Button } from "flowbite-react";
+// import { MessageSquare } from "lucide-react";
+// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+// import LiveChat from "@/components/LiveChat";
+// import { useChat } from "@/lib/chat-context";
 
 export default function Home() {
-  const {showChat, setShowChat} = useChat();
+  // const {showChat, setShowChat} = useChat();
 
   const [selectedDefinition, setSelectedDefinition] = useState<"buying" | "garments">("buying");
 
   // Sync Definition and AiPowered tabs both ways
-  const handleDefinitionChange = (value: "buying" | "garments") => {
-    setSelectedDefinition(value);
-  };
-
   const handleAiTabChange = (tab: "brm" | "pi") => {
     setSelectedDefinition(tab === "brm" ? "buying" : "garments");
   };
@@ -36,7 +32,7 @@ export default function Home() {
       <SmartTools />
       <Partners />
       <SolutionsAndChallenges />
-      <Definition selected={selectedDefinition} setSelected={handleDefinitionChange} />
+      <Definition selected={selectedDefinition} setSelected={setSelectedDefinition} />
       <AiPowered
         activeTab={selectedDefinition === "buying" ? "brm" : "pi"}
         setActiveTab={handleAiTabChange}
@@ -45,16 +41,19 @@ export default function Home() {
       <InsightAndStory />
       <FAQ />
 
-      
-
-      <Popover modal open={showChat} onOpenChange={setShowChat}>
-        <PopoverTrigger asChild>
-          <Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110"><MessageSquare /></Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-96 p-0 bg-[#13191D]">
-          <LiveChat className="w-full h-96 p-2" />
-        </PopoverContent>
-      </Popover>
+      {/* Temporarily disabled chat functionality for production build */}
+      {/*
+      {process.env.NODE_ENV !== 'production' && (
+        <Popover modal open={showChat} onOpenChange={setShowChat}>
+          <PopoverTrigger asChild>
+            <Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110"><MessageSquare /></Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-96 p-0 bg-[#13191D]">
+            <LiveChat className="w-full h-96 p-2" />
+          </PopoverContent>
+        </Popover>
+      )}
+      */}
     </main>
   );
 }

@@ -1,11 +1,5 @@
 import Link from "next/link";
-import FabricXAi from "@/public/icons/fabricxai.svg";
-import MailAlt from "@/public/icons/mail-alt.svg";
-import Phone from "@/public/icons/phone.svg";
-import LocationPin from "@/public/icons/pin.svg";
-import LinkedIn from "@/public/icons/linkedin.svg";
-import Facebook from "@/public/icons/facebook.svg";
-import Youtube from "@/public/icons/youtube.svg";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -13,21 +7,21 @@ export default function Footer() {
       <div className="m-0 py-4 px-8 lg:px-24 flex flex-col lg:flex-row items-start lg:items-center justify-between text-center">
         <div>
           <div className="pt-6">
-            <FabricXAi />
+            <Image src="/icons/fabricxai.svg" alt="FabricX AI" width={120} height={36} className="h-9 w-auto" />
           </div>
           <div className="flex flex-col gap-2 mt-8">
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <MailAlt />{" "}
+              <Image src="/icons/mail-alt.svg" alt="Mail" width={14} height={12} />{" "}
               <a href="mailto:info@fabricxai.com">info@fabricxai.com</a>
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <Phone /> <a href="tel:+880 1711 253751">+880 1711 253751</a>
+              <Image src="/icons/phone.svg" alt="Phone" width={14} height={14} /> <a href="tel:+880 1711 253751">+880 1711 253751</a>
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <LocationPin /> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
+              <Image src="/icons/pin.svg" alt="Location" width={14} height={14} /> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
             </div>
           </div>
         </div>
@@ -73,7 +67,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <LinkedIn className="h-4 w-4" />
+              <Image src="/icons/linkedin.svg" alt="LinkedIn" width={16} height={16} />
             </a>
             <a
               href="https://www.facebook.com/FabricXAI"
@@ -81,7 +75,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Facebook className="h-4 w-4" />
+              <Image src="/icons/facebook.svg" alt="Facebook" width={16} height={16} />
             </a>
             <a
               href="https://www.youtube.com/@fabricXai"
@@ -89,7 +83,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Youtube className="h-4 w-5" />
+              <Image src="/icons/youtube.svg" alt="YouTube" width={16} height={20} />
             </a>
           </div>
         </div>

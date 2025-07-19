@@ -1,10 +1,8 @@
-// app/blogs/page.tsx
 "use client";
 
 import Image from "next/image";
-import React from "react";
 
-export default function BlogsPage() {
+function BlogsPage() {
   return (
     <div className="w-full min-h-screen bg-[#13191d] text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-16">
@@ -24,7 +22,7 @@ export default function BlogsPage() {
             Supply Chain Insights: Enhancing Efficiency in Bangladesh’s RMG Industry
           </h1>
           <p className="text-lg italic text-white/80">
-            Is Bangladesh's RMG Supply Chain Ready for the Next Decade?
+            Is Bangladesh&apos;s RMG Supply Chain Ready for the Next Decade?
           </p>
           <div className="space-y-4 text-base sm:text-lg leading-relaxed">
             <p>
@@ -95,7 +93,7 @@ export default function BlogsPage() {
               On February 26, 2010, a devastating fire broke out at the Garib & Garib Sweater Factory in Gazipur, Bangladesh, claiming the lives of at least 21 workers due to toxic smoke inhalation and the lack of proper emergency exits. This tragedy was one of many industrial disasters that exposed the fire hazards in garments and the dire need for better textile factory safety regulations.
             </p>
             <p>
-              Fifteen years later, Bangladesh's Ready-Made Garment (RMG) industry has made significant progress in improving workplace safety, yet fire risks remain a major concern. Advances in AI fire prevention in RMG, IoT-based fire detection, and smart automation now present a game-changing opportunity to prevent such disasters.
+              Fifteen years later, Bangladesh&apos;s Ready-Made Garment (RMG) industry has made significant progress in improving workplace safety, yet fire risks remain a major concern. Advances in AI fire prevention in RMG, IoT-based fire detection, and smart automation now present a game-changing opportunity to prevent such disasters.
             </p>
             <h3 className="text-xl font-semibold text-[#f2f827]">The Incident: What Happened on February 26, 2010?</h3>
             <ul className="list-disc list-inside ml-4 space-y-1">
@@ -152,11 +150,11 @@ export default function BlogsPage() {
             />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-[#f2f827]">
-            Bangladesh's Suspension of Yarn Imports from India: Causes, Implications, and Path Forward
+            Bangladesh&apos;s Suspension of Yarn Imports from India: Causes, Implications, and Path Forward
           </h2>
           <div className="space-y-4 text-base sm:text-lg leading-relaxed">
             <p>
-              Bangladesh's National Board of Revenue (NBR) has suspended the import of yarn from India through land ports effective April 15, 2025. This decision marks a significant shift in the textile trade dynamics between the two neighboring countries and highlights the ongoing tensions between protecting domestic industries and ensuring a competitive manufacturing sector.
+              Bangladesh&apos;s National Board of Revenue (NBR) has suspended the import of yarn from India through land ports effective April 15, 2025. This decision marks a significant shift in the textile trade dynamics between the two neighboring countries and highlights the ongoing tensions between protecting domestic industries and ensuring a competitive manufacturing sector.
             </p>
             <h3 className="text-xl font-semibold text-[#f2f827]">Motivations Behind the Suspension</h3>
             <p>
@@ -209,11 +207,11 @@ export default function BlogsPage() {
             />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-[#f2f827]">
-            Financial Impact of Digital Presence and Website Availability on Bangladesh's RMG and Buying House Industries: A Comprehensive Analysis
+            Financial Impact of Digital Presence and Website Availability on Bangladesh&apos;s RMG and Buying House Industries: A Comprehensive Analysis
           </h2>
           <div className="space-y-4 text-base sm:text-lg leading-relaxed">
             <p>
-              The ready-made garments (RMG) sector and buying houses in Bangladesh face significant financial challenges due to limited digital presence and website adoption. With the RMG sector contributing approximately 83% of Bangladesh's total export earnings and generating $38.48 billion in 2024, the lack of comprehensive digital transformation presents substantial missed opportunities.
+              The ready-made garments (RMG) sector and buying houses in Bangladesh face significant financial challenges due to limited digital presence and website adoption. With the RMG sector contributing approximately 83% of Bangladesh&apos;s total export earnings and generating $38.48 billion in 2024, the lack of comprehensive digital transformation presents substantial missed opportunities.
             </p>
             <h3 className="text-xl font-semibold text-[#f2f827]">Financial Importance of Websites for RMG Factories</h3>
             <h4 className="font-semibold">Revenue Generation and Market Access</h4>
@@ -368,3 +366,5 @@ export default function BlogsPage() {
     </div>
   );
 }
+
+export default BlogsPage;

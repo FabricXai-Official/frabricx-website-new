@@ -6,7 +6,7 @@ import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { createTheme, ThemeProvider } from "flowbite-react";
-import { ChatProvider } from "@/lib/chat-context";
+// import { ChatProvider } from "@/lib/chat-context";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -146,13 +146,13 @@ export default function RootLayout({
         lang="en"
         className={`${plusJakartaSans.variable} ${chillax.variable} antialiased relative`}
       >
-        <ChatProvider>
+        {/* <ChatProvider> */}
           <body className="font-sans min-w-screen">
           <Header />
           {children}
           <Footer />
         </body>
-        </ChatProvider>
+        {/* </ChatProvider> */}
       </html>
     </ThemeProvider>
   );

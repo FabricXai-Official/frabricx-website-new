@@ -3,14 +3,12 @@ import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
-      },
-    },
+  experimental: {
+    esmExternals: 'loose'
   },
+  output: 'export',
+  trailingSlash: true,
+  transpilePackages: ['@chatscope/chat-ui-kit-react']
 };
 
 export default withFlowbiteReact(nextConfig);
