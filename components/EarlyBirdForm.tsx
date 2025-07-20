@@ -32,15 +32,19 @@ const earlyBirdSchema = z.object({
     company: z.string().min(1).max(50),
     phone: z
         .string()
-        .refine(isValidPhoneNumber, { message: "Invalid phone number" })
-        .or(z.literal("")),
+        .refine((val) => !val || val === "" || isValidPhoneNumber(val), { message: "Invalid phone number" }),
     engagement_type: z.enum(["social-media", "friends", "email"]).optional(),
     message: z.string().min(3).max(500),
+    honeypot: z.string().max(0, "Bot detected").optional(), // Honeypot field for bot protection
 })
 
 type EarlyBirdSchemaType = z.infer<typeof earlyBirdSchema>
 
 const EarlyBirdForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({ className }) => {
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+    const [errorMessage, setErrorMessage] = useState('')
+
     const form = useForm<EarlyBirdSchemaType>({
         resolver: zodResolver(earlyBirdSchema),
         defaultValues: {
@@ -50,6 +54,7 @@ const EarlyBirdForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
             phone: "",
             engagement_type: undefined,
             message: "",
+            honeypot: "", // Hidden field for bot protection
         },
     })
 
@@ -64,8 +69,50 @@ const EarlyBirdForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
             .catch(err => console.error('Failed to get country code', err));
     }, []);
 
-    function onSubmit(payload: EarlyBirdSchemaType) {
-        console.log(payload)
+    async function onSubmit(payload: EarlyBirdSchemaType) {
+        // Honeypot protection: if honeypot field is filled, it's likely a bot
+        if (payload.honeypot && payload.honeypot.trim() !== '') {
+            setErrorMessage('Spam detected. Please try again.')
+            setSubmitStatus('error')
+            return
+        }
+        
+        setIsSubmitting(true)
+        setSubmitStatus('idle')
+        setErrorMessage('')
+
+        try {
+            const response = await fetch('/api/early-bird', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            })
+
+            if (response.ok) {
+                setSubmitStatus('success')
+                form.reset()
+            } else {
+                let errorMessage = 'Failed to submit the form. Please try again.'
+                try {
+                    const errorData = await response.json()
+                    errorMessage = errorData.error || errorMessage
+                } catch (parseError) {
+                    // If we can't parse the error response, use a generic message
+                    console.warn('Could not parse error response:', parseError)
+                    errorMessage = `Server error (${response.status}): ${response.statusText || 'Unknown error'}`
+                }
+                setErrorMessage(errorMessage)
+                setSubmitStatus('error')
+            }
+        } catch (error) {
+            console.error('Error submitting early bird signup:', error)
+            setErrorMessage(error instanceof Error ? error.message : 'Failed to submit the form. Please try again.')
+            setSubmitStatus('error')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
     return (
         <Form {...form}>
@@ -154,14 +201,50 @@ const EarlyBirdForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLD
                             </FormItem>
                         )}
                     />
+                    
+                    {/* Hidden honeypot field for bot protection */}
+                    <FormField
+                        control={form.control}
+                        name="honeypot"
+                        render={({ field }) => (
+                            <div className="hidden">
+                                <Input 
+                                    {...field} 
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    aria-hidden="true"
+                                />
+                            </div>
+                        )}
+                    />
                 </div>
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                    <div className="p-4 mb-4 text-green-800 bg-green-100 border border-green-200 rounded-md">
+                        <p className="font-medium">Form submitted successfully!</p>
+                        <p className="text-sm">Thank you for signing up. We&apos;ll get back to you soon.</p>
+                    </div>
+                )}
+
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                    <div className="p-4 mb-4 text-red-800 bg-red-100 border border-red-200 rounded-md">
+                        <p className="font-medium">Failed to submit form</p>
+                        <p className="text-sm">{errorMessage}</p>
+                    </div>
+                )}
+
                 <div className="flex items-center justify-center mt-4">
 
-                    <div>
-                        <Button type="submit">
-                            Be an Early Bird
-                        </Button>
-                    </div>
+                    <Button 
+                        type="submit"
+                        disabled={isSubmitting}
+                        className={cn(
+                            isSubmitting && "opacity-50 cursor-not-allowed"
+                        )}
+                    >
+                        {isSubmitting ? 'Submitting...' : 'Be an Early Bird'}
+                    </Button>
 
                 </div>
             </form>
