@@ -10,24 +10,27 @@ import Partners from "@/components/Partners";
 import SeeInAction from "@/components/SeeInAction";
 import SmartTools from "@/components/SmartTools";
 import SolutionsAndChallenges from "@/components/SolutionsAndChallenges";
-// import { Button } from "flowbite-react";
-// import { MessageSquare } from "lucide-react";
-// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-// import LiveChat from "@/components/LiveChat";
-// import { useChat } from "@/lib/chat-context";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import LiveChat from "@/components/LiveChat";
+import Image from "next/image";
 
 export default function Home() {
-  // const {showChat, setShowChat} = useChat();
+  // const [showChat, setShowChat] = useState(false);
+  // const toggleChat = () => setShowChat(!showChat);
 
   const [selectedDefinition, setSelectedDefinition] = useState<"buying" | "garments">("buying");
 
   // Sync Definition and AiPowered tabs both ways
+  // const handleDefinitionChange = (value: "buying" | "garments") => {
+  //   setSelectedDefinition(value);
+  // };
+
   const handleAiTabChange = (tab: "brm" | "pi") => {
     setSelectedDefinition(tab === "brm" ? "buying" : "garments");
   };
 
   return (
-    <main className="relative flex w-full flex-col items-center justify-between bg-[#13191D]">
+    <main className="relative flex min-h-screen flex-col items-center justify-between bg-[#13191D]">
       <Hero />
       <SmartTools />
       <Partners />
@@ -41,19 +44,22 @@ export default function Home() {
       <InsightAndStory />
       <FAQ />
 
-      {/* Temporarily disabled chat functionality for production build */}
-      {/*
-      {process.env.NODE_ENV !== 'production' && (
-        <Popover modal open={showChat} onOpenChange={setShowChat}>
-          <PopoverTrigger asChild>
-            <Button pill className="fixed bottom-6 right-6 h-14 w-14 p-1 transition-all transform hover:scale-110"><MessageSquare /></Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-96 p-0 bg-[#13191D]">
-            <LiveChat className="w-full h-96 p-2" />
-          </PopoverContent>
-        </Popover>
-      )}
-      */}
+      <Popover>
+        <PopoverTrigger asChild>
+          <button className="fixed bottom-6 right-6 h-16 w-16 bg-[#f2f827] rounded-full flex items-center justify-center transition-all transform hover:scale-110 shadow-lg hover:shadow-xl">
+            <Image
+              src="/icons/MARBIM.svg"
+              alt="MARBIM Chat"
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
+          </button>
+        </PopoverTrigger>
+        <PopoverContent className="w-96 p-0 bg-[#13191D]">
+          <LiveChat className="w-full h-[500px] p-2" />
+        </PopoverContent>
+      </Popover>
     </main>
   );
 }

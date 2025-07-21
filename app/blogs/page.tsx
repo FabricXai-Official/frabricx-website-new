@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import React from "react";
 
-function BlogsPage() {
+export default function BlogsPage() {
   return (
     <div className="w-full min-h-screen bg-[#13191d] text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-16">
@@ -366,5 +367,3 @@ function BlogsPage() {
     </div>
   );
 }
-
-export default BlogsPage;

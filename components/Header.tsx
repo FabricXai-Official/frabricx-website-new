@@ -43,7 +43,7 @@ export default function Header() {
     <>
       <div
         className={cn(
-          "fixed hidden left-0 top-0 z-50 h-8 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500 text-xs",
+          "fixed hidden left-0 top-0 z-50 h-9 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500 text-xs",
           {
             "md:flex": !isScrolled,
           }

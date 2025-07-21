@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import EarlyBirdForm from "./EarlyBirdForm";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface FeatureItem {
   title: string;
@@ -192,7 +193,9 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
                 </DialogTrigger>
                 <DialogContent showCloseButton={false}>
                   <DialogHeader>
-                    <DialogTitle>Enter Your Details</DialogTitle>
+                    <VisuallyHidden>
+                      <DialogTitle>Enter Your Details</DialogTitle>
+                    </VisuallyHidden>
                   </DialogHeader>
                   <div>
                     <EarlyBirdForm />
@@ -245,7 +248,9 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
                 </DialogTrigger>
                 <DialogContent showCloseButton={false}>
                   <DialogHeader>
-                    <DialogTitle>Enter Your Details</DialogTitle>
+                    <VisuallyHidden>
+                      <DialogTitle>Enter Your Details</DialogTitle>
+                    </VisuallyHidden>
                   </DialogHeader>
                   <div>
                     <EarlyBirdForm />

@@ -88,6 +88,7 @@ module.exports = async function (context, req) {
                         <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
                         <p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
                         ${company ? `<p style="margin: 10px 0;"><strong>Company:</strong> ${company}</p>` : ''}
+                        ${req.body.phone ? `<p style="margin: 10px 0;"><strong>Phone:</strong> ${req.body.phone}</p>` : ''}
                     </div>
                     
                     <div style="margin: 20px 0;">
@@ -108,6 +109,7 @@ New Contact Form Submission
 
 Name: ${name}
 Email: ${email}
+${req.body.phone ? `Phone: ${req.body.phone}\n` : ''}
 ${company ? `Company: ${company}\n` : ''}Message:
 ${message}
 
