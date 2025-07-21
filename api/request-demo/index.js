@@ -123,7 +123,7 @@ Request Type: Product Demo
             // Send email using Resend
             const data = await resend.emails.send({
                 from: process.env.FROM_EMAIL || 'noreply@sociofi.io',
-                to: process.env.TO_EMAIL || 'info@fabricxai.com', // Send demo requests to noreply@sociofi.io as requested
+                to: 'joinbeta@fabricxai.com', // Send demo requests to noreply@sociofi.io as requested
                 subject: subject,
                 html: htmlContent,
                 text: textContent,

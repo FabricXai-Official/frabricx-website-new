@@ -117,7 +117,7 @@ Sent on: ${new Date().toLocaleString()}
             // Send email using Resend
             const data = await resend.emails.send({
                 from: process.env.FROM_EMAIL || 'noreply@sociofi.io', // Use environment variable for from email
-                to: 'contacts@fabricxai.com' // || 'info@fabricxai.com', // Send to configured email or fallback
+                to: 'contacts@fabricxai.com', // || 'info@fabricxai.com', // Send to configured email or fallback
                 subject: subject,
                 html: htmlContent,
                 text: textContent,

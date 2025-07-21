@@ -6,20 +6,72 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function InsightAndStory() {
-  const [showPopup, setShowPopup] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubscribe = () => {
-    setShowPopup(true);
+  const handleSubscribe = async () => {
+    if (!email) {
+      setErrorMessage('Please enter your email address');
+      setSubscriptionStatus('error');
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage('Please enter a valid email address');
+      setSubscriptionStatus('error');
+      return;
+    }
+
+    setIsSubscribing(true);
+    setSubscriptionStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setSubscriptionStatus('success');
+        setEmail(''); // Clear the email field
+      } else {
+        let errorMessage = 'Failed to subscribe. Please try again.';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch (parseError) {
+          console.warn('Could not parse error response:', parseError);
+          errorMessage = `Server error (${response.status}): ${response.statusText || 'Unknown error'}`;
+        }
+        setErrorMessage(errorMessage);
+        setSubscriptionStatus('error');
+      }
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to subscribe. Please try again.');
+      setSubscriptionStatus('error');
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   useEffect(() => {
-    if (showPopup) {
+    if (subscriptionStatus === 'success' || subscriptionStatus === 'error') {
       const timer = setTimeout(() => {
-        setShowPopup(false);
+        setSubscriptionStatus('idle');
+        setErrorMessage('');
       }, 5000);
       return () => clearTimeout(timer);
     }
-  }, [showPopup]);
+  }, [subscriptionStatus]);
 
   return (
     <section
@@ -166,10 +218,17 @@ export default function InsightAndStory() {
             <input
               type="email"
               placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="px-4 py-2 rounded-md text-black bg-[#d9d9d9] w-full sm:w-80"
+              disabled={isSubscribing}
             />
-            <Button className="w-full sm:w-40" onClick={handleSubscribe}>
-              Subscribe
+            <Button 
+              className="w-full sm:w-40" 
+              onClick={handleSubscribe}
+              disabled={isSubscribing}
+            >
+              {isSubscribing ? 'Subscribing...' : 'Subscribe'}
             </Button>
           </div>
 
@@ -181,9 +240,17 @@ export default function InsightAndStory() {
             &ldquo;Read by 500+ garment industry leaders across Bangladesh.&rdquo;
           </div>
 
-          {showPopup && (
+          {/* Success Message */}
+          {subscriptionStatus === 'success' && (
             <div className="mt-4 bg-green-600 text-white px-4 py-2 rounded-md shadow-md animate-fadeIn">
               Thank you for subscribing!
+            </div>
+          )}
+
+          {/* Error Message */}
+          {subscriptionStatus === 'error' && (
+            <div className="mt-4 bg-red-600 text-white px-4 py-2 rounded-md shadow-md animate-fadeIn">
+              {errorMessage || 'Failed to subscribe. Please try again.'}
             </div>
           )}
         </div>
