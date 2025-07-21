@@ -24,6 +24,11 @@ const chillax = localFont({
 export const metadata: Metadata = {
   title: "fabricXai",
   description: "AI-Powered Garment Export Platform",
+  icons: {
+    icon: '/fabricx_ai_logo.jpeg',
+    shortcut: '/fabricx_ai_logo.jpeg',
+    apple: '/fabricx_ai_logo.jpeg',
+  },
 };
 
 const theme = createTheme({
