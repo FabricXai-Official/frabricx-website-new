@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "./RequestDemoForm";
 import ContactForm from "./ContactForm";
@@ -256,13 +256,14 @@ const LiveChat = ({ className }: { className?: string }) => {
           <input
             type="text"
             placeholder="Type your message..."
-            className="flex-1 bg-[#13191d] border border-[#34383b] text-white placeholder-[#6b7280] rounded-xl px-4 py-3 focus:outline-none focus:border-[#f2f827] transition-colors"
+            className="flex-1 bg-[#13191d] border border-[#34383b] text-white placeholder-[#6b7280] rounded-xl px-4 py-3 focus:outline-none focus:border-[#f2f827] focus:ring-2 focus:ring-[#f2f827]/20 transition-colors min-h-[44px]"
             onKeyPress={(e) => {
               if (e.key === "Enter") {
                 handleSendMessage(e.currentTarget.value);
                 e.currentTarget.value = "";
               }
             }}
+            aria-label="Type your message"
           />
           <button
             onClick={(e) => {
@@ -270,12 +271,20 @@ const LiveChat = ({ className }: { className?: string }) => {
               handleSendMessage(input.value);
               input.value = "";
             }}
-            className="bg-[#f2f827] text-[#13191d] px-4 py-3 rounded-xl hover:bg-[#e0e626] transition-colors"
+            className="bg-[#f2f827] text-[#13191d] px-4 py-3 rounded-xl hover:bg-[#e0e626] active:scale-95 transition-all duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#f2f827]/50"
+            aria-label="Send message"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
             </svg>
           </button>
+        </div>
+        
+        {/* Mobile tip */}
+        <div className="mt-2 text-center">
+          <p className="text-[#6b7280] text-xs">
+            💡 <strong>Mobile Tip:</strong> Tap the quick action buttons above for instant help
+          </p>
         </div>
       </div>
 

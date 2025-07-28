@@ -1,5 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
+import FabricXAi from "@/public/icons/fabricxai.svg";
+import MailAlt from "@/public/icons/mail-alt.svg";
+import Phone from "@/public/icons/phone.svg";
+import LocationPin from "@/public/icons/pin.svg";
+import LinkedIn from "@/public/icons/linkedin.svg";
+import Facebook from "@/public/icons/facebook.svg";
+import Youtube from "@/public/icons/youtube.svg";
 
 export default function Footer() {
   return (
@@ -7,42 +13,42 @@ export default function Footer() {
       <div className="m-0 py-4 px-8 lg:px-24 flex flex-col lg:flex-row items-start lg:items-center justify-between text-center">
         <div>
           <div className="pt-6">
-            <Image src="/icons/fabricxai.svg" alt="FabricX AI" width={120} height={36} className="h-9 w-auto" />
+            <FabricXAi />
           </div>
           <div className="flex flex-col gap-2 mt-8">
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <Image src="/icons/mail-alt.svg" alt="Mail" width={14} height={12} />{" "}
+              <MailAlt />{" "}
               <a href="mailto:info@fabricxai.com">info@fabricxai.com</a>
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <Image src="/icons/phone.svg" alt="Phone" width={14} height={14} /> <a href="tel:+880 1711 253751">+880 1711 253751</a>
+              <Phone /> <a href="tel:+880 1711 253751">+880 1711 253751</a>
             </div>
             <div className="flex items-center gap-4 hover:text-[#f2f827]">
               {" "}
-              <Image src="/icons/pin.svg" alt="Location" width={14} height={14} /> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
+              <LocationPin /> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/21%2BJigatola%2BDhaka/@23.74074,90.36718,14z?hl=en&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D">21 Jigatola, Dhaka, Bangladesh</a>
             </div>
           </div>
         </div>
         <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Quick Links</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
-            <Link className="hover:text-[#f2f827]" href="#">
-              Home
+            <Link className="hover:text-[#f2f827]" href="#about">
+              About
             </Link>
             <Link className="hover:text-[#f2f827]" href="#features">
               Features
             </Link>
-            <Link className="hover:text-[#f2f827]" href="#partners">
-              Partners
-            </Link>
             <Link className="hover:text-[#f2f827]" href="#solutions">
               Solutions
             </Link>
+            <Link className="hover:text-[#f2f827]" href="/blog">
+              Blog
+            </Link>
           </div>
         </div>
-        {/* <div className="flex flex-col items-start justify-start">
+        <div className="flex flex-col items-start justify-start">
           <h1 className="text-white font-bold pt-6">Account</h1>
           <div className="flex flex-col gap-2 mt-8 items-start">
             <Link className="hover:text-[#f2f827]" href="/login">
@@ -58,7 +64,7 @@ export default function Footer() {
               Beta Program
             </Link>
           </div>
-        </div> */}
+        </div>
         <div className="h-full">
           <div className="flex flex-row lg:flex-col items-center justify-center gap-6 py-4">
             <a
@@ -67,7 +73,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Image src="/icons/linkedin.svg" alt="LinkedIn" width={16} height={16} />
+              <LinkedIn className="h-4 w-4" />
             </a>
             <a
               href="https://www.facebook.com/FabricXAI"
@@ -75,7 +81,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Image src="/icons/facebook.svg" alt="Facebook" width={16} height={16} />
+              <Facebook className="h-4 w-4" />
             </a>
             <a
               href="https://www.youtube.com/@fabricXai"
@@ -83,7 +89,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Image src="/icons/youtube.svg" alt="YouTube" width={16} height={20} />
+              <Youtube className="h-4 w-5" />
             </a>
           </div>
         </div>

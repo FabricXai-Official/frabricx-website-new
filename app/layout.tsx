@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -23,11 +23,13 @@ const chillax = localFont({
 export const metadata: Metadata = {
   title: "fabricXai",
   description: "AI-Powered Garment Export Platform",
-  icons: {
-    icon: '/fabricx_ai_logo.jpeg',
-    shortcut: '/fabricx_ai_logo.jpeg',
-    apple: '/fabricx_ai_logo.jpeg',
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 const theme = createTheme({
@@ -91,7 +93,7 @@ const theme = createTheme({
   },
   navbar: {
     root: {
-      base: "bg-transparent py-3 sm:px-4 w-full mx-0 px-12 md:px-24",
+      base: "bg-transparent py-2.5 sm:px-4 w-full mx-0 px-12 md:px-24",
       rounded: {
         on: "rounded",
         off: "",
@@ -150,7 +152,7 @@ export default function RootLayout({
         lang="en"
         className={`${plusJakartaSans.variable} ${chillax.variable} antialiased relative`}
       >
-          <body className="font-sans">
+        <body className="font-sans">
           <Header />
           {children}
           <Footer />
