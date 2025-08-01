@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
+import MobileChatButton from "@/components/MobileChatButton";
 import { TrendingUp, Users, Globe, BarChart3, Target, Zap, Shield, Brain, Factory, Clock, Award, TrendingDown, Users as UsersIcon, Building2, Network, Rocket } from "lucide-react";
 
 export default function InvestInFabricXaiPage() {
@@ -808,6 +809,8 @@ export default function InvestInFabricXaiPage() {
           </div>
         </div>
       </section>
+
+      <MobileChatButton />
     </main>
   );
 } 

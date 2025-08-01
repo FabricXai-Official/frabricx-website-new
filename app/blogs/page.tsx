@@ -6,6 +6,7 @@ import React, { useState, useMemo } from "react";
 import { Button } from "flowbite-react";
 import { Calendar, Clock, ArrowRight, Tag, Search, Filter, TrendingUp, BookOpen, Shield, Globe, Zap } from "lucide-react";
 import Link from "next/link";
+import MobileChatButton from "@/components/MobileChatButton";
 
 const blogPosts = [
   {
@@ -504,26 +505,28 @@ export default function BlogsPage() {
           )}
 
           {/* Newsletter Signup */}
-          <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-[#f2f827]/10 to-[#f2f827]/5 border border-[#f2f827]/20 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
-              <div className="w-16 h-16 bg-[#f2f827]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Tag className="w-8 h-8 text-[#f2f827]" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Stay Updated with Industry Insights
+          <div className="mt-20 flex justify-center">
+            <div className="bg-[#1c1e22] text-white rounded-2xl px-6 py-8 w-[90%] sm:w-[80%] lg:w-[70%] text-center flex flex-col items-center gap-4">
+              <h3 className="text-xl sm:text-2xl font-bold">
+                Subscribe to Our{" "}
+                <span className="text-[#f2f827]">Monthly Insights</span>
               </h3>
-              <p className="text-[#a8b0b7] mb-6 max-w-2xl mx-auto text-lg">
-                Get the latest RMG industry news, technology updates, and expert analysis delivered to your inbox.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-2 w-full">
                 <input
                   type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-[#13191D] border border-[#34383B] rounded-lg text-white placeholder-[#a8b0b7] focus:border-[#f2f827] focus:outline-none transition-colors duration-300"
+                  placeholder="Enter your email address"
+                  className="px-4 py-2 rounded-md text-black bg-[#d9d9d9] w-full sm:w-80"
                 />
-                <Button className="bg-[#f2f827] text-[#13191D] hover:bg-[#e0e626] border-none px-6 py-3">
-                  Subscribe
-                </Button>
+                <Button className="w-full sm:w-40">Subscribe</Button>
+              </div>
+
+              <p className="text-sm text-[#a8b0b7]">
+                Get exclusive trends and tips straight to your inbox — no spam
+              </p>
+
+              <div className="text-center text-xs text-[#ffffff] mt-5">
+                &ldquo;Read by 500+ garment industry leaders across Bangladesh.&rdquo;
               </div>
             </div>
           </div>
@@ -572,6 +575,8 @@ export default function BlogsPage() {
           </div>
         </div>
       )}
+
+      <MobileChatButton />
     </div>
   );
 }

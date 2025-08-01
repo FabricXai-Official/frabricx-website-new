@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
+import MobileChatButton from "@/components/MobileChatButton";
 import { Check, ArrowRight, Users, MessageSquare, BarChart3, Globe, Clock, TrendingUp, Shield, Zap, Factory, Target, Smartphone, Brain, Database, ChartBar } from "lucide-react";
 
 export default function WhatIsFabricXaiPage() {
@@ -212,16 +213,14 @@ export default function WhatIsFabricXaiPage() {
           </div>
           
           {/* Hero Platform Preview */}
-          <div className="relative max-w-5xl mx-auto">
-            <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20 shadow-2xl">
-              <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Brain className="w-12 h-12 text-[#f2f827]" />
-                  </div>
-                  <p className="text-[#a8b0b7] text-lg">fabricXai Platform Overview</p>
-                  <p className="text-sm text-[#6b7280] mt-2">Integrated AI-powered management system for garment businesses</p>
-                </div>
+          <div className="relative max-w-6xl mx-auto">
+            <div className="bg-[#1a2025] rounded-2xl p-6 border border-[#f2f827]/20 shadow-2xl">
+              <div className="rounded-xl overflow-hidden">
+                <img
+                  src="/dashboards/Dashboard.png"
+                  alt="FabricXAI Platform Dashboard - Integrated AI-powered management system for garment businesses"
+                  className="w-full h-auto max-h-[600px] object-contain"
+                />
               </div>
             </div>
           </div>
@@ -296,15 +295,13 @@ export default function WhatIsFabricXaiPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl p-8">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="w-10 h-10 text-[#f2f827]" />
-                  </div>
-                  <h4 className="text-xl font-semibold text-white mb-2">Industry 4.0 Ready</h4>
-                  <p className="text-[#a8b0b7] text-sm">
-                    The industry is ready for digital transformation with government support and growing buyer demands for transparency.
-                  </p>
+              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#f2f827]/20">
+                <div className="rounded-lg overflow-hidden">
+                  <img
+                    src="/dashboards/industry4o.png"
+                    alt="Industry 4.0 Ready - The industry is ready for digital transformation with government support and growing buyer demands for transparency"
+                    className="w-full h-auto max-h-[300px] object-contain"
+                  />
                 </div>
               </div>
             </div>
@@ -350,18 +347,7 @@ export default function WhatIsFabricXaiPage() {
             ))}
           </div>
 
-          {/* Platform Integration Preview */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Integrated Platform Dashboard</p>
-                <p className="text-sm text-[#6b7280]">Seamless data flow across all modules for complete business visibility</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -403,18 +389,7 @@ export default function WhatIsFabricXaiPage() {
             ))}
           </div>
 
-          {/* AI Intelligence Preview */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Brain className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">AI Intelligence Layer</p>
-                <p className="text-sm text-[#6b7280]">Predictive analytics, automated insights, and intelligent decision support</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -456,18 +431,7 @@ export default function WhatIsFabricXaiPage() {
             ))}
           </div>
 
-          {/* Market Size Visualization */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Globe className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Market Opportunity</p>
-                <p className="text-sm text-[#6b7280]">$50-100M+ TAM across Asia with global expansion potential</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -509,18 +473,7 @@ export default function WhatIsFabricXaiPage() {
             ))}
           </div>
 
-          {/* ROI Calculator Preview */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <BarChart3 className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">ROI Calculator</p>
-                <p className="text-sm text-[#6b7280]">Calculate your potential savings and efficiency gains</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -577,6 +530,8 @@ export default function WhatIsFabricXaiPage() {
           </div>
         </div>
       </section>
+
+      <MobileChatButton />
     </main>
   );
 } 

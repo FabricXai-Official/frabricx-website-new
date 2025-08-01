@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
+import MobileChatButton from "@/components/MobileChatButton";
 import { Users, MessageSquare, BarChart3, Globe, Clock, TrendingUp, Shield, Zap, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -142,7 +143,7 @@ export default function BRMIntelligencePage() {
             <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20 shadow-2xl">
               <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl overflow-hidden">
                 <img
-                  src="/dashboards/brm-intelligence-dashboard.png"
+                  src="/dashboards/BRMI.png"
                   alt="BRM Intelligence Dashboard"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -179,8 +180,8 @@ export default function BRMIntelligencePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="flex justify-center">
+            <div className="max-w-2xl space-y-6">
               <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
                 <h3 className="text-xl font-semibold text-[#f2f827] mb-4">Traditional Pain Points</h3>
                 <ul className="space-y-3">
@@ -226,31 +227,7 @@ export default function BRMIntelligencePage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-                <div className="aspect-square bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl overflow-hidden">
-                  <img
-                    src="/dashboards/brm-communication-flow.png"
-                    alt="BRM Communication Flow"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.nextElementSibling?.classList.remove('hidden');
-                    }}
-                  />
-                  <div className="hidden w-full h-full flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <MessageSquare className="w-10 h-10 text-[#f2f827]" />
-                      </div>
-                      <p className="text-[#a8b0b7] text-lg">Communication Gap Visualization</p>
-                      <p className="text-sm text-[#6b7280] mt-2">Traditional vs AI-powered buyer management</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -288,22 +265,7 @@ export default function BRMIntelligencePage() {
               ))}
             </div>
 
-          {/* Core Platform Preview */}
-          <motion.div
-            className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">BRM Intelligence Platform</p>
-                <p className="text-sm text-[#6b7280]">Centralized buyer management with AI-powered automation</p>
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </section>
 
@@ -342,25 +304,7 @@ export default function BRMIntelligencePage() {
               ))}
             </div>
 
-          {/* Workflow Visualization */}
-          <motion.div
-            className="mt-16 bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-40 h-40 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <div className="text-center">
-                    <div className="text-[#f2f827] text-4xl font-bold mb-2">6 Steps</div>
-                    <div className="text-[#a8b0b7] text-lg">Seamless Workflow</div>
-                  </div>
-                </div>
-                <p className="text-[#a8b0b7] text-lg">Interactive Workflow Visualization</p>
-                <p className="text-sm text-[#6b7280] mt-2">See how data flows through the BRM Intelligence system</p>
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </section>
 
@@ -377,8 +321,8 @@ export default function BRMIntelligencePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+          <div className="flex justify-center">
+            <div className="max-w-2xl space-y-8">
               <motion.div
                 className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]"
                 whileHover={{ scale: 1.02 }}
@@ -440,23 +384,7 @@ export default function BRMIntelligencePage() {
               </motion.div>
             </div>
 
-            <div className="relative">
-              <motion.div
-                className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="aspect-square bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Users className="w-12 h-12 text-[#f2f827]" />
-                    </div>
-                    <p className="text-[#a8b0b7] text-lg mb-2">Asma&apos;s Dashboard</p>
-                    <p className="text-sm text-[#6b7280]">Real-time buyer pipeline and AI insights</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -612,6 +540,8 @@ export default function BRMIntelligencePage() {
           </motion.div>
         </div>
       </section>
+
+      <MobileChatButton />
     </main>
   );
 } 

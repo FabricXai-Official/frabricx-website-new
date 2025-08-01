@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
+import MobileChatButton from "@/components/MobileChatButton";
 import { Factory, Calendar, BarChart3, Clock, TrendingUp, Shield, Zap, Users, Settings, Target, AlertTriangle, ArrowRight } from "lucide-react";
 
 export default function ProductionIntelligencePage() {
@@ -211,13 +212,13 @@ export default function ProductionIntelligencePage() {
           </div>
           
           {/* Hero Dashboard Preview */}
-          <div className="relative max-w-5xl mx-auto">
-            <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20 shadow-2xl">
-              <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl overflow-hidden">
+          <div className="relative max-w-6xl mx-auto">
+            <div className="bg-[#1a2025] rounded-2xl p-6 border border-[#f2f827]/20 shadow-2xl">
+              <div className="relative rounded-xl overflow-hidden">
                 <img
-                  src="/dashboards/production-intelligence-dashboard.png"
+                  src="/dashboards/PI.png"
                   alt="Production Intelligence Dashboard"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto max-h-[600px] object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
@@ -273,18 +274,7 @@ export default function ProductionIntelligencePage() {
             ))}
           </div>
 
-          {/* Challenge Visualization */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <AlertTriangle className="w-16 h-16 text-red-500" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Traditional Production Challenges</p>
-                <p className="text-sm text-[#6b7280]">Fragmented processes, manual planning, and lack of visibility</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -322,18 +312,7 @@ export default function ProductionIntelligencePage() {
             ))}
           </div>
 
-          {/* Solution Platform Preview */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Production Intelligence Platform</p>
-                <p className="text-sm text-[#6b7280]">Unified production planning with AI-powered optimization</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -367,18 +346,7 @@ export default function ProductionIntelligencePage() {
             ))}
           </div>
 
-          {/* Pre-Production Workflow */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Calendar className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Pre-Production Workflow</p>
-                <p className="text-sm text-[#6b7280]">From tech pack to production-ready in days, not weeks</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -412,18 +380,7 @@ export default function ProductionIntelligencePage() {
             ))}
           </div>
 
-          {/* Planning Dashboard */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <BarChart3 className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">AI Planning Dashboard</p>
-                <p className="text-sm text-[#6b7280]">Optimized schedules and line assignments in seconds</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -457,18 +414,7 @@ export default function ProductionIntelligencePage() {
             ))}
           </div>
 
-          {/* Factory Floor Dashboard */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Target className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Factory Floor Dashboard</p>
-                <p className="text-sm text-[#6b7280]">X-ray vision into your production with data-driven insights</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -485,66 +431,54 @@ export default function ProductionIntelligencePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+          <div className="flex justify-center">
+            <div className="max-w-2xl space-y-8">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">Tech Pack Processing</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">Tech Pack Processing</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   AI parses the tech pack, creates digital profiles, and generates automated T&A calendars 
                   with all pre-production milestones.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">Intelligent Scheduling</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">Intelligent Scheduling</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   AI optimizes line assignments, workforce planning, and production sequences 
                   to maximize efficiency and meet delivery targets.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">Real-Time Monitoring</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">Real-Time Monitoring</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Live dashboard tracks production progress, detects bottlenecks early, 
                   and provides predictive alerts for potential delays.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">Quality Assurance</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">Quality Assurance</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Integrated QC data ensures consistent quality, catches issues early, 
                   and continuously improves processes for future orders.
                 </p>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-                <div className="aspect-square bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Factory className="w-12 h-12 text-[#f2f827]" />
-                    </div>
-                    <p className="text-[#a8b0b7] text-lg mb-2">Production Timeline</p>
-                    <p className="text-sm text-[#6b7280]">End-to-end visibility from tech pack to delivery</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -568,34 +502,20 @@ export default function ProductionIntelligencePage() {
             {workflowSteps.map((step, index) => (
               <div
                 key={index}
-                className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b] relative"
+                className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] relative transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30"
               >
-                <div className="absolute -top-3 -left-3 w-12 h-12 bg-[#f2f827] rounded-full flex items-center justify-center text-[#13191d] font-bold text-lg">
+                <div className="absolute -top-3 -left-3 w-12 h-12 bg-[#f2f827] rounded-full flex items-center justify-center text-[#13191d] font-bold text-lg group-hover:scale-110 transition-transform duration-300">
                   {step.step}
                 </div>
                 <div className="mt-4">
-                  <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
-                  <p className="text-[#a8b0b7] text-sm">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#f2f827] transition-colors duration-300">{step.title}</h3>
+                  <p className="text-[#a8b0b7] text-sm group-hover:text-white transition-colors duration-300">{step.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Workflow Visualization */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-40 h-40 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <div className="text-center">
-                    <div className="text-[#f2f827] text-4xl font-bold mb-2">6 Steps</div>
-                    <div className="text-[#a8b0b7] text-lg">Seamless Workflow</div>
-                  </div>
-                </div>
-                <p className="text-[#a8b0b7] text-lg">Production Intelligence Workflow</p>
-                <p className="text-sm text-[#6b7280] mt-2">From tech pack to on-time delivery with AI optimization</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -652,6 +572,8 @@ export default function ProductionIntelligencePage() {
           </div>
         </div>
       </section>
+
+      <MobileChatButton />
     </main>
   );
 } 

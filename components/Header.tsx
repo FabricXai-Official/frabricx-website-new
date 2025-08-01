@@ -234,8 +234,14 @@ export default function Header() {
           <NavbarLink href="/what-is-fabricxai" active={pathname === "/what-is-fabricxai"}>
             About
           </NavbarLink>
-          <NavbarLink href="#features">The Journey</NavbarLink>
-          <NavbarLink href="#partners">The Future</NavbarLink>
+          
+          <NavbarLink href="/history" active={pathname === "/history"}>
+            The Journey
+          </NavbarLink>
+          
+          <NavbarLink href="/future" active={pathname === "/future"}>
+            The Future
+          </NavbarLink>
           
           {/* Solutions Dropdown */}
           <div className="relative solutions-dropdown">

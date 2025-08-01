@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
+import MobileChatButton from "@/components/MobileChatButton";
 import { Globe, Shield, Zap, Users, BarChart3, Clock, TrendingUp, MessageSquare, Eye, AlertTriangle, ArrowRight } from "lucide-react";
 
 export default function StychxPage() {
@@ -178,8 +179,8 @@ export default function StychxPage() {
             <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20 shadow-2xl">
               <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl overflow-hidden">
                 <img
-                  src="/dashboards/stychx-website-preview.png"
-                  alt="StychX Website Preview"
+                  src="/dashboards/stychx.png"
+                  alt="StychX Platform Preview"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -227,7 +228,7 @@ export default function StychxPage() {
                   hover:bg-[linear-gradient(to_bottom_right,_rgba(239,68,68,0.22),_rgba(239,68,68,0))]
                 `}
               >
-                <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-4 text-red-500">
+                <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-4 text-red-500 group-hover:scale-110 transition-transform duration-300">
                   {challenge.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{challenge.title}</h3>
@@ -236,18 +237,7 @@ export default function StychxPage() {
             ))}
           </div>
 
-          {/* Challenge Visualization */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Eye className="w-16 h-16 text-red-500" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Limited Online Visibility</p>
-                <p className="text-sm text-[#6b7280]">Garment businesses operating &ldquo;in the shadows&rdquo;</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -264,46 +254,34 @@ export default function StychxPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
-                <h3 className="text-xl font-semibold text-[#f2f827] mb-4">Digital Showroom</h3>
-                <p className="text-[#a8b0b7]">
+          <div className="flex justify-center">
+            <div className="max-w-2xl space-y-6">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
+                <h3 className="text-xl font-semibold text-[#f2f827] mb-4 group-hover:text-[#f2f827] transition-colors duration-300">Digital Showroom</h3>
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   An official website acts as a digital showroom where companies can present their catalogue, 
                   company story, and credentials to international buyers.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
-                <h3 className="text-xl font-semibold text-[#f2f827] mb-4">Direct Buyer Connection</h3>
-                <p className="text-[#a8b0b7]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
+                <h3 className="text-xl font-semibold text-[#f2f827] mb-4 group-hover:text-[#f2f827] transition-colors duration-300">Direct Buyer Connection</h3>
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Showcasing product designs and capabilities online allows suppliers to attract international 
                   fashion labels and buyers seeking new partnerships.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
-                <h3 className="text-xl font-semibold text-[#f2f827] mb-4">Data & Analytics</h3>
-                <p className="text-[#a8b0b7]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
+                <h3 className="text-xl font-semibold text-[#f2f827] mb-4 group-hover:text-[#f2f827] transition-colors duration-300">Data & Analytics</h3>
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Website analytics provide invaluable feedback on visitor behavior, helping optimize 
                   online presence and improve user experience.
                 </p>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-                <div className="aspect-square bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Globe className="w-10 h-10 text-[#f2f827]" />
-                    </div>
-                    <p className="text-[#a8b0b7] text-lg">Global Reach</p>
-                    <p className="text-sm text-[#6b7280] mt-2">Connect with buyers worldwide</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -342,18 +320,7 @@ export default function StychxPage() {
             ))}
           </div>
 
-          {/* StychX Platform Preview */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">StychX AI Platform</p>
-                <p className="text-sm text-[#6b7280]">Website builder with intelligent maintenance and sales assistance</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -387,18 +354,7 @@ export default function StychxPage() {
             ))}
           </div>
 
-          {/* Solution Visualization */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Shield className="w-16 h-16 text-[#f2f827]" />
-                </div>
-                <p className="text-[#a8b0b7] text-xl mb-2">Complete Solution</p>
-                <p className="text-sm text-[#6b7280]">From setup to maintenance to growth optimization</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -434,21 +390,7 @@ export default function StychxPage() {
             ))}
           </div>
 
-          {/* Workflow Visualization */}
-          <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-            <div className="aspect-video bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-40 h-40 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <div className="text-center">
-                    <div className="text-[#f2f827] text-4xl font-bold mb-2">6 Steps</div>
-                    <div className="text-[#a8b0b7] text-lg">Seamless Process</div>
-                  </div>
-                </div>
-                <p className="text-[#a8b0b7] text-lg">StychX Workflow</p>
-                <p className="text-sm text-[#6b7280] mt-2">From setup to AI-powered optimization</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -465,66 +407,54 @@ export default function StychxPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+          <div className="flex justify-center">
+            <div className="max-w-2xl space-y-8">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">Before StychX</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">Before StychX</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Garment businesses operate &ldquo;in the shadows,&rdquo; known only through intermediaries, 
                   missing opportunities to showcase products directly to buyers.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">With StychX</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">With StychX</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Professional digital presence with AI-powered maintenance, 24/7 sales assistance, 
                   and data-driven optimization for continuous growth.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">The Result</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">The Result</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Garment businesses can focus on production while StychX ensures their online window 
                   to the world is always shining and never shuts.
                 </p>
               </div>
 
-              <div className="bg-[#1a2025] rounded-xl p-6 border border-[#34383b]">
+              <div className="group bg-[#1a2025] rounded-xl p-6 border border-[#34383b] transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#2a2d30] hover:border-[#f2f827]/30">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-[#f2f827] rounded-full"></div>
-                  <h3 className="text-xl font-semibold text-[#f2f827]">Future Impact</h3>
+                  <div className="w-3 h-3 bg-[#f2f827] rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                  <h3 className="text-xl font-semibold text-[#f2f827] group-hover:text-[#f2f827] transition-colors duration-300">Future Impact</h3>
                 </div>
-                <p className="text-[#a8b0b7]">
+                <p className="text-[#a8b0b7] group-hover:text-white transition-colors duration-300">
                   Bangladesh&apos;s RMG sector can stitch a new success story in the digital age, 
                   connecting quality products with buyers worldwide like never before.
                 </p>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-[#1a2025] rounded-2xl p-8 border border-[#f2f827]/20">
-                <div className="aspect-square bg-gradient-to-br from-[#2a2d30] to-[#34383b] rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-[#f2f827]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Globe className="w-12 h-12 text-[#f2f827]" />
-                    </div>
-                    <p className="text-[#a8b0b7] text-lg mb-2">Digital Transformation</p>
-                    <p className="text-sm text-[#6b7280]">From offline to global digital presence</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -582,6 +512,8 @@ export default function StychxPage() {
           </div>
         </div>
       </section>
+
+      <MobileChatButton />
     </main>
   );
 } 
