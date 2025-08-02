@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "flowbite-react";
 import RequestDemoForm from "./RequestDemoForm";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export default function SeeInAction() {
   const featureCards = [
@@ -26,8 +27,8 @@ export default function SeeInAction() {
       position: "right",
     },
     {
-      title: "Boost Profitability",
-      description: "Real-time insights to cut costs and improve margins.",
+      title: "Optimize Operations",
+      description: "Gain real-time visibility to streamline processes and reduce waste.",
       icon: "/icons/growth.svg",
       position: "right",
     },
@@ -41,85 +42,93 @@ export default function SeeInAction() {
   ];
 
   return (
-    <div className="w-full px-12 md:px-24 py-16">
-      <div className="max-w-4xl mx-auto text-center mb-12 px-2 sm:px-0">
-        <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
-          See fabricXai in Action
+    <div className="w-full px-4 sm:px-8 md:px-24 py-8 sm:py-16">
+      <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12 px-2 sm:px-0">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-mono text-white mb-4 relative">
+          See fabricXai in{" "}
+          <span className="relative inline-block">
+            Action
+            <img
+              src="/icons/highlighter2.svg"
+              alt="Highlighter"
+              className="absolute -bottom-2 left-0 w-full h-auto"
+            />
+          </span>
         </h1>
-        <p className="text-lg text-[#a8b0b7]">
+        <p className="text-base sm:text-lg text-[#a8b0b7]">
           Discover how you can streamline operations, build stronger buyer
           relationships & scale confidently all in one platform.
         </p>
       </div>
       <div className="flex flex-col md:flex-row w-full justify-between">
-        <div className="flex flex-col justify-between gap-8 w-full lg:w-1/2">
-          <div className="flex flex-col lg:flex-row gap-4">
+        <div className="flex flex-col justify-between gap-4 sm:gap-8 w-full lg:w-1/2">
+          <div className="flex flex-col sm:flex-row lg:flex-row gap-3 sm:gap-4">
             <Image
-              className="w-24 h-24"
+              className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
               alt="Feature icon"
               src={featureCards[0].icon}
               width={96}
               height={96}
             />
-            <div className="flex flex-col items-center justify-center rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-8 py-4">
-              <div className="font-semibold text-[#f2f827] text-2xl">
+            <div className="flex flex-col items-center justify-center rounded-2xl sm:rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+              <div className="font-semibold text-[#f2f827] text-lg sm:text-xl lg:text-2xl">
                 {featureCards[0].title}
               </div>
-              <div className="font-normal text-white text-xs">
+              <div className="font-normal text-white text-xs sm:text-sm text-center">
                 {featureCards[0].description}
               </div>
             </div>
             <div className="hidden lg:block w-24 h-24"></div>
           </div>
-          <div className="flex flex-col lg:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row lg:flex-row gap-3 sm:gap-4">
             <div className="hidden lg:block w-24 h-24"></div>
             <Image
-              className="w-24 h-24"
+              className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
               alt="Feature icon"
               src={featureCards[1].icon}
               width={96}
               height={96}
             />
 
-            <div className="flex flex-col items-center justify-center rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-8 py-4">
-              <div className="font-semibold text-[#f2f827] text-2xl">
+            <div className="flex flex-col items-center justify-center rounded-2xl sm:rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+              <div className="font-semibold text-[#f2f827] text-lg sm:text-xl lg:text-2xl">
                 {featureCards[1].title}
               </div>
-              <div className="font-normal text-white text-xs">
+              <div className="font-normal text-white text-xs sm:text-sm text-center">
                 {featureCards[1].description}
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row lg:flex-row gap-3 sm:gap-4">
             <div className="hidden lg:block w-24 h-24"></div>
 
-            <div className="flex flex-col items-center justify-center rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-8 py-4">
-              <div className="font-semibold text-[#f2f827] text-2xl">
+            <div className="flex flex-col items-center justify-center rounded-2xl sm:rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+              <div className="font-semibold text-[#f2f827] text-lg sm:text-xl lg:text-2xl">
                 {featureCards[2].title}
               </div>
-              <div className="font-normal text-white text-xs">
+              <div className="font-normal text-white text-xs sm:text-sm text-center">
                 {featureCards[2].description}
               </div>
             </div>
             <Image
-              className="w-24 h-24"
+              className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
               alt="Feature icon"
               src={featureCards[2].icon}
               width={96}
               height={96}
             />
           </div>
-          <div className="flex flex-col lg:flex-row gap-4">
-            <div className="flex flex-col items-center justify-center rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-8 py-4">
-              <div className="font-semibold text-[#f2f827] text-2xl">
+          <div className="flex flex-col sm:flex-row lg:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col items-center justify-center rounded-2xl sm:rounded-3xl border-[0.5px] border-solid border-[#a8b0b7] bg-transparent px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+              <div className="font-semibold text-[#f2f827] text-lg sm:text-xl lg:text-2xl">
                 {featureCards[3].title}
               </div>
-              <div className="font-normal text-white text-xs">
+              <div className="font-normal text-white text-xs sm:text-sm text-center">
                 {featureCards[3].description}
               </div>
             </div>
             <Image
-              className="w-24 h-24"
+              className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
               alt="Feature icon"
               src={featureCards[3].icon}
               width={96}
@@ -142,7 +151,7 @@ export default function SeeInAction() {
               />
               Your browser does not support the video tag.
             </video> */}
-            <iframe className="w-full h-full" src="https://www.youtube.com/embed/IGgANoSFWjU" allowFullScreen />
+            <iframe className="w-full h-full" src="https://www.youtube.com/embed/zY2SbL-xo7o" allowFullScreen />
           </div>
           <Dialog>
             <DialogTrigger asChild>
@@ -154,7 +163,9 @@ export default function SeeInAction() {
             </DialogTrigger>
             <DialogContent showCloseButton={false}>
               <DialogHeader>
-                <DialogTitle>Enter Your Details</DialogTitle>
+                <VisuallyHidden>
+                  <DialogTitle>Request Demo</DialogTitle>
+                </VisuallyHidden>
               </DialogHeader>
               <div>
                 <RequestDemoForm />
