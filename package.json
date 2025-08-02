@@ -39,7 +39,7 @@
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "tw-animate-css": "^1.3.6",
-    "zod": "^4.0.14"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/node": "^20",
