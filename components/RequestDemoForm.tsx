@@ -28,7 +28,7 @@ import { Button } from "flowbite-react";
 
 const requestDemoSchema = z.object({
     name: z.string().min(3).max(50),
-    email: z.email("Please enter a valid email address"),
+    email: z.string().email("Please enter a valid email address"),
     company: z.string().min(1).max(50),
     phone: z
         .string()
