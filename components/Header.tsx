@@ -8,7 +8,8 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
-import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import FabricXAi from "@/public/icons/fabricxai.svg";
 import {
   Dialog,
   DialogContent,
@@ -16,16 +17,24 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import MailAlt from "@/public/icons/mail-alt.svg";
+import Phone from "@/public/icons/phone.svg";
+import LocationPin from "@/public/icons/pin.svg";
+import LinkedIn from "@/public/icons/linkedin.svg";
+import Facebook from "@/public/icons/facebook.svg";
+import Youtube from "@/public/icons/youtube.svg";
 import RequestDemoForm from "./RequestDemoForm";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import SendMessageForm from "./SendMessageForm";
 import { VisuallyHidden } from "radix-ui";
 import { Clock, MessageSquare } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showContactDialog, setShowContactDialog] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const pathname = usePathname();
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -39,11 +48,29 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('.solutions-dropdown')) {
+        setIsSolutionsOpen(false);
+      }
+    };
+
+    if (isSolutionsOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isSolutionsOpen]);
   return (
     <>
       <div
         className={cn(
-          "fixed hidden left-0 top-0 z-50 h-9 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500 text-xs",
+          "fixed hidden left-0 top-0 z-50 h-8 w-full items-center justify-between gap-8 bg-[#13191D] text-white py-3 px-24 transition-all duration-500 text-xs",
           {
             "md:flex": !isScrolled,
           }
@@ -52,16 +79,16 @@ export default function Header() {
         <div className="flex gap-4">
           <div className="flex items-center gap-2 hover:text-[#f2f827]">
             {" "}
-            <Image src="/icons/mail-alt.svg" alt="Mail" width={14} height={12} />{" "}
+            <MailAlt />{" "}
             <a href="mailto:info@fabricxai.com">info@fabricxai.com</a>
           </div>
           <div className="flex items-center gap-2 hover:text-[#f2f827]">
             {" "}
-            <Image src="/icons/phone.svg" alt="Phone" width={14} height={14} /> <a href="tel:+880 1711 253751">+880 1711 253751</a>
+            <Phone /> <a href="tel:+880 1711 253751">+880 1711 253751</a>
           </div>
           <div className="flex items-center gap-2 hover:text-[#f2f827]">
             {" "}
-            <Image src="/icons/pin.svg" alt="Location" width={14} height={14} />{" "}
+            <LocationPin />{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -72,7 +99,7 @@ export default function Header() {
           </div>
         </div>
         <div className="flex items-center gap-8">
-          <Dialog open={showContactDialog} onOpenChange={setShowContactDialog}>
+          <Dialog>
             <DialogTrigger asChild>
               <button className="hover:text-[#f2f827]">Contact</button>
             </DialogTrigger>
@@ -103,10 +130,7 @@ export default function Header() {
                         <Clock className="h-4 w-4 inline-block" />
                         <p className="text-sm font-light">Instant Response</p>
                       </div>
-                      <Button className="w-full" onClick={() => {
-                        // Chat functionality temporarily disabled
-                        setShowContactDialog(false);
-                      }}>Start Chat</Button>
+                      <Button className="w-full">Start Chat</Button>
                     </div>
                   </div>
                   <div className="flex flex-col items-start justify-between w-full h-full border border-yellow-400/50 rounded-lg px-6 py-4 gap-6">
@@ -137,7 +161,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Image src="/icons/linkedin.svg" alt="LinkedIn" width={16} height={16} />
+              <LinkedIn className="h-4 w-4" />
             </a>
             <a
               href="https://www.facebook.com/FabricXAI"
@@ -145,7 +169,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Image src="/icons/facebook.svg" alt="Facebook" width={16} height={16} />
+              <Facebook className="h-4 w-4" />
             </a>
             <a
               href="https://www.youtube.com/@fabricXai"
@@ -153,7 +177,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="text-[#A8B0B7] hover:text-[#f2f827]"
             >
-              <Image src="/icons/youtube.svg" alt="YouTube" width={16} height={20} />
+              <Youtube className="h-4 w-5" />
             </a>
           </div>
         </div>
@@ -165,12 +189,19 @@ export default function Header() {
           "md:top-8": !isScrolled,
         })}
       >
-        <NavbarBrand href="#" className="m-0 p-0">
+        <NavbarBrand href="/" className="m-0 p-0">
           <div className="flex items-center justify-center h-6 sm:h-9 ">
-            <Image src="/icons/fabricxai.svg" alt="FabricX AI" width={120} height={36} className="h-6 sm:h-9 w-auto" />
+            <FabricXAi />
           </div>
         </NavbarBrand>
         <div className="flex md:order-2 gap-2">
+          <Button
+            outline
+            onClick={() => window.open("https://webx.fabricxai.com", "_blank")}
+            className="hidden md:block"
+          >
+            Access App
+          </Button>
           <Dialog>
             <DialogTrigger asChild>
               <div>
@@ -179,7 +210,9 @@ export default function Header() {
             </DialogTrigger>
             <DialogContent showCloseButton={false}>
               <DialogHeader>
-                <DialogTitle>Enter Your Details</DialogTitle>
+                <VisuallyHidden.Root asChild>
+                  <DialogTitle>Request Demo</DialogTitle>
+                </VisuallyHidden.Root>
               </DialogHeader>
               <div>
                 <RequestDemoForm />
@@ -195,12 +228,66 @@ export default function Header() {
           <NavbarToggle />
         </div>
         <NavbarCollapse>
-          <NavbarLink href="#" active>
+          <NavbarLink href="/" active={pathname === "/"}>
             Home
           </NavbarLink>
-          <NavbarLink href="#features">Features</NavbarLink>
-          <NavbarLink href="#partners">Partners</NavbarLink>
-          <NavbarLink href="#solutions">Solutions</NavbarLink>
+          <NavbarLink href="/what-is-fabricxai" active={pathname === "/what-is-fabricxai"}>
+            About
+          </NavbarLink>
+          
+          <NavbarLink href="/history" active={pathname === "/history"}>
+            The Journey
+          </NavbarLink>
+          
+          <NavbarLink href="/future" active={pathname === "/future"}>
+            The Future
+          </NavbarLink>
+          
+          {/* Solutions Dropdown */}
+          <div className="relative solutions-dropdown">
+            <button
+              onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+              className={`block py-2 pl-3 pr-4 md:p-0 transition-colors duration-300 flex items-center gap-1 ${
+                pathname === "/brm-intelligence" || pathname === "/production-intelligence" || pathname === "/stychx"
+                  ? "text-[#f2f827]"
+                  : "text-white hover:text-[#f2f827]"
+              }`}
+            >
+              Solutions
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isSolutionsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {/* Dropdown Menu */}
+            {isSolutionsOpen && (
+              <div className="absolute top-full left-0 mt-1 w-48 md:w-56 bg-[#1a2025] border border-[#34383B] rounded-lg shadow-xl z-50">
+                <div className="py-2">
+                  <a
+                    href="/brm-intelligence"
+                    className="block px-4 py-3 text-sm text-white hover:bg-[#f2f827]/10 hover:text-[#f2f827] transition-colors duration-200"
+                    onClick={() => setIsSolutionsOpen(false)}
+                  >
+                    BRM Intelligence
+                  </a>
+                  <a
+                    href="/production-intelligence"
+                    className="block px-4 py-3 text-sm text-white hover:bg-[#f2f827]/10 hover:text-[#f2f827] transition-colors duration-200"
+                    onClick={() => setIsSolutionsOpen(false)}
+                  >
+                    Production Intelligence
+                  </a>
+                  <a
+                    href="/stychx"
+                    className="block px-4 py-3 text-sm text-white hover:bg-[#f2f827]/10 hover:text-[#f2f827] transition-colors duration-200"
+                    onClick={() => setIsSolutionsOpen(false)}
+                  >
+                    Stychx
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+          
+          <NavbarLink href="/blogs" active={pathname === "/blogs"}>Blog</NavbarLink>
           <NavbarLink href="#faqs">FAQs</NavbarLink>
         </NavbarCollapse>
       </Navbar>

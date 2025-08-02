@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { createTheme, ThemeProvider } from "flowbite-react";
+// import { createTheme, ThemeProvider } from "flowbite-react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -23,14 +23,16 @@ const chillax = localFont({
 export const metadata: Metadata = {
   title: "fabricXai",
   description: "AI-Powered Garment Export Platform",
-  icons: {
-    icon: '/fabricx_ai_logo.jpeg',
-    shortcut: '/fabricx_ai_logo.jpeg',
-    apple: '/fabricx_ai_logo.jpeg',
-  },
 };
 
-const theme = createTheme({
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
+/*const theme = createTheme({
   button: {
     base: "relative flex items-center justify-center rounded-lg text-center font-medium",
     disabled: "pointer-events-none opacity-50",
@@ -91,7 +93,7 @@ const theme = createTheme({
   },
   navbar: {
     root: {
-      base: "bg-transparent py-3 sm:px-4 w-full mx-0 px-12 md:px-24",
+      base: "bg-transparent py-2.5 sm:px-4 w-full mx-0 px-12 md:px-24",
       rounded: {
         on: "rounded",
         off: "",
@@ -136,7 +138,7 @@ const theme = createTheme({
       title: "sr-only",
     },
   },
-});
+});*/
 
 export default function RootLayout({
   children,
@@ -144,18 +146,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider theme={theme} applyTheme="replace">
-      {" "}
-      <html
-        lang="en"
-        className={`${plusJakartaSans.variable} ${chillax.variable} antialiased relative`}
-      >
-          <body className="font-sans">
-          <Header />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </ThemeProvider>
+    <html
+      lang="en"
+      className={`${plusJakartaSans.variable} ${chillax.variable} antialiased relative`}
+    >
+      <body className="font-sans">
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
