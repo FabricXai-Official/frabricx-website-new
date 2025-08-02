@@ -3,13 +3,13 @@ import {
   Button,
   ButtonColors,
   ButtonSizes,
-  createTheme,
-  ThemeProvider,
+  // createTheme,
+  // ThemeProvider,
 } from "flowbite-react";
-import { DynamicStringEnumKeysOf } from "flowbite-react/types";
+// import { DynamicStringEnumKeysOf } from "flowbite-react/types";
 import React from "react";
 
-const theme = createTheme({
+/*const theme = createTheme({
   button: {
     base: "relative flex items-center justify-center rounded-lg text-center font-medium focus:outline-none focus:ring-4",
     disabled: "pointer-events-none opacity-50",
@@ -69,15 +69,15 @@ const theme = createTheme({
         "border border-yellow-400 text-yellow-400 hover:border-yellow-500 hover:bg-yellow-500 hover:text-white focus:ring-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:border-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-white dark:focus:ring-yellow-900",
     },
   },
-});
+});*/
 
 type CTAProps = {
   children?: React.ReactNode;
   className?: string;
-  color?: DynamicStringEnumKeysOf<ButtonColors>;
+  color?: string;
   outline?: boolean;
   pill?: boolean;
-  size?: DynamicStringEnumKeysOf<ButtonSizes>;
+  size?: string;
 };
 
 const CTA: React.FC<CTAProps> = ({
@@ -89,17 +89,15 @@ const CTA: React.FC<CTAProps> = ({
   size,
 }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <Button
-        color={color ?? "default"}
-        outline={outline}
-        pill={pill}
-        size={size}
-        className={cn("w-full md:w-auto", className)}
-      >
-        {children}
-      </Button>
-    </ThemeProvider>
+    <Button
+      color={color ?? "default"}
+      outline={outline}
+      pill={pill}
+      size={size}
+      className={cn("w-full md:w-auto", className)}
+    >
+      {children}
+    </Button>
   );
 };
 

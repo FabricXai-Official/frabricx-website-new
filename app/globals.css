@@ -1,9 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-@plugin "flowbite-react/plugin/tailwindcss";
-@source "../.flowbite-react/class-list.json";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @theme inline {
   --color-background: var(--background);

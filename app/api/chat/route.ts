@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { 
         error: 'Failed to generate response',
-        details: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+        details: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : String(error)) : 'Internal server error'
       },
       { status: 500 }
     );
@@ -86,7 +86,7 @@ export async function GET() {
       { 
         success: false,
         status: 'error',
-        error: error.message 
+        error: error instanceof Error ? error.message : String(error) 
       },
       { status: 500 }
     );

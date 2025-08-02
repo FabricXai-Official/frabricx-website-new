@@ -103,7 +103,6 @@ export function EnhancedMobileChatButton() {
         <DialogContent 
           showCloseButton={false} 
           className="w-[calc(100vw-2rem)] sm:w-96 lg:w-[420px] h-[600px] sm:h-[700px] p-0 border-0 bg-transparent"
-          collisionPadding={16}
         >
           <VisuallyHidden>
             <h2>fabricXai AI Assistant - Ask me anything about our services, features, and solutions</h2>

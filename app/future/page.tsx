@@ -24,7 +24,6 @@ import {
   Smartphone, 
   Brain, 
   Database, 
-  ChartBar,
   Lightbulb,
   Eye,
   Puzzle,

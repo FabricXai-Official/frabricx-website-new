@@ -46,7 +46,9 @@ export class FabricXaiKnowledgeBase {
       
       if (source.type === 'pdf') {
         // For PDF content, we'll need to handle it as a buffer
-        loader = new PDFLoader(source.content as Buffer);
+        const buffer = source.content as Buffer;
+        const blob = new Blob([buffer], { type: 'application/pdf' });
+        loader = new PDFLoader(blob);
       } else {
         // For text content
         loader = new TextLoader(source.content as string);

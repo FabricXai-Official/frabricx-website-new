@@ -5,7 +5,7 @@ import "./globals.css";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { createTheme, ThemeProvider } from "flowbite-react";
+// import { createTheme, ThemeProvider } from "flowbite-react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -32,7 +32,7 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-const theme = createTheme({
+/*const theme = createTheme({
   button: {
     base: "relative flex items-center justify-center rounded-lg text-center font-medium",
     disabled: "pointer-events-none opacity-50",
@@ -138,7 +138,7 @@ const theme = createTheme({
       title: "sr-only",
     },
   },
-});
+});*/
 
 export default function RootLayout({
   children,
@@ -146,18 +146,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider theme={theme} applyTheme="replace">
-      {" "}
-      <html
-        lang="en"
-        className={`${plusJakartaSans.variable} ${chillax.variable} antialiased relative`}
-      >
-        <body className="font-sans">
-          <Header />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </ThemeProvider>
+    <html
+      lang="en"
+      className={`${plusJakartaSans.variable} ${chillax.variable} antialiased relative`}
+    >
+      <body className="font-sans">
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }

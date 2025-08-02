@@ -8,7 +8,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
 import MobileChatButton from "@/components/MobileChatButton";
-import { Check, ArrowRight, Users, MessageSquare, BarChart3, Globe, Clock, TrendingUp, Shield, Zap, Factory, Target, Smartphone, Brain, Database, ChartBar } from "lucide-react";
+import { Check, ArrowRight, Users, MessageSquare, BarChart3, Globe, Clock, TrendingUp, Shield, Zap, Factory, Target, Smartphone, Brain, Database } from "lucide-react";
 
 export default function WhatIsFabricXaiPage() {
   const [activeTab, setActiveTab] = useState("overview");
@@ -40,7 +40,7 @@ export default function WhatIsFabricXaiPage() {
       description: "Comprehensive accounting and compliance tracking for factory certifications and sustainability metrics."
     },
     {
-      icon: <ChartBar className="w-6 h-6" />,
+      icon: <BarChart3 className="w-6 h-6" />,
       title: "Analytics & Reporting",
       description: "Data-driven insights with customizable dashboards for production efficiency and business intelligence."
     }
