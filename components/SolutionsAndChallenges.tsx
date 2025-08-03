@@ -1,6 +1,7 @@
 import { Button } from "flowbite-react";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "./RequestDemoForm";
 import EarlyBirdForm from "./EarlyBirdForm";
 
@@ -64,8 +65,17 @@ export default function SolutionsAndChallenges() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-[#f2f827]">
-            Solving RMG Industry&apos;s Biggest Challenges
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#f2f827] relative">
+            Solving{" "}
+            <span className="relative inline-block">
+                              RMG Industry&apos;s
+              <img
+                src="/icons/highlighter4.svg"
+                alt="Highlighter"
+                className="absolute -bottom-2 left-0 w-full h-auto"
+              />
+            </span>{" "}
+            Biggest Challenges
           </h2>
           <p className="text-gray-400 mt-2 text-base sm:text-lg">
             Transform your RMG operations with AI-powered solutions.
@@ -107,7 +117,9 @@ export default function SolutionsAndChallenges() {
                 </DialogTrigger>
                 <DialogContent showCloseButton={false}>
                   <DialogHeader>
-                    <DialogTitle>Enter Your Details</DialogTitle>
+                    <VisuallyHidden>
+                      <DialogTitle>Request Demo</DialogTitle>
+                    </VisuallyHidden>
                   </DialogHeader>
                   <div>
                     <RequestDemoForm />
@@ -125,7 +137,9 @@ export default function SolutionsAndChallenges() {
                 </DialogTrigger>
                 <DialogContent showCloseButton={false}>
                   <DialogHeader>
-                    <DialogTitle>Enter Your Details</DialogTitle>
+                    <VisuallyHidden>
+                      <DialogTitle>Early Bird Registration</DialogTitle>
+                    </VisuallyHidden>
                   </DialogHeader>
                   <div>
                     <EarlyBirdForm />

@@ -20,7 +20,7 @@ import { Button } from "flowbite-react";
 
 const messageSchema = z.object({
     name: z.string().min(3, "Name must be at least 3 characters").max(50, "Name must be less than 50 characters"),
-    email: z.email("Please enter a valid email address"),
+    email: z.string().email("Please enter a valid email address"),
     company: z.string().min(1, "Company name is required").max(50, "Company name must be less than 50 characters"),
     message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message must be less than 1000 characters"),
     honeypot: z.string().max(0, "Bot detected").optional(), // Honeypot field for bot protection
@@ -198,7 +198,7 @@ const SendMessageForm: React.FC<React.DetailedHTMLProps<React.HTMLAttributes<HTM
                         </FormItem>
                     )}
                 />
-                
+
                 {/* Hidden honeypot field for bot protection */}
                 <FormField
                     control={form.control}

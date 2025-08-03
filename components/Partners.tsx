@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
-  "/icons/microsoft.svg",
-  "/icons/open-ai.svg",
-  "/icons/nvidia.svg",
-  "/icons/langchain.svg",
-  "/icons/google.svg",
-  "/icons/sociofi.svg",
+  { src: "/icons/microsoft.svg", size: "normal" },
+  { src: "/icons/open-ai.svg", size: "normal" },
+  { src: "/icons/nvidia.svg", size: "normal" },
+  { src: "/icons/langchain.svg", size: "normal" },
+  { src: "/icons/google.svg", size: "normal" },
+  { src: "/icons/sociofi.svg", size: "small" },
 ];
 
 export default function Partners() {
@@ -54,7 +54,7 @@ export default function Partners() {
             </span>
           </div>
           <p className="text-sm sm:text-base text-center sm:text-left mt-2 text-[#a8b0b7] max-w-3xl mx-auto">
-            We partner with the world&apos;s leading technology companies to deliver cutting-edge AI solutions
+                          We partner with the world&apos;s leading technology companies to deliver cutting-edge AI solutions
           </p>
           <div className="mt-8 sm:mt-12 w-full overflow-hidden">
             <div
@@ -63,15 +63,19 @@ export default function Partners() {
                 transform: `translateX(${translateX}%)`,
               }}
             >
-              {extendedImages.map((src, index) => (
+              {extendedImages.map((image, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0 flex items-center justify-center px-2 sm:px-4"
                   style={{ width: `${100 / visibleCount}%` }}
                 >
-                  <div className="relative w-32 h-24 sm:w-40 sm:h-28 lg:w-48 lg:h-32">
+                  <div className={`relative ${
+                    image.size === "small" 
+                      ? "w-20 h-16 sm:w-24 sm:h-20 lg:w-28 lg:h-24" 
+                      : "w-32 h-24 sm:w-40 sm:h-28 lg:w-48 lg:h-32"
+                  }`}>
                     <Image
-                      src={src}
+                      src={image.src}
                       alt={`Partner ${(index % totalImages) + 1}`}
                       fill
                       className="object-contain"

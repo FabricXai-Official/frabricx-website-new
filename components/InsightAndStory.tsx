@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -220,8 +220,8 @@ export default function InsightAndStory() {
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="px-4 py-2 rounded-md text-black bg-[#d9d9d9] w-full sm:w-80"
               disabled={isSubscribing}
+              className="px-4 py-2 rounded-md text-black bg-[#d9d9d9] w-full sm:w-80"
             />
             <Button 
               className="w-full sm:w-40" 
