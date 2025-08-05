@@ -90,12 +90,12 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
 
   const stychxFeatures: FeatureItem[] = [
     {
-      title: "Get a free website in \nless than 15 minutes",
+      title: "Showcase your product catalogue in less than 15 minutes",
       description:
-        "StychX guides you step-by-step to create a beautiful, conversion-ready website instantly. Just add your factory or buying house details, and you&apos;re live!",
+        "StychX guides you to create a website for product showcasing instantly. Just add details, and you are live!",
     },
     {
-      title: "Website \nMaintenance",
+      title: "Automated \nWebsite \nMaintenance",
       description:
         "StychX handles all technical maintenance behind the scenes, ensuring your site stays fast, secure, & always on-line without extra cost.",
     },
