@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
-import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import { useState, useRef, useEffect } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "./RequestDemoForm";
 import ContactForm from "./ContactForm";
 import Image from "next/image";
+import { Send, X, Minimize2, Maximize2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface ChatMessage {
   id: string;
@@ -20,10 +22,12 @@ interface QuickAction {
   title: string;
   description: string;
   icon: string;
-  action: "demo" | "contact" | "sales" | "owner" | "info" | "pricing";
+  action: "demo" | "contact" | "sales" | "owner" | "info" | "solutions" | "brm" | "production" | "stychx";
 }
 
 const LiveChat = ({ className }: { className?: string }) => {
+  const router = useRouter();
+  
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "1",
@@ -54,11 +58,11 @@ const LiveChat = ({ className }: { className?: string }) => {
           action: "info"
         },
         {
-          id: "pricing",
-          title: "Pricing",
-          description: "View our plans",
-          icon: "💰",
-          action: "pricing"
+          id: "solutions",
+          title: "Solutions",
+          description: "Explore our AI solutions",
+          icon: "⚙️",
+          action: "solutions"
         },
         {
           id: "contact",
@@ -74,6 +78,34 @@ const LiveChat = ({ className }: { className?: string }) => {
   const [isTyping, setIsTyping] = useState(false);
   const [showDemoForm, setShowDemoForm] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Detect touch device
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkTouchDevice();
+    window.addEventListener('resize', checkTouchDevice);
+    return () => window.removeEventListener('resize', checkTouchDevice);
+  }, []);
+
+  // Auto-scroll to bottom when new messages arrive
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  // Focus input on mobile when chat opens
+  useEffect(() => {
+    if (isTouchDevice && inputRef.current) {
+      setTimeout(() => inputRef.current?.focus(), 300);
+    }
+  }, [isTouchDevice]);
 
   const handleQuickAction = (action: QuickAction) => {
     // Add user selection message
@@ -117,14 +149,79 @@ const LiveChat = ({ className }: { className?: string }) => {
           };
           break;
           
-        case "pricing":
+        case "solutions":
           response = {
             id: (Date.now() + 1).toString(),
-            message: "We offer flexible pricing plans:\n\n🚀 **Early Bird**: Free Production Intelligence during beta\n\n💼 **Professional**: Full access to both BRM & Production Intelligence\n\n🏢 **Enterprise**: Custom solutions for large operations\n\nWould you like to discuss pricing options with our sales team?",
+            message: "fabricXai offers three powerful AI solutions designed specifically for the RMG industry. Choose one to learn more:",
+            sentTime: "just now",
+            sender: "assistant",
+            type: "options",
+            options: [
+              {
+                id: "brm",
+                title: "BRM Intelligence",
+                description: "AI-powered buyer relationship management",
+                icon: "🤖",
+                action: "brm"
+              },
+              {
+                id: "production",
+                title: "Production Intelligence",
+                description: "Real-time production tracking & optimization",
+                icon: "⚙️",
+                action: "production"
+              },
+              {
+                id: "stychx",
+                title: "StychX Platform",
+                description: "AI-powered website builder for garment industry",
+                icon: "🌐",
+                action: "stychx"
+              }
+            ]
+          };
+          break;
+          
+        case "brm":
+          response = {
+            id: (Date.now() + 1).toString(),
+            message: "Perfect! I'm taking you to our BRM Intelligence page where you can learn all about our AI-powered buyer relationship management solution.",
             sentTime: "just now",
             sender: "assistant",
             type: "text",
           };
+          // Navigate to BRM Intelligence page
+          setTimeout(() => {
+            router.push('/brm-intelligence');
+          }, 2000);
+          break;
+          
+        case "production":
+          response = {
+            id: (Date.now() + 1).toString(),
+            message: "Excellent choice! I'm taking you to our Production Intelligence page where you can explore our real-time production tracking and optimization solution.",
+            sentTime: "just now",
+            sender: "assistant",
+            type: "text",
+          };
+          // Navigate to Production Intelligence page
+          setTimeout(() => {
+            router.push('/production-intelligence');
+          }, 2000);
+          break;
+          
+        case "stychx":
+          response = {
+            id: (Date.now() + 1).toString(),
+            message: "Great choice! I'm taking you to our StychX Platform page where you can discover our AI-powered website builder designed specifically for the garment industry.",
+            sentTime: "just now",
+            sender: "assistant",
+            type: "text",
+          };
+          // Navigate to StychX Platform page
+          setTimeout(() => {
+            router.push('/stychx');
+          }, 2000);
           break;
           
         case "contact":
@@ -164,6 +261,7 @@ const LiveChat = ({ className }: { className?: string }) => {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    setInputValue("");
     setIsTyping(true);
 
     // Simulate assistant response
@@ -182,106 +280,134 @@ const LiveChat = ({ className }: { className?: string }) => {
     }, 1000);
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage(inputValue);
+    }
+  };
+
   return (
     <div className={cn("h-full flex flex-col bg-[#13191d] text-white", className)}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#1a2025] to-[#242a30] p-4 border-b border-[#34383b]">
+      <div className="bg-gradient-to-r from-[#1a2025] to-[#242a30] p-3 sm:p-4 border-b border-[#34383b] flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#f2f827] rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#f2f827] rounded-full flex items-center justify-center">
             <Image
               src="/icons/MARBIM.svg"
               alt="fabricXai Assistant"
               width={24}
               height={24}
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6"
             />
           </div>
           <div>
-            <h3 className="font-semibold text-white">fabricXai Assistant</h3>
+            <h3 className="font-semibold text-white text-sm sm:text-base">fabricXai Assistant</h3>
             <p className="text-xs text-[#a8b0b7]">AI-powered RMG solutions</p>
           </div>
         </div>
-      </div>
-
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages.map((msg) => (
-          <div key={msg.id} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-            <div className={`max-w-[80%] ${msg.sender === "user" ? "bg-[#f2f827] text-[#13191d]" : "bg-[#242a30] text-white"} rounded-2xl px-4 py-3`}>
-              {msg.type === "text" && (
-                <div className="whitespace-pre-line">{msg.message}</div>
-              )}
-              
-              {msg.type === "options" && msg.options && (
-                <div className="space-y-3">
-                  <div className="text-sm mb-3">{msg.message}</div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {msg.options.map((option) => (
-                      <button
-                        key={option.id}
-                        onClick={() => handleQuickAction(option)}
-                        className="bg-[#1a2025] hover:bg-[#2a2d30] border border-[#34383b] rounded-xl p-3 text-left transition-all duration-200 hover:border-[#f2f827]/50"
-                      >
-                        <div className="text-2xl mb-1">{option.icon}</div>
-                        <div className="font-medium text-sm">{option.title}</div>
-                        <div className="text-xs text-[#a8b0b7]">{option.description}</div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
         
-        {isTyping && (
-          <div className="flex justify-start">
-            <div className="bg-[#242a30] text-white rounded-2xl px-4 py-3">
-              <div className="flex items-center gap-2">
-                <div className="flex space-x-1">
-                  <div className="w-2 h-2 bg-[#a8b0b7] rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-[#a8b0b7] rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
-                  <div className="w-2 h-2 bg-[#a8b0b7] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
-                </div>
-                <span className="text-sm text-[#a8b0b7]">Assistant is typing...</span>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Input */}
-      <div className="p-4 border-t border-[#34383b] bg-[#1a2025]">
-        <div className="flex gap-2">
-          <input
-            type="text"
-            placeholder="Type your message..."
-            className="flex-1 bg-[#13191d] border border-[#34383b] text-white placeholder-[#6b7280] rounded-xl px-4 py-3 focus:outline-none focus:border-[#f2f827] transition-colors"
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                handleSendMessage(e.currentTarget.value);
-                e.currentTarget.value = "";
-              }
-            }}
-          />
+        {/* Mobile-friendly controls */}
+        <div className="flex items-center gap-2">
           <button
-            onClick={(e) => {
-              const input = e.currentTarget.previousElementSibling as HTMLInputElement;
-              handleSendMessage(input.value);
-              input.value = "";
-            }}
-            className="bg-[#f2f827] text-[#13191d] px-4 py-3 rounded-xl hover:bg-[#e0e626] transition-colors"
+            onClick={() => setIsMinimized(!isMinimized)}
+            className="p-1.5 sm:p-2 text-[#a8b0b7] hover:text-white transition-colors rounded-lg hover:bg-[#242a30] focus:outline-none focus:ring-2 focus:ring-[#f2f827]/50"
+            aria-label={isMinimized ? "Maximize chat" : "Minimize chat"}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-            </svg>
+            {isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
           </button>
         </div>
       </div>
 
+      {/* Messages - Hidden when minimized */}
+      {!isMinimized && (
+        <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 scrollbar-thin scrollbar-thumb-[#34383b] scrollbar-track-transparent">
+          {messages.map((msg) => (
+            <div key={msg.id} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
+              <div className={`max-w-[85%] sm:max-w-[80%] ${msg.sender === "user" ? "bg-[#f2f827] text-[#13191d]" : "bg-[#242a30] text-white"} rounded-2xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-sm`}>
+                {msg.type === "text" && (
+                  <div className="whitespace-pre-line text-sm sm:text-base leading-relaxed">{msg.message}</div>
+                )}
+                
+                {msg.type === "options" && msg.options && (
+                  <div className="space-y-3">
+                    <div className="text-sm mb-3">{msg.message}</div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {msg.options.map((option) => (
+                        <button
+                          key={option.id}
+                          onClick={() => handleQuickAction(option)}
+                          className="bg-[#1a2025] hover:bg-[#2a2d30] border border-[#34383b] rounded-xl p-3 text-left transition-all duration-200 hover:border-[#f2f827]/50 active:scale-95 touch-manipulation min-h-[60px] sm:min-h-[70px]"
+                        >
+                          <div className="text-xl sm:text-2xl mb-1">{option.icon}</div>
+                          <div className="font-medium text-sm">{option.title}</div>
+                          <div className="text-xs text-[#a8b0b7]">{option.description}</div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+          
+          {isTyping && (
+            <div className="flex justify-start">
+              <div className="bg-[#242a30] text-white rounded-2xl px-3 py-2.5 sm:px-4 sm:py-3">
+                <div className="flex items-center gap-2">
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 bg-[#a8b0b7] rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-[#a8b0b7] rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
+                    <div className="w-2 h-2 bg-[#a8b0b7] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                  </div>
+                  <span className="text-sm text-[#a8b0b7]">Assistant is typing...</span>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          <div ref={messagesEndRef} />
+        </div>
+      )}
+
+      {/* Input - Hidden when minimized */}
+      {!isMinimized && (
+        <div className="p-3 sm:p-4 border-t border-[#34383b] bg-[#1a2025]">
+          <div className="flex gap-2">
+            <input
+              ref={inputRef}
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Type your message..."
+              className="flex-1 bg-[#13191d] border border-[#34383b] text-white placeholder-[#6b7280] rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 focus:outline-none focus:border-[#f2f827] focus:ring-2 focus:ring-[#f2f827]/20 transition-colors min-h-[44px] text-sm sm:text-base"
+              onKeyPress={handleKeyPress}
+              aria-label="Type your message"
+            />
+            <button
+              onClick={() => handleSendMessage(inputValue)}
+              disabled={!inputValue.trim()}
+              className="bg-[#f2f827] text-[#13191d] px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl hover:bg-[#e0e626] active:scale-95 transition-all duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#f2f827]/50 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+              aria-label="Send message"
+            >
+              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+          </div>
+          
+          {/* Mobile tip */}
+          {isTouchDevice && (
+            <div className="mt-2 text-center">
+              <p className="text-[#6b7280] text-xs">
+                💡 <strong>Tip:</strong> Tap the quick action buttons above for instant help
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Forms */}
       <Dialog open={showDemoForm} onOpenChange={setShowDemoForm}>
-        <DialogContent showCloseButton={false}>
+        <DialogContent showCloseButton={false} className="w-[95vw] max-w-md sm:max-w-lg">
           <DialogHeader>
             <VisuallyHidden>
               <DialogTitle>Book Demo</DialogTitle>
@@ -294,7 +420,7 @@ const LiveChat = ({ className }: { className?: string }) => {
       </Dialog>
 
       <Dialog open={showContactForm} onOpenChange={setShowContactForm}>
-        <DialogContent showCloseButton={false}>
+        <DialogContent showCloseButton={false} className="w-[95vw] max-w-md sm:max-w-lg">
           <DialogHeader>
             <VisuallyHidden>
               <DialogTitle>Contact Sales</DialogTitle>

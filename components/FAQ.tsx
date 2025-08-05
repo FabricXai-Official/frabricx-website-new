@@ -4,6 +4,7 @@ import { Button } from "flowbite-react";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import RequestDemoForm from "./RequestDemoForm";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const faqs = [
   {
@@ -136,7 +137,9 @@ export default function FAQ() {
                   </DialogTrigger>
                   <DialogContent showCloseButton={false}>
                     <DialogHeader>
-                      <DialogTitle>Enter Your Details</DialogTitle>
+                      <VisuallyHidden>
+                        <DialogTitle>Request Demo</DialogTitle>
+                      </VisuallyHidden>
                     </DialogHeader>
                     <div>
                       <RequestDemoForm />

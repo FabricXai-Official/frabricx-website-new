@@ -2,10 +2,11 @@
 
 import { Button } from "flowbite-react";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import EarlyBirdForm from "./EarlyBirdForm";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import EarlyBirdForm from "./EarlyBirdForm";
+import RequestDemoForm from "./RequestDemoForm";
+import Link from "next/link";
 
 interface FeatureItem {
   title: string;
@@ -27,9 +28,9 @@ const FeatureCard = ({ title, description }: FeatureItem) => (
       hover:bg-[linear-gradient(to_bottom_right,_rgba(242,248,39,0.22),_rgba(242,248,39,0))]`}
   >
     <div className="w-full h-full px-6 py-4 relative">
-      <h3 className="text-xl md:text-2xl font-bold text-[#F2F827] whitespace-pre-line absolute inset-0 flex items-center justify-center text-center group-hover:static group-hover:mb-4 transition-all duration-300">
-        {title}
-      </h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-[#F2F827] whitespace-pre-line absolute inset-0 flex items-center justify-center text-center group-hover:static group-hover:mb-4 transition-all duration-300">
+                {title}
+              </h3>
       <p className="text-base md:text-lg text-white opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out whitespace-pre-line">
         {description}
       </p>
@@ -58,12 +59,12 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
         "Enables hyper-personalized, emotion-aware, and language-adapted communication with each buyer, improving trust and conversion rates.",
     },
     {
-      title: "Production \nManagement \nSystem",
+      title: "Automated \nOrder \nManagement",
       description:
-        "Streamlines lead acquisition and automates nurturing workflows to boost sample-to-order conversion, reducing manual follow-ups and errors.",
+        "Centralizes all orders from Tech Pack to PP sample approval status with real-time tracking, predictive delay alerts, and automated workflow updates — empowering faster, error-free fulfillment.",
     },
     {
-      title: "Automated Lead \nQualification & \nNurturing",
+      title: "Intelligent Lead \nQualification & \nNurturing",
       description:
         "Analyzes buyer sentiment and engagement data to predict risks and opportunities, empowering proactive decision-making and higher buyer satisfaction.",
     },
@@ -71,7 +72,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
 
   const piFeatures: FeatureItem[] = [
     {
-      title: "Order Management System",
+      title: "Automated \nOrder \nManagement",
       description:
         "Centralizes all orders from Tech Pack to PP sample approval status with real-time tracking, predictive delay alerts, and automated workflow updates — empowering faster, error-free fulfillment.",
     },
@@ -91,7 +92,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
     {
       title: "Get a free website in \nless than 15 minutes",
       description:
-        "StychX guides you step-by-step to create a beautiful, conversion-ready website instantly. Just add your factory or buying house details, and you're live!",
+        "StychX guides you step-by-step to create a beautiful, conversion-ready website instantly. Just add your factory or buying house details, and you&apos;re live!",
     },
     {
       title: "Website \nMaintenance",
@@ -127,15 +128,23 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
       className="relative w-full min-h-screen bg-no-repeat bg-cover bg-center py-16 sm:py-24"
       style={{
         backgroundImage: "url('/bg/bg2.png')",
-        backgroundColor: "#13191d",
       }}
     >
       
-      <section className="bg-[#13191d] py-8 sm:py-16 px-4 sm:px-8 lg:px-16 rounded-2xl w-full max-w-full" id="solutions">
+      <section className="bg-[#13191d]/80 backdrop-blur-sm py-8 sm:py-16 px-4 sm:px-8 lg:px-16 rounded-2xl w-full max-w-full" id="solutions">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px]">
         <div className="max-w-4xl mx-auto text-center mb-12 px-2 sm:px-0">
-          <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4">
-            fabricXai&apos;s AI-Powered Solutions
+          <h1 className="text-4xl sm:text-5xl font-extrabold font-mono text-white mb-4 relative">
+                          fabricXai&apos;s{" "}
+            <span className="relative inline-block">
+              AI-Powered
+              <img
+                src="/icons/highlighter.svg"
+                alt="Highlighter"
+                className="absolute -bottom-2 left-0 w-full h-auto"
+              />
+            </span>{" "}
+            Solutions
           </h1>
           <p className="text-lg text-[#a8b0b7]">
             Comprehensive tools designed specifically for the RGM manufacturing
@@ -175,14 +184,14 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           <div className="text-sm text-gray-300 leading-snug font-medium">
             Exclusive Offer! <span className="text-[#F2F827]">Free</span>
             <br />
-            Production Intelligence for You
+            {internalTab === "brm" ? "Production Intelligence for You" : "BRM Intelligence for You"}
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-xs sm:max-w-none">
-          <Button
-            className="hidden md:block"
-            onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
-            Get Started
-          </Button>
+          <Link href={internalTab === "brm" ? "/brm-intelligence" : "/production-intelligence"}>
+            <Button>
+              Learn More
+            </Button>
+          </Link>
               <Dialog>
                 <DialogTrigger asChild>
                   <div>
@@ -194,7 +203,7 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
                 <DialogContent showCloseButton={false}>
                   <DialogHeader>
                     <VisuallyHidden>
-                      <DialogTitle>Enter Your Details</DialogTitle>
+                      <DialogTitle>Early Bird Registration</DialogTitle>
                     </VisuallyHidden>
                   </DialogHeader>
                   <div>
@@ -221,42 +230,27 @@ export default function AiPowered({ activeTab, setActiveTab }: AiPoweredProps) {
           </div>
 
           <div className="text-center mb-12">
-            <Image
+            <img
               src="/icons/stychx.svg"
               alt="stychX Logo"
-              width={160}
-              height={40}
-              className="mx-auto"
+              className="mx-auto w-40 h-auto"
             />
           </div>
 
           {renderFeatureCards(stychxFeatures)}
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <Button
-            className="hidden md:block"
-            onClick={() => window.open("https://webx.fabricxai.com", "_blank")}>
-            Get Started
-          </Button>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div>
-                    <Button outline>
-                      Be an Early Bird
-                    </Button>
-                  </div>
-                </DialogTrigger>
-                <DialogContent showCloseButton={false}>
-                  <DialogHeader>
-                    <VisuallyHidden>
-                      <DialogTitle>Enter Your Details</DialogTitle>
-                    </VisuallyHidden>
-                  </DialogHeader>
-                  <div>
-                    <EarlyBirdForm />
-                  </div>
-                </DialogContent>
-              </Dialog>
+          <Link href="/stychx">
+            <Button>
+              Learn More
+            </Button>
+          </Link>
+              <Button
+                onClick={() => window.open("https://webx.fabricxai.com", "_blank")}
+                outline
+              >
+                Build with StychX
+              </Button>
           </div>
         </div>
       </div>
