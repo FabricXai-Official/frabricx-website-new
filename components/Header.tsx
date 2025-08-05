@@ -288,7 +288,7 @@ export default function Header() {
           </div>
           
           <NavbarLink href="/blogs" active={pathname === "/blogs"}>Blog</NavbarLink>
-          <NavbarLink href="#faqs">FAQs</NavbarLink>
+          <NavbarLink href="/invest-in-fabricxai" active={pathname === "/invest-in-fabricxai"}>Invest</NavbarLink>
         </NavbarCollapse>
       </Navbar>
     </>
