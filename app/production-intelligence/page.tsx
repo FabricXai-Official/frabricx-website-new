@@ -7,6 +7,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
 import MobileChatButton from "@/components/MobileChatButton";
+import BackToHome from "@/components/BackToHome";
 import { Factory, Calendar, BarChart3, Clock, TrendingUp, Shield, Zap, Users, Settings, Target, AlertTriangle, ArrowRight } from "lucide-react";
 
 export default function ProductionIntelligencePage() {
@@ -573,6 +574,7 @@ export default function ProductionIntelligencePage() {
         </div>
       </section>
 
+      <BackToHome />
       <MobileChatButton />
     </main>
   );
