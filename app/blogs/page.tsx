@@ -7,6 +7,7 @@ import { Button } from "flowbite-react";
 import { Calendar, Clock, ArrowRight, Tag, Search, Filter, TrendingUp, BookOpen, Shield, Globe, Zap } from "lucide-react";
 import Link from "next/link";
 import MobileChatButton from "@/components/MobileChatButton";
+import BackToHome from "@/components/BackToHome";
 
 const blogPosts = [
   {
@@ -575,7 +576,7 @@ export default function BlogsPage() {
           </div>
         </div>
       )}
-
+      <BackToHome />
       <MobileChatButton />
     </div>
   );
