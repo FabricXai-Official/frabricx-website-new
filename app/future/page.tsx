@@ -8,6 +8,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
 import MobileChatButton from "@/components/MobileChatButton";
+import BackToHome from "@/components/BackToHome";
 import { 
   Check, 
   ArrowRight, 
@@ -728,6 +729,7 @@ export default function FuturePage() {
         </div>
       </section>
 
+      <BackToHome />
       <MobileChatButton />
     </main>
   );
