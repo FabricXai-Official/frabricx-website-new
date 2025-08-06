@@ -7,6 +7,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
 import MobileChatButton from "@/components/MobileChatButton";
+import BackToHome from "@/components/BackToHome";
 import { Globe, Shield, Zap, Users, BarChart3, Clock, TrendingUp, MessageSquare, Eye, AlertTriangle, ArrowRight } from "lucide-react";
 
 export default function StychxPage() {
@@ -513,6 +514,7 @@ export default function StychxPage() {
         </div>
       </section>
 
+      <BackToHome />
       <MobileChatButton />
     </main>
   );
