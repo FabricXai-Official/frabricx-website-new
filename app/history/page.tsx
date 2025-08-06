@@ -597,5 +597,4 @@ export default function HistoryPage() {
       <MobileChatButton />
     </main>
   );
-
 } 
