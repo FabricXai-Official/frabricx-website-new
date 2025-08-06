@@ -7,6 +7,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
 import MobileChatButton from "@/components/MobileChatButton";
+import BackToHome from "@/components/BackToHome";
 import { Users, MessageSquare, BarChart3, Globe, Clock, TrendingUp, Shield, Zap, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -540,7 +541,7 @@ export default function BRMIntelligencePage() {
           </motion.div>
         </div>
       </section>
-
+      <BackToHome />
       <MobileChatButton />
     </main>
   );
