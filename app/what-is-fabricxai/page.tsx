@@ -8,6 +8,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "@/components/RequestDemoForm";
 import EarlyBirdForm from "@/components/EarlyBirdForm";
 import MobileChatButton from "@/components/MobileChatButton";
+import BackToHome from "@/components/BackToHome";
 import { Check, ArrowRight, Users, MessageSquare, BarChart3, Globe, Clock, TrendingUp, Shield, Zap, Factory, Target, Smartphone, Brain, Database, ChartBar } from "lucide-react";
 
 export default function WhatIsFabricXaiPage() {
@@ -531,7 +532,9 @@ export default function WhatIsFabricXaiPage() {
         </div>
       </section>
 
+      <BackToHome />
       <MobileChatButton />
     </main>
   );
+
 } 
