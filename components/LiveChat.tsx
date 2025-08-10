@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import RequestDemoForm from "./RequestDemoForm";
-import ContactForm from "./ContactForm";
+import EarlyBirdForm from "./EarlyBirdForm";
 import Image from "next/image";
 import { Send, X, Minimize2, Maximize2 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -80,7 +80,7 @@ const LiveChat = ({ className }: { className?: string }) => {
   const [isTyping, setIsTyping] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showDemoForm, setShowDemoForm] = useState(false);
-  const [showContactForm, setShowContactForm] = useState(false);
+  const [showEarlyBirdForm, setShowEarlyBirdForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isMinimized, setIsMinimized] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -245,7 +245,7 @@ const LiveChat = ({ className }: { className?: string }) => {
             sender: "assistant",
             type: "text",
           };
-          setShowContactForm(true);
+          setShowEarlyBirdForm(true);
           break;
           
         default:
@@ -283,7 +283,7 @@ const LiveChat = ({ className }: { className?: string }) => {
       return t === 'connect me' || t === 'yes i want to contact';
     };
     if (isContactIntent(message)) {
-      setShowContactForm(true);
+      setShowEarlyBirdForm(true);
       const assistantResponse: ChatMessage = {
         id: (Date.now() + 1).toString(),
         message: "Opening the contact form so our team can get back to you.",
@@ -327,12 +327,12 @@ const LiveChat = ({ className }: { className?: string }) => {
       setMessages(prev => [...prev, assistantResponse]);
 
       // If assistant includes sales email, auto-open contact form after a short delay
-      if (!showContactForm && /joinbeta@fabricxai\.com/i.test(assistantResponse.message)) {
+      if (!showEarlyBirdForm && /joinbeta@fabricxai\.com/i.test(assistantResponse.message)) {
         if (contactTimerRef.current) {
           clearTimeout(contactTimerRef.current);
         }
         contactTimerRef.current = setTimeout(() => {
-          setShowContactForm(true);
+          setShowEarlyBirdForm(true);
           contactTimerRef.current = null;
         }, 2000);
       }
@@ -496,15 +496,15 @@ const LiveChat = ({ className }: { className?: string }) => {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={showContactForm} onOpenChange={setShowContactForm}>
+      <Dialog open={showEarlyBirdForm} onOpenChange={setShowEarlyBirdForm}>
         <DialogContent showCloseButton={false} className="w-[95vw] max-w-md sm:max-w-lg">
           <DialogHeader>
             <VisuallyHidden>
-              <DialogTitle>Contact Sales</DialogTitle>
+              <DialogTitle>Be an Early Bird</DialogTitle>
             </VisuallyHidden>
           </DialogHeader>
           <div>
-            <ContactForm />
+            <EarlyBirdForm />
           </div>
         </DialogContent>
       </Dialog>
