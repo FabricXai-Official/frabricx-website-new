@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "@azure/functions": "^4.7.2",
-    "resend": "^4.7.0"
+    "@azure/openai": "^1.0.0-beta.12",
+    "resend": "^4.7.0",
+    "openai": "^4.56.0"
   },
   "devDependencies": {},
   "author": "",

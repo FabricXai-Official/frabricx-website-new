@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
@@ -76,6 +78,7 @@ const LiveChat = ({ className }: { className?: string }) => {
   ]);
 
   const [isTyping, setIsTyping] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showDemoForm, setShowDemoForm] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -249,7 +252,7 @@ const LiveChat = ({ className }: { className?: string }) => {
     }, 1500);
   };
 
-  const handleSendMessage = (message: string) => {
+  const handleSendMessage = async (message: string) => {
     if (!message.trim()) return;
 
     const userMessage: ChatMessage = {
@@ -264,20 +267,46 @@ const LiveChat = ({ className }: { className?: string }) => {
     setInputValue("");
     setIsTyping(true);
 
-    // Simulate assistant response
-    setTimeout(() => {
+    try {
+      setErrorMessage(null);
+      const history = messages
+        .filter(m => m.type === 'text')
+        .slice(-8)
+        .map(m => ({ role: m.sender, content: m.message }));
+
+      const res = await fetch('/api/chat-rag', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, history }),
+      });
+
+      const data = await res.json();
       setIsTyping(false);
-      
+
+      if (!res.ok || !data?.success) {
+        throw new Error(data?.error || 'Failed to get response');
+      }
+
       const assistantResponse: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        message: "Thank you for your message! I'd be happy to help you with that. Would you like to book a demo to see how fabricXai can benefit your operations?",
-        sentTime: "just now",
-        sender: "assistant",
-        type: "text",
+        message: data.data?.content || 'Sorry, I could not generate a response right now.',
+        sentTime: 'just now',
+        sender: 'assistant',
+        type: 'text',
       };
-
       setMessages(prev => [...prev, assistantResponse]);
-    }, 1000);
+    } catch (err: any) {
+      setIsTyping(false);
+      setErrorMessage(err?.message || 'Something went wrong. Please try again.');
+      const fallback: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        message: 'I am having trouble accessing my knowledge base. Please try again in a moment or contact sales at joinbeta@fabricxai.com.',
+        sentTime: 'just now',
+        sender: 'assistant',
+        type: 'text',
+      };
+      setMessages(prev => [...prev, fallback]);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -322,6 +351,13 @@ const LiveChat = ({ className }: { className?: string }) => {
       {/* Messages - Hidden when minimized */}
       {!isMinimized && (
         <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 scrollbar-thin scrollbar-thumb-[#34383b] scrollbar-track-transparent">
+          {errorMessage && (
+            <div className="flex justify-start">
+              <div className="bg-red-900/20 text-red-300 border border-red-800 rounded-2xl px-3 py-2 sm:px-4 sm:py-3 text-sm">
+                {errorMessage}
+              </div>
+            </div>
+          )}
           {messages.map((msg) => (
             <div key={msg.id} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
               <div className={`max-w-[85%] sm:max-w-[80%] ${msg.sender === "user" ? "bg-[#f2f827] text-[#13191d]" : "bg-[#242a30] text-white"} rounded-2xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-sm`}>
