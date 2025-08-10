@@ -87,6 +87,7 @@ const LiveChat = ({ className }: { className?: string }) => {
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const contactTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Detect touch device
   useEffect(() => {
@@ -96,6 +97,15 @@ const LiveChat = ({ className }: { className?: string }) => {
     checkTouchDevice();
     window.addEventListener('resize', checkTouchDevice);
     return () => window.removeEventListener('resize', checkTouchDevice);
+  }, []);
+
+  // Cleanup any pending auto-open timer on unmount
+  useEffect(() => {
+    return () => {
+      if (contactTimerRef.current) {
+        clearTimeout(contactTimerRef.current);
+      }
+    };
   }, []);
 
   // Auto-scroll to bottom when new messages arrive
@@ -265,6 +275,26 @@ const LiveChat = ({ className }: { className?: string }) => {
 
     setMessages(prev => [...prev, userMessage]);
     setInputValue("");
+
+    // Intent: open only on explicit phrases
+    const normalize = (text: string) => text.toLowerCase().replace(/[.!?]+$/g, '').trim();
+    const isContactIntent = (text: string) => {
+      const t = normalize(text);
+      return t === 'connect me' || t === 'yes i want to contact';
+    };
+    if (isContactIntent(message)) {
+      setShowContactForm(true);
+      const assistantResponse: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        message: "Opening the contact form so our team can get back to you.",
+        sentTime: 'just now',
+        sender: 'assistant',
+        type: 'text',
+      };
+      setMessages(prev => [...prev, assistantResponse]);
+      return;
+    }
+
     setIsTyping(true);
 
     try {
@@ -295,6 +325,17 @@ const LiveChat = ({ className }: { className?: string }) => {
         type: 'text',
       };
       setMessages(prev => [...prev, assistantResponse]);
+
+      // If assistant includes sales email, auto-open contact form after a short delay
+      if (!showContactForm && /joinbeta@fabricxai\.com/i.test(assistantResponse.message)) {
+        if (contactTimerRef.current) {
+          clearTimeout(contactTimerRef.current);
+        }
+        contactTimerRef.current = setTimeout(() => {
+          setShowContactForm(true);
+          contactTimerRef.current = null;
+        }, 2000);
+      }
     } catch (err: any) {
       setIsTyping(false);
       setErrorMessage(err?.message || 'Something went wrong. Please try again.');
