@@ -30,6 +30,13 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Improve browser compatibility
+  compiler: {
+    // Remove console.log in production for better compatibility
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
 };
 
 export default withFlowbiteReact(nextConfig);
