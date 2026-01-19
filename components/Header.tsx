@@ -197,7 +197,7 @@ export default function Header() {
         <div className="flex md:order-2 gap-2">
           <Button
             outline
-            onClick={() => window.open("https://webx.fabricxai.com", "_blank")}
+            onClick={() => window.open("https://demo.fabricxai.com", "_blank")}
             className="hidden md:block"
           >
             Access App
